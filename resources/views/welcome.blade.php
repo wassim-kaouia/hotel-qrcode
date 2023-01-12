@@ -17,7 +17,7 @@
 
 @section('content')
 
-<div class="h-max mybg w-screen relative">
+<div class="h-screen mybg w-screen relative overflow-scroll">
 
     <div class="text-center">
         <div class="flex justify-center py-3">
@@ -74,7 +74,7 @@
         </div>
 
     </div>
-    <div class="py-4 flex justify-center absolute bottom-0">
+    <div class="py-4 flex justify-center absolute bottom-0 sticky">
         <img class="w-1/2" src="{{ asset('assets/images/ovm_logo.png') }}" alt="">
     </div>
 </div>
