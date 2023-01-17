@@ -18,7 +18,6 @@
 @section('content')
 
 <div class="h-full mybg relative">
-
     <div class="text-center">
         <div class="flex justify-center py-3">
             <img class="h-10" src="https://1000logos.net/wp-content/uploads/2017/08/Airbnb-emblem.jpg" alt="">
@@ -44,7 +43,6 @@
         </div>
     </div>
 
-   
     <div class="px-6 pt-10">
         <div class="rounded-md bg-blue-300 opacity-75 w-full pb-4">
             <div class="flex justify-center py-4">
@@ -59,7 +57,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="py-4 flex justify-center absolute bottom-0">
         <img class="w-1/2" src="{{ asset('assets/images/ovm_logo.png') }}" alt="">

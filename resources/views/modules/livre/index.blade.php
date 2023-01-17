@@ -48,7 +48,7 @@
                       <input type="text" class="form-control rounded-md w-full" id="email" placeholder="Email" name="email">
                   </div>
                   <div class="mb-3 px-3">
-                      <textarea class="form-control rounded-md px-3" id="message" rows="4" name="message"></textarea>
+                      <textarea class="form-control rounded-md px-3 w-full" id="message" rows="4" name="message"></textarea>
                   </div>
                   <div class="px-3">
                       <button class="rounded-md bg-blue-700 text-white px-4 py-2 ">Ajouter</button>
