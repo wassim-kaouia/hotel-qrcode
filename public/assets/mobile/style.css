@@ -767,13 +767,13 @@ left:0px;
 overflow: hidden;
 z-index: 999999;
 height:60px;
-background-color:#12d584;
+background-color:#d5a712;
 }
 .swiper-slide {
 width:100%;
 text-align:left;
 }
-.swiper-slide img{
+.swiper-slide img{	
 width:100%;
 display:block;
 opacity:0.7;
@@ -791,6 +791,7 @@ margin:10px auto 0 auto;
 text-align:center;
 }
 .slider-caption{
+top:50px;	
 position:absolute;
 bottom:40%;
 left:0px;
@@ -848,7 +849,7 @@ opacity:1;
 }
 .swiper-container-pages .swiper-pagination-bullet-active {
 opacity: 1;
-background: #12d584;
+background: #c725d6;
 }
 .swiper-pagination-toolbar{
 position: absolute;
@@ -885,6 +886,8 @@ text-align:center;
 opacity: 1;
 background: #000;
 }
+
+/* this is the inactive pagination bullet  */
 .swiper-pagination-bullet {
 width: 7px;
 height: 7px;
@@ -893,11 +896,13 @@ display: inline-block;
 background: none;
 opacity: 1;
 border-radius:50%;
-border:1px #12d584 solid;
+border:1px #2725b8 solid;
 }
+
+/* this is the active pagination bullet  */
 .swiper-pagination-bullet-active {
 opacity: 1;
-background: #12d584;
+background: #991be2;
 border:none;
 width: 9px;
 height: 9px;

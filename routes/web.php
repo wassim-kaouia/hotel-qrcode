@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('modules.livre.index');
 })->middleware('auth');
 
-
 Route::get('/wall/{userName}',[AppController::class,'index'])->name('app.index');
 
 Route::get('/wall/{userName}/mywifi',[AppController::class,'goWifi'])->name('wifi.index');
@@ -35,7 +34,7 @@ Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modu
 
 Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('home.index');
 
 
 

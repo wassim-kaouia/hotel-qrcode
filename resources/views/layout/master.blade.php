@@ -26,9 +26,7 @@
     <body class="antialiased" id="mobile_wrap">
 
        @yield('content')
-       <div>
-        <img src="https://assets.stickpng.com/images/585990234f6ae202fedf28cf.png" alt="">
-    </div>
+       
        @yield('js')
     <script type="text/javascript" src="{{ asset('assets/mobile/js/jquery-1.12.4.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/mobile/js/jquery.validate.min.js') }}" ></script>
