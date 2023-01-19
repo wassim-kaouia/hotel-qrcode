@@ -73,38 +73,38 @@
                             <ul>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-wifi text-3xl" aria-hidden="true"></i>
+                                        <i class="fa fa-wifi text-3xl" id="icon-color" aria-hidden="true"></i>
                                         <span>Wifi</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-calculator text-3xl" aria-hidden="true"></i>
+                                        <i class="fa fa-calculator text-3xl" id="" aria-hidden="true"></i>
                                         <span>Digicode</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-street-view text-3xl" aria-hidden="true"></i>
-                                        <span>Autour de moi</span>
+                                        <i class="fa fa-street-view text-3xl" id="" aria-hidden="true"></i>
+                                        <span>Alentours</span>
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-info text-3xl" aria-hidden="true"></i>
+                                        <i class="fa fa-info text-3xl" id="" aria-hidden="true"></i>
                                         <span>Infos Pratiques</span>
                                         </a>
                                     </li>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-address-book text-3xl" aria-hidden="true"></i>
+                                        <i class="fa fa-address-book text-3xl" id="" aria-hidden="true"></i>
                                         <span>Livre d'or</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" data-popup=".popup-social" class="open-popup">
-                                        <i class="fa fa-volume-control-phone text-3xl" aria-hidden="true"></i>
+                                        <i class="fa fa-volume-control-phone text-3xl" id="icon-color" aria-hidden="true"></i>
                                         <span>Numéros utiles</span>
                                     </a>
                                 </li>
