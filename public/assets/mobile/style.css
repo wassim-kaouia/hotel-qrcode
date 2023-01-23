@@ -717,11 +717,13 @@ width:100%;
 width:94%;
 margin:0 3%;
 }
+
 .page_single ul.simple_list{
 padding:0px 0 20px 10px;
 margin:0px;
 list-style:none;
 }
+
 .page_single ul.simple_list li{
 margin:0 0 10px 0;
 padding:0 0 0 20px;
@@ -899,13 +901,13 @@ display: inline-block;
 background: none;
 opacity: 1;
 border-radius:50%;
-border:1px #2725b8 solid;
+/* border:1px #2725b8 solid; */
 }
 
 /* this is the active pagination bullet  */
 .swiper-pagination-bullet-active {
 opacity: 1;
-background: #991be2;
+/* background: #991be2; */
 border:none;
 width: 9px;
 height: 9px;

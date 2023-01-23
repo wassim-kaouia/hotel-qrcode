@@ -151,17 +151,23 @@
                                 GIF (MAX. 800x400px).</p>
                         </div>
 
-                        <div class="grid grid-cols-3">
+                        <div class="grid grid-cols-4">
                             <div class="px-4 mb-2">
                                 <label for="icons-color"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icons</label>
-                                <input type="color" id="icons-color"
+                                <input type="color" id="icons-color" value="#8C3E2D"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="px-4 mb-2">
+                                <label for="titles-color"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titres</label>
+                                <input type="color" id="titles-color" value=""
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                             <div class="px-4 mb-2">
                                 <label for="bg-color"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Arrière-plan</label>
-                                <input type="color" id="bg-color"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Arrières-plan</label>
+                                <input type="color" id="bgs-color"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                             <div class="px-4 mb-2">
@@ -172,7 +178,6 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -185,35 +190,67 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script defer>
         document.addEventListener("DOMContentLoaded", () => {
 
             console.log("DOM Content Loaded !");
-            var icons_changer = document.getElementById('icons-color').value;
-            var bg_changer = document.getElementById('bg-color');
+
+            //color inputs
+            var icons_changer = document.getElementById('icons-color');
+            var title_changer = document.getElementById('titles-color');
+            var bg_changer = document.getElementById('bgs-color');
             var carousel_changer = document.getElementById('carousel-color');
 
-            var icon_mobile = document.getElementById('icon-color');
-            var bg_mobile = document.getElementById('bg-colorr');
-            var carousel_mobile = document.getElementById('icons-color');
 
+            window.onload = function(){
+                let myframe = document.getElementById('frame');
+                let doc = myframe.contentDocument;
 
-            document.getElementById("icons-color").addEventListener("change", function(){
-                icon_mobile.style.color = 'red';
-                console.log('hey :'+document.getElementById('icon-color').value);
-                console.log('change happens icons ! :'+icons_changer);
+                document.getElementById("icons-color").addEventListener("change", function(){
+                var currentColorIcon = icons_changer;
+                var currentColorTitle = title_changer;
+                $('#frame').contents().find('#icon-color1').css('color',currentColorIcon.value);
+                $('#frame').contents().find('#icon-color2').css('color',currentColorIcon.value);
+                $('#frame').contents().find('#icon-color3').css('color',currentColorIcon.value);
+                $('#frame').contents().find('#icon-color4').css('color',currentColorIcon.value);
+                $('#frame').contents().find('#icon-color5').css('color',currentColorIcon.value);
+                $('#frame').contents().find('#icon-color6').css('color',currentColorIcon.value);
+                
+            },false);
+
+            document.getElementById("titles-color").addEventListener("change", function(){
+                var currentColorTitle = title_changer;                    
+                $('#frame').contents().find('#title-color1').css('color',currentColorTitle.value);
+                $('#frame').contents().find('#title-color2').css('color',currentColorTitle.value);
+                $('#frame').contents().find('#title-color3').css('color',currentColorTitle.value);
+                $('#frame').contents().find('#title-color4').css('color',currentColorTitle.value);
+                $('#frame').contents().find('#title-color5').css('color',currentColorTitle.value);
+                $('#frame').contents().find('#title-color6').css('color',currentColorTitle.value);
+            },false);
+           
+            document.getElementById("bgs-color").addEventListener("change", function(){
+                var currentColorBg = bg_changer;
+                $('#frame').contents().find('.homepage').css('background-color',currentColorBg.value);
             });
+        
+            document.getElementById("carousel-color").addEventListener("change", function(){
+                var currentColorCarousel = carousel_changer;
+                $('#frame').contents().find('.swiper-pagination-bullet-active').css('background-color',currentColorCarousel.value);
+                $('#frame').contents().find('.swiper-pagination-bullet').css('background-color',currentColorCarousel.value);
+            });
+        }
 
-            // document.getElementById("bg-color").addEventListener("change", function(){
-            //     console.log('change happens bg-color !');
-            // });
+            
+           
 
-            // document.getElementById("carousel-color").addEventListener("change", function(){
-            //     console.log('change happens carousel-color !');
-            // });
+            
+
+            
 
             
         });
