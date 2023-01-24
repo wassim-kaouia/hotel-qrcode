@@ -6,10 +6,11 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Manage Modules') }}
+            {{ __('Gestion de Visuel') }}
         </h2>
     </x-slot>
     <style>
+        
         .iphone_bg {
             width: 450px;
             height: 810px;
@@ -22,6 +23,7 @@
             height: 580px;
             padding: 100px 0 0 63px;
         }
+
     </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -35,7 +37,8 @@
                                 <h2 class="flex justify-center mb-2">Wifi</h2>
                                 <div class="flex justify-center">
                                     <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <input type="checkbox" value="" checked class="sr-only peer"
+                                            id="wifi">
                                         <div
                                             class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                         </div>
@@ -51,7 +54,8 @@
                                 <h2 class="flex justify-center mb-2">Digicode</h2>
                                 <div class="flex justify-center">
                                     <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <input type="checkbox" value="" checked class="sr-only peer"
+                                            id="digicode">
                                         <div
                                             class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                         </div>
@@ -67,7 +71,8 @@
                                 <h2 class="flex justify-center mb-2">Livre d'Or</h2>
                                 <div class="flex justify-center">
                                     <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <input type="checkbox" value="" checked class="sr-only peer"
+                                            id="livre">
                                         <div
                                             class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                         </div>
@@ -83,7 +88,8 @@
                                 <h2 class="flex justify-center mb-2">Alentours</h2>
                                 <div class="flex justify-center">
                                     <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <input type="checkbox" value="" checked class="sr-only peer"
+                                            id="alentour">
                                         <div
                                             class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                         </div>
@@ -99,7 +105,8 @@
                                 <h2 class="flex justify-center mb-2">Infos</h2>
                                 <div class="flex justify-center">
                                     <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <input type="checkbox" value="" checked class="sr-only peer"
+                                            id="infos">
                                         <div
                                             class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                         </div>
@@ -116,7 +123,8 @@
                                 <h2 class="flex justify-center mb-2">Numéros</h2>
                                 <div class="flex justify-center">
                                     <label class="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer">
+                                        <input type="checkbox" value="" checked class="sr-only peer"
+                                            id="nums">
                                         <div
                                             class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                         </div>
@@ -146,9 +154,18 @@
                             <input
                                 class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                 aria-describedby="file_input_help" id="file_input" type="file">
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG,
+                                JPG
                                 or
                                 GIF (MAX. 800x400px).</p>
+                        </div>
+
+                        <div class="px-4 mb-4">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                for="multiple_files">Upload multiple files</label>
+                            <input
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                id="multiple_files" type="file" multiple>
                         </div>
 
                         <div class="grid grid-cols-4">
@@ -172,11 +189,21 @@
                             </div>
                             <div class="px-4 mb-2">
                                 <label for="carousel-color"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Buttons
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Carousel</label>
                                 <input type="color" id="carousel-color"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             </div>
+                        </div>
+                        <div class="px-4 mb-2">
+                            <form>
+                                <div class="flex items-start mb-6">
+                                    <div class="flex items-center h-5">
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -190,7 +217,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -199,60 +226,105 @@
         document.addEventListener("DOMContentLoaded", () => {
 
             console.log("DOM Content Loaded !");
-
             //color inputs
-            var icons_changer = document.getElementById('icons-color');
-            var title_changer = document.getElementById('titles-color');
-            var bg_changer = document.getElementById('bgs-color');
+            var icons_changer    = document.getElementById('icons-color');
+            var title_changer    = document.getElementById('titles-color');
+            var bg_changer       = document.getElementById('bgs-color');
             var carousel_changer = document.getElementById('carousel-color');
 
-
-            window.onload = function(){
+            window.onload = function() {
                 let myframe = document.getElementById('frame');
                 let doc = myframe.contentDocument;
 
-                document.getElementById("icons-color").addEventListener("change", function(){
-                var currentColorIcon = icons_changer;
-                var currentColorTitle = title_changer;
-                $('#frame').contents().find('#icon-color1').css('color',currentColorIcon.value);
-                $('#frame').contents().find('#icon-color2').css('color',currentColorIcon.value);
-                $('#frame').contents().find('#icon-color3').css('color',currentColorIcon.value);
-                $('#frame').contents().find('#icon-color4').css('color',currentColorIcon.value);
-                $('#frame').contents().find('#icon-color5').css('color',currentColorIcon.value);
-                $('#frame').contents().find('#icon-color6').css('color',currentColorIcon.value);
-                
-            },false);
+                document.getElementById("icons-color").addEventListener("change", function() {
+                    var currentColorIcon  = icons_changer;
+                    var currentColorTitle = title_changer;
+                    $('#frame').contents().find('#icon-color1').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('#icon-color2').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('#icon-color3').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('#icon-color4').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('#icon-color5').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('#icon-color6').css('color', currentColorIcon.value);
+                }, false);
 
-            document.getElementById("titles-color").addEventListener("change", function(){
-                var currentColorTitle = title_changer;                    
-                $('#frame').contents().find('#title-color1').css('color',currentColorTitle.value);
-                $('#frame').contents().find('#title-color2').css('color',currentColorTitle.value);
-                $('#frame').contents().find('#title-color3').css('color',currentColorTitle.value);
-                $('#frame').contents().find('#title-color4').css('color',currentColorTitle.value);
-                $('#frame').contents().find('#title-color5').css('color',currentColorTitle.value);
-                $('#frame').contents().find('#title-color6').css('color',currentColorTitle.value);
-            },false);
-           
-            document.getElementById("bgs-color").addEventListener("change", function(){
-                var currentColorBg = bg_changer;
-                $('#frame').contents().find('.homepage').css('background-color',currentColorBg.value);
-            });
-        
-            document.getElementById("carousel-color").addEventListener("change", function(){
-                var currentColorCarousel = carousel_changer;
-                $('#frame').contents().find('.swiper-pagination-bullet-active').css('background-color',currentColorCarousel.value);
-                $('#frame').contents().find('.swiper-pagination-bullet').css('background-color',currentColorCarousel.value);
-            });
-        }
+                document.getElementById("titles-color").addEventListener("change", function() {
+                    var currentColorTitle = title_changer;
+                    $('#frame').contents().find('#title-color1').css('color', currentColorTitle.value);
+                    $('#frame').contents().find('#title-color2').css('color', currentColorTitle.value);
+                    $('#frame').contents().find('#title-color3').css('color', currentColorTitle.value);
+                    $('#frame').contents().find('#title-color4').css('color', currentColorTitle.value);
+                    $('#frame').contents().find('#title-color5').css('color', currentColorTitle.value);
+                    $('#frame').contents().find('#title-color6').css('color', currentColorTitle.value);
+                }, false);
 
-            
-           
+                document.getElementById("bgs-color").addEventListener("change", function() {
+                    var currentColorBg = bg_changer;
+                    $('#frame').contents().find('.homepage').css('background-color', currentColorBg
+                        .value);
+                });
 
-            
+                document.getElementById("carousel-color").addEventListener("change", function() {
+                    var currentColorCarousel = carousel_changer;
+                    $('#frame').contents().find('.swiper-pagination-bullet-active').css(
+                        'background-color', currentColorCarousel.value);
+                    $('#frame').contents().find('.swiper-pagination-bullet').css('background-color',
+                        currentColorCarousel.value);
+                });
 
-            
+                // switch buttons
+                document.getElementById("wifi").addEventListener("change", function() {
+                    if (this.checked) {
+                        $('#frame').contents().find('.wifi_module').css('display', 'block');
+                    } else {
+                        $('#frame').contents().find('.wifi_module').css('display', 'none');
+                    }
+                });
 
-            
+                document.getElementById("digicode").addEventListener("change", function() {
+                    if (this.checked) {
+                        $('#frame').contents().find('.digicode_module').css('display', 'block');
+                    } else {
+                        $('#frame').contents().find('.digicode_module').css('display', 'none');
+                    }
+                });
+
+                document.getElementById("livre").addEventListener("change", function() {
+                    if (this.checked) {
+                        $('#frame').contents().find('.livre_module').css('display', 'block');
+                    } else {
+                        $('#frame').contents().find('.livre_module').css('display', 'none');
+                    }
+                });
+
+                document.getElementById("alentour").addEventListener("change", function() {
+                    if (this.checked) {
+                        $('#frame').contents().find('.alentour_module').css('display', 'block');
+                    } else {
+                        $('#frame').contents().find('.alentour_module').css('display', 'none');
+                    }
+                });
+
+                document.getElementById("infos").addEventListener("change", function() {
+                    if (this.checked) {
+                        $('#frame').contents().find('.infos_module').css('display', 'block');
+                    } else {
+                        $('#frame').contents().find('.infos_module').css('display', 'none');
+                    }
+                });
+
+                document.getElementById("nums").addEventListener("change", function() {
+                    if (this.checked) {
+                        $('#frame').contents().find('.nums_module').css('display', 'block');
+                    } else {
+                        $('#frame').contents().find('.nums_module').css('display', 'none');
+                    }
+                });
+            }
+
         });
     </script>
 </x-app-layout>
+
+<div class="">
+    @include('layout.dashboard_footer')
+</div>

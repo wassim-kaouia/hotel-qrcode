@@ -12,4 +12,8 @@
             </div>
         </div>
     </div>
+
+    
 </x-app-layout>
+@include('layout.dashboard_footer')
+
