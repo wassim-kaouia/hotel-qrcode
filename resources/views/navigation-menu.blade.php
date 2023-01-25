@@ -19,7 +19,7 @@
                         {{ __('Gestion de Visuel') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('modules.manage') }}" :active="request()->routeIs('modules.manage')">
+                    <x-jet-nav-link href="{{ route('modules.index') }}" :active="request()->routeIs('modules.index')">
                         {{ __('Modules') }}
                     </x-jet-nav-link>
                 </div>

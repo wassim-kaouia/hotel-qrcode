@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class AppController extends Controller
 {
 
+    public function indexModules(){
+
+        return view('modules.module.index');
+    }
+
     public function manageModules(){
         return view('modules.index');
     }
