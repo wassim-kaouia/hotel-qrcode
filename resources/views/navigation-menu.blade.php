@@ -22,6 +22,18 @@
                     <x-jet-nav-link href="{{ route('modules.index') }}" :active="request()->routeIs('modules.index')">
                         {{ __('Modules') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('factures.index') }}" :active="request()->routeIs('factures.index')">
+                        {{ __('Factures') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('qrcodes.index') }}" :active="request()->routeIs('qrcodes.index')">
+                        {{ __('QR Code') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('commandes.index') }}" :active="request()->routeIs('commandes.index')">
+                        {{ __('Commandes') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -40,7 +52,7 @@
                                     </button>
                                 </span>
                             </x-slot>
-
+                            
                             <x-slot name="content">
                                 <div class="w-60">
                                     <!-- Team Management -->

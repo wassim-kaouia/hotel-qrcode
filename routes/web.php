@@ -22,8 +22,18 @@ Route::get('/wall/{userName}',[AppController::class,'index'])->name('app.index')
 
 
 Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modules.manage');
+
 Route::get('/index/modules',[AppController::class,'indexModules'])->name('modules.index');
 
+Route::get('/index/factures',[AppController::class,'indexFactures'])->name('factures.index');
+
+Route::get('/index/qrcode',[AppController::class,'indexQrcodes'])->name('qrcodes.index');
+
+Route::get('/index/commandes',[AppController::class,'indexCommandes'])->name('commandes.index');
+
+Route::get('/invoice', function(){
+    return view('factures.invoice');
+});
 
 Route::get('/welcome', function () {
     return view('welcome');

@@ -13,6 +13,22 @@ class AppController extends Controller
         return view('modules.module.index');
     }
 
+    public function indexFactures(){
+
+        return view('factures.index');
+    }
+
+    public function indexQrcodes(){
+
+        return view('modules.module.index');
+    }
+
+    public function indexCommandes(){
+
+        return view('modules.module.index');
+    }
+
+
     public function manageModules(){
         return view('modules.index');
     }

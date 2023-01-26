@@ -30,7 +30,6 @@
         .tabset>input:nth-child(11):checked~.tab-panels>.tab-panel:nth-child(6) {
             display: block;
         }
-
         /*
  Styling
 */
@@ -98,7 +97,7 @@
                                 <label for="tab1">wifi</label>
                                 <!-- Tab 2 -->
                                 <input type="radio" name="tabset" id="tab2" aria-controls="digicode">
-                                <label for="tab2">digicode</label>
+                                <label for="tab2">Digicode</label>
                                 <!-- Tab 3 -->
                                 <input type="radio" name="tabset" id="tab3" aria-controls="livre">
                                 <label for="tab3">Livre d'Or</label>
@@ -338,7 +337,7 @@
                                                 <input type="text" id="numero_title"
                                                     placeholder="Numero d'urgence Ex."
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                                                    placeholder="NOS-7652 Ex" required>
+                                                     required>
                                             </div>
 
                                             <div class="mb-6">
@@ -403,37 +402,22 @@
                                         <form>
                                             <div class="mb-6">
                                                 <label for="info_name"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom
-                                                    de Wifi</label>
-                                                <input type="text" id="wifi_name"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre</label>
+                                                <input type="text" id="info_name"
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-                                                    placeholder="NOS-7652 Ex" required>
+                                                    placeholder="Titre de l'information" required>
                                             </div>
 
                                             <div class="mb-6">
-                                                <label for="countries"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type
-                                                    de cryptage Wifi</label>
-                                                <select id="type_cryptage_wifi"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                    <option>WEP</option>
-                                                    <option>WPA</option>
-                                                    <option>WPA 2</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="mb-6">
-                                                <label for="password_wifi"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot
-                                                    de passe</label>
-                                                <input type="text" id="password_wifi"
+                                                <label for="info_description"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                                <input type="text" id="info_description" placeholder="Description de l'info"
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                                                     required>
                                             </div>
 
                                             <button type=""
-                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enregistrer
-                                                le WIFI</button>
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enregistrer L'info</button>
                                         </form>
 
                                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -442,13 +426,10 @@
                                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                                     <tr>
                                                         <th scope="col" class="px-6 py-3">
-                                                            Nom de Wifi
+                                                            Titre
                                                         </th>
                                                         <th scope="col" class="px-6 py-3">
-                                                            Mot de Passe
-                                                        </th>
-                                                        <th scope="col" class="px-6 py-3">
-                                                            Type de Cryptage
+                                                            Description
                                                         </th>
                                                         <th scope="col" class="px-6 py-3">
                                                             Options
@@ -464,9 +445,6 @@
                                                         </th>
                                                         <td class="px-6 py-4">
                                                             Sliver
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            Laptop
                                                         </td>
                                                         <td class="px-6 py-4">
                                                             <a href="#"
@@ -499,26 +477,26 @@
                                                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                                     id="multiple_files" type="file" multiple>
 
-                                                <div class="my-6 flex ">
-                                                    <div class="bg-gray-100 p-6 mx-4 relative">
+                                                <div class="my-6 flex">
+                                                    <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
                                                         <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                         <img class="mx-2 h-auto w-32 rounded-lg"
                                                             src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
                                                             alt="image description">
                                                     </div>
-                                                    <div class="bg-gray-100 p-6 mx-4 relative">
+                                                    <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
                                                         <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                         <img class="mx-2 h-auto w-32 rounded-lg"
                                                             src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
                                                             alt="image description">
                                                     </div>
-                                                    <div class="bg-gray-100 p-6 mx-4 relative">
+                                                    <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
                                                         <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                         <img class="mx-2 h-auto w-32 rounded-lg"
                                                             src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
                                                             alt="image description">
                                                     </div>
-                                                    <div class="bg-gray-100 p-6 mx-4 relative">
+                                                    <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
                                                         <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                                                         <img class="mx-2 h-auto w-32 rounded-lg"
                                                             src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
@@ -527,30 +505,25 @@
                                                 </div>
                                             </div>
 
+
                                             <div class="mb-6">
-                                                <label for="countries"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type
-                                                    de cryptage Wifi</label>
-                                                <select id="type_cryptage_wifi"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                    <option>WEP</option>
-                                                    <option>WPA</option>
-                                                    <option>WPA 2</option>
-                                                </select>
+                                                <label for="distance"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Distance</label>
+                                                <input type="text" id="distance" placeholder="Distance par rapport à vous"
+                                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                                    required>
                                             </div>
 
                                             <div class="mb-6">
-                                                <label for="password_wifi"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot
-                                                    de passe</label>
-                                                <input type="text" id="password_wifi"
+                                                <label for="distance"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lien</label>
+                                                <input type="text" id="distance" placeholder="Lien sur internet"
                                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                                                     required>
                                             </div>
 
                                             <button type=""
-                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enregistrer
-                                                le WIFI</button>
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enregistrer L'alentour</button>
                                         </form>
 
                                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -559,13 +532,13 @@
                                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                                     <tr>
                                                         <th scope="col" class="px-6 py-3">
-                                                            Nom de Wifi
+                                                            Nom du site
                                                         </th>
                                                         <th scope="col" class="px-6 py-3">
-                                                            Mot de Passe
+                                                            Distance
                                                         </th>
                                                         <th scope="col" class="px-6 py-3">
-                                                            Type de Cryptage
+                                                            Lien 
                                                         </th>
                                                         <th scope="col" class="px-6 py-3">
                                                             Options
@@ -614,6 +587,7 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    
         <script defer>
             // document.addEventListener("DOMContentLoaded", () => {
 

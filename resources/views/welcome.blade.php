@@ -108,10 +108,6 @@
                                         <span id="title-color6">Numéros utiles</span>
                                     </a>
                                 </li>
-
-                                {{-- <li><a href="#" data-popup=".popup-login" class="open-popup"><img
-                                            src="{{ asset('assets/mobile/images/icons/green/lock.png') }}" alt=""
-                                            title="" /><span>LOGIN</span></a></li> --}}
                             </ul>
                             {{-- button of icons - end  --}}
                             <div class="p-10 flex justify-center bottom-0">
