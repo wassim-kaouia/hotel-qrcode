@@ -28,7 +28,6 @@ class AppController extends Controller
         return view('modules.module.index');
     }
 
-
     public function manageModules(){
         return view('modules.index');
     }
@@ -46,10 +45,9 @@ class AppController extends Controller
         ]);    
     }
 
-
     public function goWifi($userName){
         $user = User::where('user_name','=',$userName)->first();
-
+        
         if(!$user){
            abort(404);
         }

@@ -3,222 +3,229 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <x-app-layout>
+    <style>
+        /* start printing styling  */
+        @media print {
+            body * {
+                visibility: hidden;
+                /* // part to hide at the time of print */
+                -webkit-print-color-adjust: exact !important;
+                /* // not necessary use          */
+                /* if colors not visible */
+            }
 
+            #printBtn {
+                visibility: hidden !important; // To hide
+            }
+
+            #page-wrapper * {
+                visibility: visible;
+                padding-top: 0px;
+                /* // Print only required part */
+                /* text-align: left; */
+                -webkit-print-color-adjust: exact !important;
+            }
+        }
+
+        /* start invoice styling */
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            /* border: 1px solid #eee !important; */
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555 !important;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd !important;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee !important;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .invoice-box.rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
+
+        .invoice-box.rtl table {
+            text-align: right;
+        }
+
+        .invoice-box.rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+        
+    </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Visuel de la facture') }}
         </h2>
     </x-slot>
-          
-    <div class="py-6">
+
+    <div class="py-6" id="page-wrapper">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-1 gap-4">
-                <div class="flex items-center justify-center min-h-screen bg-gray-100">
-                    <div class="w-3/5 bg-white shadow-lg">
-                        <div class="flex justify-between p-4">
-                            <div>
-                                <h1 class="text-3xl italic font-extrabold tracking-widest text-indigo-500">
-                                    Larainfo</h1>
-                                <p class="text-base">If account is not paid within 7 days the credits details
-                                    supplied as
-                                    confirmation.</p>
-                            </div>
-                            <div class="p-2">
-                                <ul class="flex">
-                                    <li class="flex flex-col items-center p-2 border-l-2 border-indigo-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                        </svg>
-                                        <span class="text-sm">
-                                            www.larainfo.com
-                                        </span>
-                                        <span class="text-sm">
-                                            www.lorememhh.com
-                                        </span>
-                                    </li>
-                                    <li class="flex flex-col p-2 border-l-2 border-indigo-200">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600"
-                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        </svg>
-                                        <span class="text-sm">
-                                            2821 Kensington Road,Avondale Estates, GA 30002 USA
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="w-full h-0.5 bg-indigo-500"></div>
-                        <div class="flex justify-between p-4">
-                            <div>
-                                <h6 class="font-bold">Order Date : <span class="text-sm font-medium">
-                                        12/12/2022</span></h6>
-                                <h6 class="font-bold">Order ID : <span class="text-sm font-medium">
-                                        12/12/2022</span></h6>
-                            </div>
-                            <div class="w-40">
-                                <address class="text-sm">
-                                    <span class="font-bold"> Billed To : </span>
-                                    Joe Smith
-                                    795 Folsom Ave
-                                    San Francisco, CA 94107
-                                    P: (123) 456-7890
-                                </address>
-                            </div>
-                            <div class="w-40">
-                                <address class="text-sm">
-                                    <span class="font-bold">Ship To :</span>
-                                    Joe doe
-                                    800 Folsom Ave
-                                    San Francisco, CA 94107
-                                    P: + 111-456-7890
-                                </address>
-                            </div>
-                            <div></div>
-                        </div>
-                        <div class="flex justify-center p-4">
-                            <div class="border-b border-gray-200 shadow">
-                                <table class="">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                            <th class="px-4 py-2 text-xs text-gray-500 ">
-                                                #
-                                            </th>
-                                            <th class="px-4 py-2 text-xs text-gray-500 ">
-                                                Product Name
-                                            </th>
-                                            <th class="px-4 py-2 text-xs text-gray-500 ">
-                                                Quantity
-                                            </th>
-                                            <th class="px-4 py-2 text-xs text-gray-500 ">
-                                                Rate
-                                            </th>
-                                            <th class="px-4 py-2 text-xs text-gray-500 ">
-                                                Subtotal
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white">
-                                        <tr class="whitespace-nowrap">
-                                            <td class="px-6 py-4 text-sm text-gray-500">
-                                                1
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-900">
-                                                    Amazon Brand - Symactive Men's Regular Fit T-Shirt
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-500">4</div>
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500">
-                                                $20
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $30
-                                            </td>
-                                        </tr>
-                                        <tr class="whitespace-nowrap">
-                                            <td class="px-6 py-4 text-sm text-gray-500">
-                                                2
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-900">
-                                                    Amazon Brand - Symactive Men's Regular Fit T-Shirt
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-500">2</div>
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500">
-                                                $60
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $12
-                                            </td>
-                                        </tr>
-                                        <tr class="border-b-2 whitespace-nowrap">
-                                            <td class="px-6 py-4 text-sm text-gray-500">
-                                                3
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-900">
-                                                    Amazon Brand - Symactive Men's Regular Fit T-Shirt
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-500">1</div>
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500">
-                                                $10
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $13
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td colspan="3"></td>
-                                            <td class="text-sm font-bold">Sub Total</td>
-                                            <td class="text-sm font-bold tracking-wider"><b>$950</b></td>
-                                        </tr>
-                                        <!--end tr-->
-                                        <tr>
-                                            <th colspan="3"></th>
-                                            <td class="text-sm font-bold"><b>Tax Rate</b></td>
-                                            <td class="text-sm font-bold"><b>$1.50%</b></td>
-                                        </tr>
-                                        <!--end tr-->
-                                        <tr class="text-white bg-gray-800">
-                                            <th colspan="3"></th>
-                                            <td class="text-sm font-bold"><b>Total</b></td>
-                                            <td class="text-sm font-bold"><b>$999.0</b></td>
-                                        </tr>
-                                        <!--end tr-->
+            <div class="invoice-box bg-white">
+                <table cellpadding="0" cellspacing="0">
+                    <tr class="top">
+                        <td colspan="2">
+                            <table>
+                                <tr>
+                                    <td class="title">
+                                        <img src="{{ asset('assets/images/ovm_logo.png') }}"
+                                            style="width: 100%; max-width: 300px" />
+                                    </td>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="flex justify-between p-4">
-                            <div>
-                                <h3 class="text-xl">Terms And Condition :</h3>
-                                <ul class="text-xs list-disc list-inside">
-                                    <li>All accounts are to be paid within 7 days from receipt of invoice.</li>
-                                    <li>To be paid by cheque or credit card or direct payment online.</li>
-                                    <li>If account is not paid within 7 days the credits details supplied.</li>
-                                </ul>
-                            </div>
-                            <div class="p-4">
-                                <h3>Signature</h3>
-                                <div class="text-4xl italic text-indigo-500">AAA</div>
-                            </div>
-                        </div>
-                        <div class="w-full h-0.5 bg-indigo-500"></div>
+                                    <td>
+                                        Facture #: 123<br />
+                                        Créé en: Janvier 11, 2023<br />
+                                        Dû: Mars 21, 2023
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="information">
+                        <td colspan="2">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Sparksuite, Inc.<br />
+                                        12345 Sunny Road<br />
+                                        Sunnyville, CA 12345
+                                    </td>
 
-                        <div class="p-4">
-                            <div class="flex items-center justify-center">
-                                Thank you very much for doing business with us.
-                            </div>
-                            <div class="flex items-end justify-end space-x-3">
-                                <button class="px-4 py-2 text-sm text-green-600 bg-green-100">Print</button>
-                                <button class="px-4 py-2 text-sm text-blue-600 bg-blue-100">Save</button>
-                                <button class="px-4 py-2 text-sm text-red-600 bg-red-100">Cancel</button>
-                            </div>
-                        </div>
+                                    <td>
+                                        Acme Corp.<br />
+                                        John Doe<br />
+                                        john@example.com
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr class="heading">
+                        <td>Payment Method</td>
 
-                    </div>
+                        <td>Check #</td>
+                    </tr>
+
+                    <tr class="details">
+                        <td>Check</td>
+
+                        <td>1000</td>
+                    </tr>
+
+                    <tr class="heading">
+                        <td>Item</td>
+
+                        <td>Price</td>
+                    </tr>
+
+                    <tr class="item">
+                        <td>Website design</td>
+
+                        <td>$300.00</td>
+                    </tr>
+
+                    <tr class="item">
+                        <td>Hosting (3 months)</td>
+
+                        <td>$75.00</td>
+                    </tr>
+
+                    <tr class="item last">
+                        <td>Domain name (1 year)</td>
+
+                        <td>$10.00</td>
+                    </tr>
+
+                    <tr class="total">
+                        <td></td>
+
+                        <td>Total: $385.00</td>
+                    </tr>
+                </table>
+                <div class="max-w-9xl mx-auto sm:px-6 lg:px-2">
+                    <button class="px-4 py-2 bg-gray-300 rounded-lg text-white bg-blue-600"
+                        onclick="printWindow()" id="printBtn">Imprimer</button>
                 </div>
             </div>
+
         </div>
     </div>
-    {{-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        printWindow = function() {
+            
+            window.print()
+            document.getElementById('page-wrapper').style.paddingTop = "20px";
+        }
+    </script>
 </x-app-layout>
 
 <div class="">
