@@ -139,7 +139,6 @@
                                         <img src="{{ asset('assets/images/ovm_logo.png') }}"
                                             style="width: 100%; max-width: 300px" />
                                     </td>
-
                                     <td>
                                         Facture #: 123<br />
                                         Créé en: Janvier 11, 2023<br />
@@ -158,7 +157,6 @@
                                         12345 Sunny Road<br />
                                         Sunnyville, CA 12345
                                     </td>
-
                                     <td>
                                         Acme Corp.<br />
                                         John Doe<br />

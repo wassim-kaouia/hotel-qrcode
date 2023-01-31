@@ -35,10 +35,18 @@ Route::get('/invoice', function(){
     return view('factures.invoice');
 });
 
+Route::get('/qrcodes', function(){
+    return view('qrcode.index');
+})->name('qrcodes.index');
+
+Route::get('/commandes', function(){
+    return view('orders.index');
+})->name('commandes.index');
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('home.index');
-
 
 
 Route::middleware([

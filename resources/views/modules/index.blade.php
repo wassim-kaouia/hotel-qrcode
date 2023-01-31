@@ -10,7 +10,6 @@
         </h2>
     </x-slot>
     <style>
-        
         .iphone_bg {
             width: 450px;
             height: 810px;
@@ -23,7 +22,6 @@
             height: 580px;
             padding: 100px 0 0 63px;
         }
-
     </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -132,7 +130,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- end module Numéros  --}}
+                        {{-- end module Numéros --}}
                     </div>
                     <div class="grid lg:grid-cols-1">
                         <div class="px-4 mb-2">
@@ -227,9 +225,9 @@
 
             console.log("DOM Content Loaded !");
             //color inputs
-            var icons_changer    = document.getElementById('icons-color');
-            var title_changer    = document.getElementById('titles-color');
-            var bg_changer       = document.getElementById('bgs-color');
+            var icons_changer = document.getElementById('icons-color');
+            var title_changer = document.getElementById('titles-color');
+            var bg_changer = document.getElementById('bgs-color');
             var carousel_changer = document.getElementById('carousel-color');
 
             window.onload = function() {
@@ -237,7 +235,7 @@
                 let doc = myframe.contentDocument;
 
                 document.getElementById("icons-color").addEventListener("change", function() {
-                    var currentColorIcon  = icons_changer;
+                    var currentColorIcon = icons_changer;
                     var currentColorTitle = title_changer;
                     $('#frame').contents().find('#icon-color1').css('color', currentColorIcon.value);
                     $('#frame').contents().find('#icon-color2').css('color', currentColorIcon.value);

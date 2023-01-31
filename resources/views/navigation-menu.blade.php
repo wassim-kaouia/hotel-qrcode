@@ -34,6 +34,7 @@
                     <x-jet-nav-link href="{{ route('commandes.index') }}" :active="request()->routeIs('commandes.index')">
                         {{ __('Commandes') }}
                     </x-jet-nav-link>
+                    
                 </div>
             </div>
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -86,7 +87,6 @@
                         </x-jet-dropdown>
                     </div>
                 @endif
-
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">

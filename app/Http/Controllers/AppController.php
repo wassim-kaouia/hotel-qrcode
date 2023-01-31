@@ -57,6 +57,7 @@ class AppController extends Controller
     }
 
     public function goDigicode($userName){
+
         $user = User::where('user_name','=',$userName)->first();
 
         if(!$user){
@@ -67,7 +68,7 @@ class AppController extends Controller
             'user' => $user
         ]);
     }
-
+    
     public function goGeo($userName){
         $user = User::where('user_name','=',$userName)->first();
 

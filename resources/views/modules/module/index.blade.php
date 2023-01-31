@@ -63,7 +63,7 @@
         .tabset>input:checked+label::after {
             background: #06c;
         }
-
+        
         .tabset>input:checked+label {
             border-color: #ccc;
             border-bottom: 1px solid #fff;
