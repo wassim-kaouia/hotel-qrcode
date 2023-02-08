@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-
+    
     public function indexModules(){
 
         return view('modules.module.index');
@@ -22,7 +22,7 @@ class AppController extends Controller
 
         return view('modules.module.index');
     }
-
+    
     public function indexCommandes(){
 
         return view('modules.module.index');
@@ -68,7 +68,7 @@ class AppController extends Controller
             'user' => $user
         ]);
     }
-    
+
     public function goGeo($userName){
         $user = User::where('user_name','=',$userName)->first();
 

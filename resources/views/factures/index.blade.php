@@ -9,7 +9,7 @@
             {{ __('Factures') }}
         </h2>
     </x-slot>
-
+    
     <div class="pt-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-1 gap-4">

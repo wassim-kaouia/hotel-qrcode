@@ -219,7 +219,6 @@
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
         printWindow = function() {
-            
             window.print()
             document.getElementById('page-wrapper').style.paddingTop = "20px";
         }

@@ -67,8 +67,8 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
 </x-app-layout>
 
 <div class="">
