@@ -26,7 +26,6 @@
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body class="antialiased" id="mobile_wrap">
 
     <div class="statusbar-overlay"></div>
