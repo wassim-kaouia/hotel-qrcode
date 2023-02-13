@@ -4,24 +4,24 @@
   tasks:
   - name: stop and remove containers
     command: docker-compose down
-    ignore_errors: yes
+    ignore_errors: true
 
   # Make sure to change the image name with your personal dockerhub account and reposiroty 
   - name: remove image built with dockercompose
     command: docker rmi wassimkaouia/qrcode_app
-    ignore_errors: yes
+    ignore_errors: true
 
   - name: remove php-apache image
     command: docker rmi php:7.4.1-apache
-    ignore_errors: yes
+    ignore_errors: true
   
   - name: remove mysql image
     command: docker rmi mysql:5.7
-    ignore_errors: yes
+    ignore_errors: true
 
   - name: remove phpmyadmin image
     command: docker rmi phpmyadmin/phpmyadmin
-    ignore_errors: yes
+    ignore_errors: true
 
   - name: build docker-compose
     command: docker-compose up -d 
