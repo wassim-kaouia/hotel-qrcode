@@ -18,7 +18,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-
     // protected $fillable = [
     //     'name',
     //     'email',
@@ -41,4 +40,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    
+    public function app(){
+        return $this->hasOne(App::class);
+    }
 }

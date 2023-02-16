@@ -10,9 +10,13 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->text('modules_state');
-            $table->text('app_theme');
-            $table->text('app_setting');
+            $table->json('modules_state');
+            $table->json('app_theme');
+            $table->json('app_setting')->nullable();
+
+            $table->unsignedBigInteger('app_id');
+            $table->foreign('app_id')->references('id')->on('apps');
+
             $table->timestamps();
         });
     }

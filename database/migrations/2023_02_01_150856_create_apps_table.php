@@ -14,16 +14,19 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->text('description');
             $table->text('avatar');
-            $table->foreignId('user_id');
-            $table->foreignId('imageapp_id');
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->string('urlName')->unique();
-            $table->foreignId('setting_id');
+
             $table->timestamps();
         });
     }
-
+    
     public function down()
     {
         Schema::dropIfExists('apps');
     }
+
 };

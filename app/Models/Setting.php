@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'app_theme' => 'array',
+        'modules_state' => 'array',
+        'app_setting' => 'arrray',
+    ];
+
+
+    protected $guarded = [];
+
+    public function app(){
+        return $this->belongsTo(App::class);
+    }
 }

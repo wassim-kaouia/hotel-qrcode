@@ -32,38 +32,40 @@
                         <div class="swiper-container swiper-init" data-effect="slide" data-parallax="true"
                             data-pagination=".swiper-pagination" data-pagination-clickable="true">
                             <div class="swiper-wrapper">
-
                                 <div class="swiper-slide">
+                                   <div class="">
                                     <img class="w-screen h-full" src="{{ asset('assets/images/gite.jpeg') }}" alt=""
-                                        title="" />
-                                    <div class="slider-caption">
-                                        <div class="flex justify-center">
+                                    title="" />
+                                <div class="slider-caption">
+                                    <div class="">
+                                        <div class="">
                                             <img class="rounded-full mx-auto p-4" style="width: 150px; height:150px;"
                                                 src="{{ asset('assets/images/avatar.png') }}" alt="">
                                         </div>
-                                        <h2 data-swiper-parallax="-100%">Gite La Nature</h2>
-                                        <p data-swiper-parallax="-30%">
+                                        <div class="">
+                                            <h2 data-swiper-parallax="-100%" id="app_title">Gite La Natures</h2>
+                                        <p data-swiper-parallax="-30%" id="app_description">
                                             You can design and create, and build the most
-                                            wonderful place
+                                            
                                         </p>
+                                        </div>
                                     </div>
                                 </div>
-
+                                   </div>
+                                </div>
                                 <div class="swiper-slide">
-                                    <img class="w-screen h-full" src="{{ asset('assets/mobile/images/slider/slide3.jpg') }}" alt=""
+                                    <img class="w-screen h-full flex justify-center" src="{{ asset('assets/mobile/images/slider/slide3.jpg') }}" alt=""
                                         title="" />
                                     <div class="slider-caption">
-                                        <div class="flex justify-center">
+                                        <div class="">
                                             <img class="rounded-full mx-auto p-4" style="width: 150px; height:150px;"
                                                 src="{{ asset('assets/images/avatar.png') }}" alt="">
                                         </div>
                                         <h2 data-swiper-parallax="-100%">Gite La Nature</h2>
-                                        <p data-swiper-parallax="-30%">You can design and create, and build the most
+                                        <p data-swiper-parallax="-30%">You can design t
                                             wonderful place</p>
                                     </div>
                                 </div>
-
-                       
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\SettingController;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +20,19 @@ Route::get('/', function () {
     return view('modules.livre.index');
 })->middleware('auth');
 
+//settings:
+Route::get('/manage/modules',[SettingController::class,'index'])->name('modules.manage');
+Route::post('/manage/modules/settings',[SettingController::class,'settings'])->name('settings.post');
+
+
+
+
+
+
+
 Route::get('/wall/{userName}',[AppController::class,'index'])->name('app.index');
 
-Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modules.manage');
+// Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modules.manage');
 
 Route::get('/index/modules',[AppController::class,'indexModules'])->name('modules.index');
 
