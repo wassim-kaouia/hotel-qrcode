@@ -182,11 +182,10 @@
                                 <input name="avatar"
                                     class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                     aria-describedby="file_input_help" id="file_input" type="file">
-                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG,
+                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
                                     PNG,
                                     JPG
-                                    or
-                                    GIF (MAX. 800x400px).</p>
+                                    (MAX. 800x800px).</p>
                             </div>
 
                             <div class="px-4 mb-4">
@@ -194,7 +193,29 @@
                                     for="multiple_files">Upload multiple files</label>
                                 <input name="gallery_images"
                                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="multiple_files" type="file" multiple>
+                                    id="multiple_files" type="file">
+                                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
+                                        PNG,
+                                        JPG
+                                        (MAX. 1050x1350px).</p>
+                            </div>
+
+                            <div class="my-6 flex">
+                                {{-- fetch images of app  --}}
+                                @foreach($app->images as $image)
+                                <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
+                                    <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    @if ($image->url == '')
+                                    <img class="mx-2 h-auto w-32 rounded-lg"
+                                    src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
+                                    alt="image description">
+                                    @else
+                                    <img class="h-full w-full rounded-lg"
+                                    src="{{ asset('imagesApp/gallery/'.auth()->user()->id.'/'.$image->url) }}"
+                                    alt="">
+                                    @endif
+                                </div>
+                                @endforeach
                             </div>
 
                             <div class="grid grid-cols-4">
@@ -272,18 +293,19 @@
                 let myframe = document.getElementById('frame');
                 let doc = myframe.contentDocument;
 
+                var app_avatar = "{{ $app->avatar }}";
+                $('#frame').contents().find('#avatar').attr("src","/imagesApp/images/"+{{ auth()->user()->id }}+"/"+app_avatar);
+
                 var app_title = "{{ $app->title }}";
                 $('#frame').contents().find('#app_title').text(app_title);
                 document.getElementById("title_input").addEventListener("change", function() {
-                    console.log(title_input);
                     $('#frame').contents().find('#app_title').text(title_input);
                 });
 
                 var app_description = "{{ $app->description }}";
                 $('#frame').contents().find('#app_description').text(app_description);
                 document.getElementById("description_input").addEventListener("change", function() {
-                    console.log(title_input);
-                    $('#frame').contents().find('#app_description').text(title_input);
+                    $('#frame').contents().find('#app_description').text(description_input);
                 });
 
                 var colors_icon = "{{ $setting->app_theme['icons_color'] }}";

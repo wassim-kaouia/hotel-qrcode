@@ -21,7 +21,7 @@
                         <div class="homenavbar flex justify-between">
                             <img class="p-2" src="{{ asset('assets/images/ovm_logo.png') }}" alt="" width="200"
                                 class="btn btn-danger">
-                            <a href="#" data-panel="left" class="open-panel">
+                            <a href="/welcome" data-panel="left" class="open-panel">
                                 <div class="navbar_right"><img
                                         src="{{ asset('assets/mobile/images/icons/white/menu.png') }}" alt=""
                                         title="" /></div>
@@ -39,7 +39,7 @@
                                 <div class="slider-caption">
                                     <div class="">
                                         <div class="">
-                                            <img class="rounded-full mx-auto p-4" style="width: 150px; height:150px;"
+                                            <img id="avatar" class="rounded-full mx-auto p-4" style="width: 150px; height:150px;"
                                                 src="{{ asset('assets/images/avatar.png') }}" alt="">
                                         </div>
                                         <div class="">

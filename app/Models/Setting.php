@@ -16,7 +16,7 @@ class Setting extends Model
     ];
 
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function app(){
         return $this->belongsTo(App::class);
