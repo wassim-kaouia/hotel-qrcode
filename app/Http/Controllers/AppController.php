@@ -3,14 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\App;
+use App\Models\Wifi;
+use App\Models\Digicode;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
-{
+{   
+    public function index($profile){
+        //get data based on profile name 
+        $app = App::where('urlName','=',$profile)->first();
+        
+        if($app){
+            return view('welcome',[
+                'app' => $app,
+            ]);
+        }else{
+            return 'non';
+        }
+        return view('welcome',[
+            'app' => $app,
+        ]);
+    }
+
+
     
     public function indexModules(){
-
-        return view('modules.module.index');
+        $wifis = Wifi::paginate(5);  
+        $digicodes =  Digicode::paginate(5);  
+        return view('modules.module.index',[
+            'wifis' => $wifis,
+            'digicodes' => $digicodes
+        ]);
     }
 
     public function indexFactures(){
@@ -32,88 +56,18 @@ class AppController extends Controller
         return view('modules.index');
     }
 
-    public function index($userName){
+    // public function index($userName){
 
-        $user = User::where('user_name','=',$userName)->first();
+    //     $user = User::where('user_name','=',$userName)->first();
 
-        if(!$user){
-           abort(404);
-        }
+    //     if(!$user){
+    //        abort(404);
+    //     }
         
-        return view('welcome',[
-            'user' => $user
-        ]);    
-    }
+    //     return view('welcome',[
+    //         'user' => $user
+    //     ]);    
+    // }
 
-    public function goWifi($userName){
-        $user = User::where('user_name','=',$userName)->first();
-        
-        if(!$user){
-           abort(404);
-        }
-        return view('modules.pages.wifi',[
-            'user' => $user
-        ]);
-    }
-
-    public function goDigicode($userName){
-
-        $user = User::where('user_name','=',$userName)->first();
-
-        if(!$user){
-           abort(404);
-        }
-
-        return view('modules.pages.digicode',[
-            'user' => $user
-        ]);
-    }
-
-    public function goGeo($userName){
-        $user = User::where('user_name','=',$userName)->first();
-
-        if(!$user){
-           abort(404);
-        }
-
-        return view('modules.pages.geo',[
-            'user' => $user
-        ]);
-    }
-
-    public function goInfos($userName){
-        $user = User::where('user_name','=',$userName)->first();
-
-        if(!$user){
-           abort(404);
-        }
-
-        return view('modules.pages.infos',[
-            'user' => $user
-        ]);
-    }
-
-    public function goNums($userName){
-        $user = User::where('user_name','=',$userName)->first();
-
-        if(!$user){
-           abort(404);
-        }
-
-        return view('modules.pages.num',[
-            'user' => $user
-        ]);
-    }
-
-    public function goLivre($userName){
-        $user = User::where('user_name','=',$userName)->first();
-
-        if(!$user){
-           abort(404);
-        }
-
-        return view('modules.pages.livre',[
-            'user' => $user
-        ]);
-    }
+  
 }

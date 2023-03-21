@@ -59,10 +59,10 @@ class SettingController extends Controller
         $app->title = $request->app_title == '' ? $app->title : $request->app_title;
         $app->description = $request->app_description == '' ? $app->description : $request->app_description;
         //upload avatar
-        if ($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')){
             //get image extension and add time to its name 
             $imageName = time() . '.' . $request->avatar->extension();
-            //move the image to public folderin the desired path with the name generated above ($imageName)
+            //move the image to public folder in the desired path with the name generated above ($imageName)
             $request->avatar->move(public_path('imagesApp/images/' . Auth::user()->id), $imageName);
             //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
             $imagePathPublicFolder = public_path('imagesApp/images/' . Auth::user()->id . '/' . $app->avatar);
@@ -70,14 +70,12 @@ class SettingController extends Controller
             if (File::exists($imagePathPublicFolder)) {
                 // delete it
                 File::delete($imagePathPublicFolder);
-            }
+            } 
             //store path in DB:
             $app->avatar = $imageName;
         }
 
         $app->urlName = $request->app_link == '' ? $app->urlName : $request->app_link;
-
-
 
         //add carousel image - gallery 
         if ($request->hasFile('gallery_images')) {
@@ -100,7 +98,7 @@ class SettingController extends Controller
         }
 
         $app->save();
-
+        
         //store data setting modele
         $modules = [
             'wifi' => $request->wifi_state,
@@ -122,7 +120,7 @@ class SettingController extends Controller
             'title_color' => $request->title_color,
             'notes_color' => $request->notes_color,
         ];
-
+        
         //convert array to json
         $serializedAppTheme =  json_encode($appTheme);
         //convert json to array
@@ -137,6 +135,24 @@ class SettingController extends Controller
         $setting->save();
 
         Alert::success('Modification', 'Modifié avec succès !');
+
+        return redirect()->back();
+    }
+
+    public function deleteImage($id){
+        
+        $imageApp = Imageapp::findOrFail($id);
+
+        $imagePathPublicFolder = public_path('imagesApp/gallery/' . Auth::user()->id . '/' . $imageApp->url);
+        //check wether the image exists in the folder of application 
+        if (File::exists($imagePathPublicFolder)) {
+            // delete it
+            File::delete($imagePathPublicFolder);
+        } 
+
+        $imageApp->delete();
+
+        Alert::success('Suppression', 'Image Supprimé avec succès !');
 
         return redirect()->back();
     }

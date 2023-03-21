@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('numero');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->foreignId('app_id');
             $table->timestamps();
         });

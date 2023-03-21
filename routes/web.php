@@ -2,7 +2,15 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\WifiController;
+use App\Http\Controllers\DigicodeController;
+use App\Http\Controllers\LivreController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\NumController;
+use App\Http\Controllers\ArroundController;
 use App\Models\Setting;
+use App\Models\Wifi;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,14 +31,69 @@ Route::get('/', function () {
 //settings:
 Route::get('/manage/modules',[SettingController::class,'index'])->name('modules.manage');
 Route::post('/manage/modules/settings',[SettingController::class,'settings'])->name('settings.post');
+Route::get('/delete/{id}',[SettingController::class,'deleteImage'])->name('settings.imagedelete');
+
+//wifi 
+Route::post('/module/wifi/create',[WifiController::class,'addWifi'])->name('wifi.create');
+Route::get('/module/wifi/show',[WifiController::class,'showWifis'])->name('wifi.show');
+Route::get('/module/wifi/index',[WifiController::class,'index'])->name('wifi.index');
+Route::get('/deleteWifi/{id}',[WifiController::class,'deleteWifi'])->name('wifi.delete');
+Route::get('/updatewifi/{id}',[WifiController::class,'updateWifi'])->name('wifi.update');
+Route::post('/update/wifi/',[WifiController::class,'update'])->name('wifi.updates');
+
+//digicode
+Route::post('/module/digicode/create',[DigicodeController::class,'addDigicode'])->name('digicode.create');
+Route::get('/module/digicode/show',[DigicodeController::class,'showDigicode'])->name('digicode.show');
+Route::get('/module/digicode/index',[DigicodeController::class,'index'])->name('digicode.index');
+Route::get('/deleteDigicode/{id}',[DigicodeController::class,'deleteDigicode'])->name('digicode.delete');
+Route::get('/updatedigicode/{id}',[DigicodeController::class,'updateDigicode'])->name('digicode.update');
+Route::post('/update/digicode/',[DigicodeController::class,'update'])->name('digicode.updates');
+
+//livre
+Route::post('/module/livre/create',[LivreController::class,'addLivre'])->name('livre.create');
+Route::get('/module/livre/show',[LivreController::class,'showLivre'])->name('livre.show');
+Route::get('/module/livre/index',[LivreController::class,'index'])->name('livre.index');
+Route::get('/deleteLivre/{id}',[LivreController::class,'deleteLivre'])->name('livre.delete');
+Route::get('/updatelivre/{id}',[LivreController::class,'updateLivre'])->name('livre.update');
+Route::post('/update/livre/',[LivreController::class,'update'])->name('livre.updates');
+
+//Infos
+Route::post('/module/infos/create',[InfoController::class,'addInfos'])->name('infos.create');
+Route::get('/module/infos/show',[InfoController::class,'showInfos'])->name('infos.show');
+Route::get('/module/infos/index',[InfoController::class,'index'])->name('infos.index');
+Route::get('/deleteInfos/{id}',[InfoController::class,'deleteInfos'])->name('infos.delete');
+Route::get('/updateinfos/{id}',[InfoController::class,'updateInfos'])->name('infos.update');
+Route::post('/update/infos/',[InfoController::class,'update'])->name('infos.updates');
+
+//Numero
+Route::post('/module/numeros/create',[NumController::class,'addNumeros'])->name('numeros.create');
+Route::get('/module/numeros/show',[NumController::class,'showNumeros'])->name('numeros.show');
+Route::get('/module/numeros/index',[NumController::class,'index'])->name('numeros.index');
+Route::get('/deleteNumeros/{id}',[NumController::class,'deleteNumeros'])->name('numeros.delete');
+Route::get('/updatenumeros/{id}',[NumController::class,'updateNumeros'])->name('numeros.update');
+Route::post('/update/numeros/',[NumController::class,'update'])->name('numeros.updates');
+
+//Alentours 
+Route::post('/module/alentours/create',[ArroundController::class,'addAlentours'])->name('alentours.create');
+Route::get('/module/alentours/show',[ArroundController::class,'showAlentours'])->name('alentours.show');
+Route::get('/module/alentours/index',[ArroundController::class,'index'])->name('alentours.index');
+Route::get('/deleteAlentours/{id}',[ArroundController::class,'deleteAlentours'])->name('alentours.delete');
+Route::get('/updatealentours/{id}',[ArroundController::class,'updateAlentours'])->name('alentours.update');
+Route::post('/update/alentours/',[ArroundController::class,'update'])->name('alentours.updates');
+
+Route::get('/app/{profile_name}',[AppController::class,'index'])->name('profile.index');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 
-
-
-
-
-
-Route::get('/wall/{userName}',[AppController::class,'index'])->name('app.index');
 
 // Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modules.manage');
 
@@ -46,26 +109,14 @@ Route::get('/invoice', function(){
     return view('factures.invoice');
 });
 
-
 Route::get('/qrcodes', function(){
     return view('qrcode.index');
 })->name('qrcodes.index');
-
 
 Route::get('/commandes', function(){
     return view('orders.index');
 })->name('commandes.index');
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/welcome', function (){
+    return view('welcome-iframe');
 })->name('home.index');
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});

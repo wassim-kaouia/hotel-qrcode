@@ -22,5 +22,8 @@ class App extends Model
     public function images(){
         return $this->hasMany(Imageapp::class);
     }
-}
 
+    public function wifi(){
+        return $this->hasMany(Wifi::class);
+    }
+}

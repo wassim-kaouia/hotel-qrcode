@@ -37,7 +37,7 @@
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
-                                                {{ $setting->modules_state['wifi'] == 'on' ? 'checked' : '' }}
+                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['wifi'] == 'on' ? 'checked' : '' }}
                                                 name="wifi_state" class="sr-only peer" id="wifi">
                                             <input type="hidden" name="wifi_state" value="off" class="sr-only peer"
                                                 id="wifi_hidden">
@@ -57,7 +57,7 @@
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
-                                                {{ $setting->modules_state['digicode'] == 'on' ? 'checked' : '' }}
+                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['digicode'] == 'on' ? 'checked' : '' }}
                                                 class="sr-only peer" id="digicode" name="digicode_state">
                                             <input type="hidden" name="digicode_state" value="off"
                                                 class="sr-only peer" id="digicode_hidden">
@@ -77,7 +77,7 @@
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
-                                                {{ $setting->modules_state['livre'] == 'on' ? 'checked' : '' }}
+                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['livre'] == 'on' ? 'checked' : '' }}
                                                 name="livre_state" class="sr-only peer" id="livre">
                                             <input type="hidden" name="livre_state" value="off" class="sr-only peer"
                                                 id="livre_hidden">
@@ -97,7 +97,7 @@
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
-                                                {{ $setting->modules_state['arround'] == 'on' ? 'checked' : '' }}
+                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['arround'] == 'on' ? 'checked' : '' }}
                                                 name="arround_state" class="sr-only peer" id="arround">
                                             <input type="hidden" name="arround_state" value="off"
                                                 class="sr-only peer" id="arround_hidden">
@@ -117,7 +117,7 @@
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
-                                                {{ $setting->modules_state['info'] == 'on' ? 'checked' : '' }}
+                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['info'] == 'on' ? 'checked' : '' }}
                                                 name="info_state" class="sr-only peer" id="info">
                                             <input type="hidden" name="info_state" value="off" class="sr-only peer"
                                                 id="info_hidden">
@@ -138,7 +138,7 @@
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
-                                                {{ $setting->modules_state['nums'] == 'on' ? 'checked' : '' }}
+                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['nums'] == 'on' ? 'checked' : '' }}
                                                 name="nums_state" class="sr-only peer" id="nums">
                                             <input type="hidden" name="nums_state" value="off"
                                                 class="sr-only peer" id="nums_hidden">
@@ -204,12 +204,17 @@
                                 {{-- fetch images of app  --}}
                                 @foreach($app->images as $image)
                                 <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
-                                    <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    {{-- <form action="{{ route('settings.imagedelete',['id' => $image->id]) }}" method="POST"> --}}
+                                        {{-- @csrf --}}
+                                        <a class="absolute top-3 right-3 text-2xl text-red-500" href="{{ route('settings.imagedelete',['id' => $image->id]) }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        {{-- <button class="fa fa-trash absolute top-3 right-3 text-2xl text-red-500" type="submit"></button> --}}
+                                    {{-- </form> --}}
                                     @if ($image->url == '')
                                     <img class="mx-2 h-auto w-32 rounded-lg"
                                     src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
                                     alt="image description">
                                     @else
+                                    {{-- <p>{{ asset('imagesApp/gallery/'.auth()->user()->id.'/'.$image->url) }}</p> --}}
                                     <img class="h-full w-full rounded-lg"
                                     src="{{ asset('imagesApp/gallery/'.auth()->user()->id.'/'.$image->url) }}"
                                     alt="">
@@ -223,21 +228,21 @@
                                     <label for="icons-color"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icons</label>
                                     <input type="color" id="icons-color" name="icons_color"
-                                        value="{{ $setting->app_theme['icons_color'] }}"
+                                        value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['icons_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                                 <div class="px-4 mb-2">
                                     <label for="titles-color"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titres</label>
                                     <input type="color" id="titles-color" name="title_color"
-                                        value="{{ $setting->app_theme['title_color'] }}"
+                                        value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['title_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                                 <div class="px-4 mb-2">
                                     <label for="bg-color"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Arrières-plan</label>
                                     <input type="color" id="bgs-color" name="background_color"
-                                        value="{{ $setting->app_theme['background_color'] }}"
+                                        value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['background_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                                 <div class="px-4 mb-2">
@@ -245,7 +250,7 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                         Carousel</label>
                                     <input type="color" id="carousel-color" name="notes_color"
-                                        value="{{ $setting->app_theme['notes_color'] }}"
+                                        value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['notes_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                             </div>
@@ -308,7 +313,7 @@
                     $('#frame').contents().find('#app_description').text(description_input);
                 });
 
-                var colors_icon = "{{ $setting->app_theme['icons_color'] }}";
+                var colors_icon = "{{ count($setting->app_theme) > 0  ?  $setting->app_theme['icons_color'] : '' }}";
 
                 $('#frame').contents().find('#icon-color1').css('color', colors_icon);
                 $('#frame').contents().find('#icon-color2').css('color', colors_icon);
@@ -329,7 +334,7 @@
                     $('#frame').contents().find('#icon-color6').css('color', currentColorIcon.value);
                 }, false);
 
-                var title_color = "{{ $setting->app_theme['title_color'] }}";
+                var title_color = "{{ count($setting->app_theme) > 0  ? $setting->app_theme['title_color'] : '' }}";
                 $('#frame').contents().find('#title-color1').css('color', title_color);
                 $('#frame').contents().find('#title-color2').css('color', title_color);
                 $('#frame').contents().find('#title-color3').css('color', title_color);
@@ -347,7 +352,7 @@
                     $('#frame').contents().find('#title-color6').css('color', currentColorTitle.value);
                 }, false);
 
-                var background_color = "{{ $setting->app_theme['background_color'] }}";
+                var background_color = "{{ count($setting->app_theme) > 0 ? $setting->app_theme['background_color'] : '' }}";
                 $('#frame').contents().find('.homepage').css('background-color', background_color);
                 //change background color in iframe from color input event change
                 document.getElementById("bgs-color").addEventListener("change", function() {
@@ -356,7 +361,7 @@
                         .value);
                 });
 
-                var carousel_color = "{{ $setting->app_theme['notes_color'] }}";
+                var carousel_color = "{{ count($setting->app_theme) > 0  ?  $setting->app_theme['notes_color'] : '' }}";
                 $('#frame').contents().find('.swiper-pagination-bullet').css('background-color', carousel_color);
                 //change carousel color in iframe from color input event change
                 document.getElementById("carousel-color").addEventListener("change", function() {
@@ -368,7 +373,7 @@
                 });
 
                 //get wifi state from blade 
-                var wifi_state = "{{ $setting->modules_state['wifi'] }}";
+                var wifi_state = "{{ count($setting->modules_state) > 0 ? $setting->modules_state['wifi'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (wifi_state == 'on') {
                     $('#frame').contents().find('.wifi_module').css('display', 'block');
@@ -384,7 +389,7 @@
                 });
 
                 //get digicode state from blade 
-                var digicode_state = "{{ $setting->modules_state['digicode'] }}";
+                var digicode_state = "{{ count($setting->modules_state) > 0  ? $setting->modules_state['digicode'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (digicode_state == 'on') {
                     $('#frame').contents().find('.digicode_module').css('display', 'block');
@@ -400,7 +405,7 @@
                 });
 
                 //get livre state from blade 
-                var livre_state = "{{ $setting->modules_state['livre'] }}";
+                var livre_state = "{{ count($setting->modules_state) > 0  ? $setting->modules_state['livre'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (livre_state == 'on') {
                     $('#frame').contents().find('.livre_module').css('display', 'block');
@@ -416,7 +421,7 @@
                 });
 
                 //get arround state from blade 
-                var alentour_state = "{{ $setting->modules_state['arround'] }}";
+                var alentour_state = "{{ count($setting->modules_state) > 0 ?  $setting->modules_state['arround'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (alentour_state == 'on') {
                     $('#frame').contents().find('.alentour_module').css('display', 'block');
@@ -432,11 +437,11 @@
                 });
 
                 //get info state from blade 
-                var info_state = "{{ $setting->modules_state['info'] }}";
+                var info_state = "{{ count($setting->modules_state) > 0  ? $setting->modules_state['info'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (info_state == 'on') {
                     $('#frame').contents().find('.infos_module').css('display', 'block');
-                } else if (info_state == 'off') {
+                } else if (info_state == 'off') { 
                     $('#frame').contents().find('.infos_module').css('display', 'none');
                 }
                 document.getElementById("info").addEventListener("change", function() {
@@ -449,7 +454,7 @@
 
 
                 //get nums state from blade 
-                var nums_state = "{{ $setting->modules_state['nums'] }}";
+                var nums_state = "{{ count($setting->modules_state) > 0  ? $setting->modules_state['nums'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (nums_state == 'on') {
                     $('#frame').contents().find('.nums_module').css('display', 'block');
@@ -483,7 +488,7 @@
                     }
                     if (document.getElementById("nums").checked) {
                         document.getElementById('nums_hidden').disabled = true;
-                    }
+                    } 
                 });
 
                 console.log(wifi_state);

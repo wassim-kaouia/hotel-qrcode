@@ -11,15 +11,12 @@ return new class extends Migration
     {
         Schema::create('apps', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
-            $table->text('description');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->text('avatar');
-
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-
-            $table->string('urlName')->unique();
-
+            $table->string('urlName')->default("");
             $table->timestamps();
         });
     }

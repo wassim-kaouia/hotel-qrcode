@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('site_name');
             $table->string('distance')->nullable();
-            $table->foreignId('arroundimage_id');
+            // $table->foreignId('arroundimage_id');
             $table->text('link')->nullable();
             $table->foreignId('app_id');
             $table->timestamps();
