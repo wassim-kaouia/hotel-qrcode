@@ -27,7 +27,7 @@ class AppController extends Controller
             'app' => $app,
         ]);
     }
-
+    
     public function generateQrCode(){
         $urlName = Auth::user()->app->urlName;
         $fullLink = request()->getSchemeAndHttpHost().'/app/'.$urlName;
