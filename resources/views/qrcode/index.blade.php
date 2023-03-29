@@ -29,7 +29,7 @@
                         <div class="relative overflow-x-auto sm:rounded-lg justify-center">
                           
                             <div class="visible-print text-center">
-                                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(120)->generate('$link')) !!} ">
+                                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($link)) !!} ">
                         
                                 <p class="mt-2">Scanez le qr code pour aller à votre application</p>
                             </div>
