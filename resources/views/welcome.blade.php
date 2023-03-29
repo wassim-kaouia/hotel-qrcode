@@ -207,7 +207,7 @@
         <div class="content-block ">
             <h4>Livre d'Or</h4>
             <div class="mb-4">
-                <form action="{{ route('livre.create') }}" method="POST">
+                <form action="{{ route('livre.create',['profile' => \Route::current()->parameter('profile_name')]) }}" method="POST">
                     @csrf
                     <div class="mb-6">
                       <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom de Vistieur</label>

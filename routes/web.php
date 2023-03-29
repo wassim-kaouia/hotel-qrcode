@@ -57,12 +57,12 @@ Route::get('/updatedigicode/{id}', [DigicodeController::class, 'updateDigicode']
 Route::post('/update/digicode/', [DigicodeController::class, 'update'])->name('digicode.updates');
 
 //livre
-Route::post('/module/livre/create', [LivreController::class, 'addLivre'])->name('livre.create');
-Route::get('/module/livre/show/{app}', [LivreController::class, 'showLivre'])->name('livre.show');
-Route::get('/module/livre/index', [LivreController::class, 'index'])->name('livre.index');
-Route::get('/deleteLivre/{id}', [LivreController::class, 'deleteLivre'])->name('livre.delete');
-Route::get('/updatelivre/{id}', [LivreController::class, 'updateLivre'])->name('livre.update');
-Route::post('/update/livre/', [LivreController::class, 'update'])->name('livre.updates');
+Route::post('/module/livre/create/{profile}',[LivreController::class, 'addLivre'])->name('livre.create');
+Route::get('/module/livre/show/',[LivreController::class, 'showLivre'])->name('livre.show');
+Route::get('/module/livre/index',[LivreController::class, 'index'])->name('livre.index');
+Route::get('/deleteLivre/{id}',[LivreController::class, 'deleteLivre'])->name('livre.delete');
+Route::get('/updatelivre/{id}',[LivreController::class, 'updateLivre'])->name('livre.update');
+Route::post('/update/livre/',[LivreController::class, 'update'])->name('livre.updates');
 
 //Infos
 Route::post('/module/infos/create', [InfoController::class, 'addInfos'])->name('infos.create');

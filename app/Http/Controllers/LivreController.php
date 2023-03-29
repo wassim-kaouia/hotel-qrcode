@@ -23,11 +23,9 @@ class LivreController extends Controller
     );
     }
 
-    public function addLivre(Request $request){
-        return dd($request->key);
+    public function addLivre(Request $request,$urlName){
         
-        $appId = $user->app->id;
-        $app = App::where('urlName',$request->key);
+        $app = App::where('urlName',$urlName)->first();
         
          //validate inputs
          $validator = Validator::make($request->all(), [
