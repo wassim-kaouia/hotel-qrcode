@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\App;
 use App\Models\Wifi;
+use App\Models\Livre;
 use App\Models\Digicode;
 use Illuminate\Http\Request;
 
@@ -13,10 +14,11 @@ class AppController extends Controller
     public function index($profile){
         //get data based on profile name 
         $app = App::where('urlName','=',$profile)->first();
-        
+        $livres = Livre::where('app_id','=',$app->id)->paginate(4);
         if($app){
             return view('welcome',[
                 'app' => $app,
+                'livres' => $livres
             ]);
         }else{
             return 'non';
@@ -26,6 +28,14 @@ class AppController extends Controller
         ]);
     }
 
+    public function generateQrCode(){
+        $urlName = Auth::user()->app->urlName;
+        $fullLink = request()->getSchemeAndHttpHost().'/app/'.$urlName;
+        return view('qrcode.index',
+        [
+            'link' => $fullLink
+        ]);
+    }
 
     
     public function indexModules(){

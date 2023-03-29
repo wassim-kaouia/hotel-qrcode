@@ -6,61 +6,33 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Factures') }}
+            {{ __('Mon Qr Code') }}
         </h2>
     </x-slot>
 
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-1 gap-4">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="grid lg:grid-cols-1 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
+
+                       <p class="text-3xl mb-3"> Mon lien d'application:</p> {{ $link }}
+                       <p class="mt-10 mb-4">
+                        Pour imprimer ou enregistrer le Qr Code 
+                       </p>
+                       <a href="" class="bg-blue-300 w-64 text-center rounded px-4 py-2 text-lg">Telecharger le Qr Code</a>
+                    </div>
+                </div>
                 <div class="lg:col-span-1 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
 
-                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Nom du client
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Email
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Pays
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Type de bien
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Options
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Ranya
-                                        </th>
-                                        <td class="px-6 py-4">
-                                            ranya@gmail.com
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            Tunisia
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            Villa de Luxe
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Voir
-                                                la facture</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="relative overflow-x-auto sm:rounded-lg justify-center">
+                          
+                            <div class="visible-print text-center">
+                                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(120)->generate('$link')) !!} ">
+                        
+                                <p class="mt-2">Scanez le qr code pour aller à votre application</p>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -24,16 +24,18 @@ class LivreController extends Controller
     }
 
     public function addLivre(Request $request){
-
+        // dd($request->all());
         $user = auth()->user();
         $appId = $user->app->id;
         $app = App::findOrFail($appId);
         
          //validate inputs
          $validator = Validator::make($request->all(), [
-            'wifi_name' => 'required',
-            'type' => 'required',
-            'wifi_pass' => 'required',
+            'visitor_name' => 'required',
+            'country' => 'required',
+            'start' => '',
+            'end' => '',
+            'message' => 'required',
         ]);
 
         //if validations fails
@@ -43,9 +45,11 @@ class LivreController extends Controller
         }
 
         $livre = new Livre();
-        $livre->wifi_name = $request->wifi_name;
-        $livre->type = $request->type;
-        $livre->code = $request->wifi_pass;
+        $livre->visitor_name = $request->visitor_name;
+        $livre->country = $request->country;
+        $livre->from = $request->start;
+        $livre->to = $request->end;
+        $livre->message = $request->message;
         $livre->app_id = $app->id;
         
         $livre->save();
@@ -53,6 +57,7 @@ class LivreController extends Controller
         Alert::success('Ajout', "L'ajout est fait avec succée !");
 
         return redirect()->back();
+        // return redirect()->route('livre.index');
     }
 
     public function deleteLivre($id){

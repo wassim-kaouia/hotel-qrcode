@@ -23,7 +23,27 @@ class App extends Model
         return $this->hasMany(Imageapp::class);
     }
 
-    public function wifi(){
+    public function wifis(){
         return $this->hasMany(Wifi::class);
+    }
+
+    public function digicodes(){
+        return $this->hasMany(Digicode::class);
+    }
+
+    public function alentours(){
+        return $this->hasMany(Arround::class);
+    }
+
+    public function livres(){
+        return $this->hasMany(Livre::class);
+    }
+
+    public function numeros(){
+        return $this->hasMany(Num::class);
+    }
+
+    public function infos(){
+        return $this->hasMany(Info::class);
     }
 }
