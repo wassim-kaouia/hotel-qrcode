@@ -58,7 +58,7 @@ Route::post('/update/digicode/', [DigicodeController::class, 'update'])->name('d
 
 //livre
 Route::post('/module/livre/create', [LivreController::class, 'addLivre'])->name('livre.create');
-Route::get('/module/livre/show', [LivreController::class, 'showLivre'])->name('livre.show');
+Route::get('/module/livre/show/{app}', [LivreController::class, 'showLivre'])->name('livre.show');
 Route::get('/module/livre/index', [LivreController::class, 'index'])->name('livre.index');
 Route::get('/deleteLivre/{id}', [LivreController::class, 'deleteLivre'])->name('livre.delete');
 Route::get('/updatelivre/{id}', [LivreController::class, 'updateLivre'])->name('livre.update');

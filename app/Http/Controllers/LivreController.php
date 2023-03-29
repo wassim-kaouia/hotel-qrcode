@@ -24,10 +24,10 @@ class LivreController extends Controller
     }
 
     public function addLivre(Request $request){
-        // dd($request->all());
-        $user = auth()->user();
+        return dd($request->key);
+        
         $appId = $user->app->id;
-        $app = App::findOrFail($appId);
+        $app = App::where('urlName',$request->key);
         
          //validate inputs
          $validator = Validator::make($request->all(), [
