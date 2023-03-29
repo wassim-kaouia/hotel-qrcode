@@ -21,9 +21,13 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('modules.livre.index');
-})->middleware('auth');
+// Route::get('/', function () {
+//     return view('modules.livre.index');
+// })->middleware('auth');
+
+Route::get('/',function(){
+    return 'vitrine Soon !!';
+});
 
 Route::get('/testqrcode',function(){
     $image = \QrCode::format('svg')
