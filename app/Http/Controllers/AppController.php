@@ -14,11 +14,11 @@ class AppController extends Controller
     public function index($profile){
         //get data based on profile name 
         $app = App::where('urlName','=',$profile)->first();
-        $livres = Livre::where('app_id','=',$app->id)->paginate(4);
+        // $livres = Livre::where('app_id','=',$app->id)->paginate(4);
         if($app){
             return view('welcome',[
                 'app' => $app,
-                'livres' => $livres
+                // 'livres' => $livres
             ]);
         }else{
             return 'non';
