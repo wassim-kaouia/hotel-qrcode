@@ -28,10 +28,12 @@ Route::get('/',function(){
 
 
 
+Route::middleware(['auth'])->group(function () {
 //settings:
 Route::get('/manage/modules', [SettingController::class, 'index'])->name('modules.manage');
 Route::post('/manage/modules/settings', [SettingController::class, 'settings'])->name('settings.post');
 Route::get('/delete/{id}', [SettingController::class, 'deleteImage'])->name('settings.imagedelete');
+});
 
 Route::middleware(['auth'])->group(function () {
     //wifi
