@@ -29,8 +29,11 @@
                         <div class="relative overflow-x-auto sm:rounded-lg justify-center">
                           
                             <div class="visible-print text-center">
+                                @if (auth()->user()->app->urlName == '')
+                                    <img src="{{ asset('assets/images/manque.png') }}" alt="" width="300">
+                                @else
                                 <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($link)) !!} ">
-                        
+                                @endif
                                 <p class="mt-2">Scanez le qr code pour aller à votre application</p>
                             </div>
                         </div>
