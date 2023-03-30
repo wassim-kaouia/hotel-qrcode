@@ -20,7 +20,7 @@
                        <p class="mt-10 mb-4">
                         Pour imprimer ou enregistrer le Qr Code 
                        </p>
-                       <a download="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($link)) !!} " class="bg-blue-300 w-64 text-center rounded px-4 py-2 text-lg">Telecharger le Qr Code</a>
+                       <a download="mon-qr-code" href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate($link)) !!} " class="bg-blue-300 w-64 text-center rounded px-4 py-2 text-lg">Telecharger le Qr Code</a>
                     </div>
                 </div>
                 <div class="lg:col-span-1 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
