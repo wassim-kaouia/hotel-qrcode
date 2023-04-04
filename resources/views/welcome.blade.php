@@ -111,7 +111,7 @@
                             </ul>
                             {{-- button of icons - end  --}}
                             <div class="p-10 flex justify-center bottom-0">
-                                <img class="w-36" src="{{ asset('assets/images/ovm_logo.png') }}" alt="">
+                                <img class="w-36" src="/frontend/assets/images/logo_ovm.png" width="50" alt="">
                             </div>
                         </nav>
                     </div>
