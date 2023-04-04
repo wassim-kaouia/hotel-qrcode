@@ -5,4 +5,4 @@
 
 {{-- logo dashboard  --}}
 
-<img src="{{ asset('assets/images/ovm_logo.png') }}" alt="" class="w-64">
+<img src="frontend/assets/images/logo_ovm.png" alt="" class="w-16 p-1">
