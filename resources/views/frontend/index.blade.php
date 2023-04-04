@@ -30,7 +30,6 @@
 	</div>
 	<!-- ***** Preloader End ***** -->
 	
-	
 	<!-- ***** Header Area Start ***** -->
 	<header class="header-area">
 		<div class="container">
@@ -39,7 +38,7 @@
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
 						<a href="blue-index.html" class="logo">
-							<img src="frontend/assets/images/logo-blue.png" alt="Webmania"/>
+							<img src="frontend/assets/images/logo_ovm.png" width="120" alt="Webmania"/>
 						</a>
 						<!-- ***** Logo End ***** -->
 
@@ -531,7 +530,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 col-md-12 col-sm-12">
-					<img src="frontend/assets/images/logo-blue.png" class="logo" alt="">
+					<img src="frontend/assets/images/logo_ovm.png" width="80" class="logo" alt="">
 					<div class="text">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</div>
 				</div>
 				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
