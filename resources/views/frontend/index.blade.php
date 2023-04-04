@@ -65,7 +65,7 @@
 								</ul>
 							</li>
 							<li><a href="blue-contact.html">Contact</a></li>
-							<li><a href="#" class="btn-nav-line"><span>Free Try</span></a></li>
+							<li><a href="/dashboard" class="btn-nav-line"><span>Mon Espace</span></a></li>
 						</ul>
 						<a class='menu-trigger'>
 							<span>Menu</span>
