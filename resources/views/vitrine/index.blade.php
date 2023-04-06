@@ -127,6 +127,82 @@
         <input type="file" id="image_s3" name="image_s3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
     </div>
 
+    {{-- section 4  --}}
+    <p class="my-4">Section 4</p>
+    <div class="mb-6">
+      <label for="title_s4" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre</label>
+      <input type="text" id="title_s4" value="{{ $frontend->title_s4 }}" name="title_s4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+    <div class="mb-6">
+      <label for="description_s4" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+      <input type="text" id="description_s4" value="{{ $frontend->description_s4 }}" name="description_s4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+
+    {{-- section 5  --}}
+    <p class="my-4">Section 5</p>
+    <div class="mb-6">
+      <label for="title_s4" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre</label>
+      <input type="text" id="title_s5" value="{{ $frontend->title_s5 }}" name="title_s5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+    <div class="mb-6">
+      <label for="description_s5" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+      <input type="text" id="description_s5" value="{{ $frontend->description_s5 }}" name="description_s5" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+
+    {{-- section of numbers  --}}
+    <p class="my-4">Section 6 </p>
+    <div class="mb-6">
+      <label for="num1_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero 1</label>
+      <input type="text" id="num1_s6" value="{{ $frontend->num1_s6 }}" name="num1_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+    <div class="mb-6">
+      <label for="title_num1_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">titre 1</label>
+      <input type="text" id="title_num1_s6" value="{{ $frontend->title_num1_s6 }}" name="title_num1_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+
+    <div class="mb-6">
+        <label for="num2_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero 2</label>
+        <input type="text" id="num2_s6" value="{{ $frontend->num2_s6 }}" name="num2_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+      <div class="mb-6">
+        <label for="title_num2_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">titre 2</label>
+        <input type="text" id="title_num2_s6" value="{{ $frontend->title_num2_s6 }}" name="title_num2_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+
+      <div class="mb-6">
+        <label for="num3_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero 3</label>
+        <input type="text" id="num3_s6" value="{{ $frontend->num3_s6 }}" name="num1_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+      <div class="mb-6">
+        <label for="title_num3_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">titre 3</label>
+        <input type="text" id="title_num3_s6" value="{{ $frontend->title_num3_s6 }}" name="title_num3_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+
+      <div class="mb-6">
+        <label for="num4_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero 4</label>
+        <input type="text" id="num4_s6" value="{{ $frontend->num4_s6 }}" name="num4_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+      <div class="mb-6">
+        <label for="title_num4_s6" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">titre 4</label>
+        <input type="text" id="title_num4_s6" value="{{ $frontend->title_num4_s6 }}" name="title_num4_s6" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+
+      {{-- footer section  --}}
+    <p class="my-4">Footer Section </p>
+    <div class="mb-6">
+      <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">L'adresse</label>
+      <input type="text" id="address" value="{{ $frontend->address }}" name="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+    <div class="mb-6">
+      <label for="description_footer" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description de Footer</label>
+      <input type="text" id="description_footer" value="{{ $frontend->description_footer }}" name="description_footer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+    </div>
+
+    <div class="mb-6">
+        <label for="footer" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Footer</label>
+        <input type="text" id="footer" value="{{ $frontend->footer }}" name="footer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+      </div>
+
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enregistrer</button>
   </form>
   

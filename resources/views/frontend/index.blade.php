@@ -213,7 +213,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center mobile-bottom-fix"  data-scroll-reveal="enter right move 30px over 0.6s after 0.3s">
-					<img src="{{ asset('/imagesApp/frontend/images/'.$frontend->image_s3) }}" class="img-fluid float-left" alt="App">
+					<img src="{{ asset('imagesApp/frontend/images/'.$frontend->image_s3) }}" class="img-fluid float-left" alt="App">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center">
 					<div class="left-heading">
@@ -243,12 +243,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="center-heading">
-						<h2 class="section-title">Testimonials</h2>
+						<h2 class="section-title">{{ $frontend->title_s4 }}</h2>
 					</div>
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue risus volutpat.</p>
+						<p>{{ $frontend->description_s4 }}</p>
 					</div>
 				</div>
 			</div>
@@ -272,90 +272,7 @@
 				</div>
 				<!-- ***** Testimonials Item End ***** -->
 
-				<!-- ***** Testimonials Item Start ***** -->
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="testimonials-item">
-						<div class="user">
-							<img src="assets/images/photos/profile/2.jpg" alt="">
-						</div>
-						<div class="testimonials-content">
-							<h3 class="user-name">Will Barrow</h3>
-							<span>Tranquil Resort & Spa</span>
-							<div class="txt">
-								<p>Vestibulum eget imperdiet ex, posuere tempor lorem. Duis orci metus, placerat eget pharetra tempus, imperdiet vel massa. Vestibulum eget imperdiet ex.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- ***** Testimonials Item End ***** -->
-				
-				<!-- ***** Testimonials Item Start ***** -->
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="testimonials-item">
-						<div class="user">
-							<img src="assets/images/photos/profile/3.jpg" alt="">
-						</div>
-						<div class="testimonials-content">
-							<h3 class="user-name">Dominic L. Ement</h3>
-							<span>Sunrise Paradise Hotel</span>
-							<div class="txt">
-								<p>Pellentesque porta imperdiet porta. Integer aliquam ligula placerat placerat elementum. In euismod, neque in mattis gravida, nunc nunc euismod magna.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- ***** Testimonials Item End ***** -->
-				
-				<!-- ***** Testimonials Item Start ***** -->
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="testimonials-item">
-						<div class="user">
-							<img src="assets/images/photos/profile/4.jpg" alt="">
-						</div>
-						<div class="testimonials-content">
-							<h3 class="user-name">Gunther Bearder</h3>
-							<span>Jade Brook Resort</span>
-							<div class="txt">
-								<p>Proin fringilla molestie vulputate. Suspendisse vitae elit eget ipsum sagittis aliquet. Proin sagittis luctus mauris non sollicitudin. Donec dapibus.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- ***** Testimonials Item End ***** -->
-				
-				<!-- ***** Testimonials Item Start ***** -->
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="testimonials-item">
-						<div class="user">
-							<img src="assets/images/photos/profile/5.jpg" alt="">
-						</div>
-						<div class="testimonials-content">
-							<h3 class="user-name">Girth Wiedend</h3>
-							<span>Queen's Hotel & Spa</span>
-							<div class="txt">
-								<p>Aenean fringilla tellus nisl, placerat venenatis lectus feugiat id. Nam nisi sem, tristique vitae lectus sodales, ullamcorper gravida felis. Vestibulum.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- ***** Testimonials Item End ***** -->
-				
-				<!-- ***** Testimonials Item Start ***** -->
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<div class="testimonials-item">
-						<div class="user">
-							<img src="assets/images/photos/profile/6.jpg" alt="">
-						</div>
-						<div class="testimonials-content">
-							<h3 class="user-name">Hanson Deck</h3>
-							<span>Sublime Quest Resort</span>
-							<div class="txt">
-								<p>Integer elementum cursus dui. Praesent dolor risus, elementum vitae arcu eu, cursus imperdiet justo. Pellentesque vel pellentesque orci. Morbi tempor.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- ***** Testimonials Item End ***** -->
+			
 			</div>
 		</div>
 	</section>
@@ -371,12 +288,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="center-heading">
-						<h2 class="section-title">Pricing Plans</h2>
+						<h2 class="section-title">{{ $frontend->title_s5 }}</h2>
 					</div>
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue risus volutpat.</p>
+						<p>{{ $frontend->description_s5 }}</p>
 					</div>
 				</div>
 			</div>
@@ -497,26 +414,26 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-6 col-sm-12">
 						<div class="count-item">
-							<strong>202</strong>
-							<span>Happy<br>Customer</span>
+							<strong>{{ $frontend->num1_s6 }}</strong>
+							<span>{{ $frontend->title_num1_s6 }}</span>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-12">
 						<div class="count-item">
-							<strong>765</strong>
-							<span>Reservation<br>Request</span>
+							<strong>{{ $frontend->num2_s6 }}</strong>
+							<span>{{ $frontend->title_num2_s6 }}</span>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-12">
 						<div class="count-item">
-							<strong>12</strong>
-							<span>Color<br>Template</span>
+							<strong>{{ $frontend->num3_s6 }}</strong>
+							<span>{{ $frontend->title_num3_s6 }}</span>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6 col-sm-12">
 						<div class="count-item">
-							<strong>186</strong>
-							<span>Staff<br>Account</span>
+							<strong>{{ $frontend->num4_s6 }}</strong>
+							<span>{{ $frontend->title_num4_s6 }}</span>
 						</div>
 					</div>
 				</div>
@@ -531,7 +448,7 @@
 			<div class="row">
 				<div class="col-lg-5 col-md-12 col-sm-12">
 					<img src="frontend/assets/images/logo_ovm.png" width="80" class="logo" alt="">
-					<div class="text">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</div>
+					<div class="text">{{ $frontend->description_footer }}</div>
 				</div>
 				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
 					<h5>Helpful Links</h5>
@@ -554,11 +471,11 @@
 					</ul>
 				</div>
 				<div class="col-lg-3 col-md-4 col-sm-12">
-					<h5>Contact Us</h5>
+					<h5>Contacter nous</h5>
 					<div class="address">
-						<p>455 West Orchard Street<br>Kings Mountain, NC 28086</p>
+						<p>{{ $frontend->address }}</p>
 						<p>Phone: (272) 211-7370</p>
-						<p><span>E-Mail:</span><a href="#">support@yourbrand.com</a></p>
+						<p><span>E-Mail:</span><a href="#">contact@mydigihouse.fr</a></p>
 						<ul class="social">
 							<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
@@ -571,7 +488,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="copyright">© 2023 Developed By OVM - Online Vision Market</p>
+					<p class="copyright">{{ $frontend->footer }}</p>
 				</div>
 			</div>
 		</div>

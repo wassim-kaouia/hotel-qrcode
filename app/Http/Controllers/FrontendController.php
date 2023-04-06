@@ -75,9 +75,21 @@ class FrontendController extends Controller
             'bullet4_s3' => $request->bullet4_s3,
              //store path in DB:
             'image_s3' => $imageName,
-            
-      
-        
+            'title_s4' => $request->title_s4,
+            'description_s4' => $request->description_s4,
+            'title_s5' => $request->title_s5,
+            'description_s5' => $request->description_s5,
+            'title_num1_s6' => $request->title_num1_s6,
+            'title_num2_s6' => $request->title_num2_s6,
+            'title_num3_s6' => $request->title_num3_s6,
+            'title_num4_s6' => $request->title_num4_s6,
+            'num1_s6' => $request->num1_s6,
+            'num2_s6' => $request->num2_s6,
+            'num3_s6' => $request->num3_s6,
+            'num4_s6' => $request->num4_s6,
+            'description_footer' => $request->description_footer,
+            'footer' => $request->footer,
+            'address' => $request->address,
         ]);
 
         Alert::success('success', 'Problème de validation..');
