@@ -213,19 +213,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center mobile-bottom-fix"  data-scroll-reveal="enter right move 30px over 0.6s after 0.3s">
-					<img src="frontend/assets/images/photos/features/blue-1.png" class="img-fluid float-left" alt="App">
+					<img src="{{ asset('/imagesApp/frontend/images/'.$frontend->image_s3) }}" class="img-fluid float-left" alt="App">
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center">
 					<div class="left-heading">
-						<h2 class="section-title">Reservations Management</h2>
+						<h2 class="section-title">{{ $frontend->titre_s3 }}</h2>
 					</div>
 					<div class="left-text">
-						<p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat arcu augue, molestie faucibus metus ullamcorper vel.</p>
+						<p>{{ $frontend->description_s3 }}</p>
 						<ul>
-							<li>Sed facilisis tempor dolor, ac mollis</li>
-							<li>Donec ac lectus in lacus.</li>
-							<li>Praesent mauris risus, condimentum ac placerat</li>
-							<li>Quisque cursus viverra justo</li>
+							<li>{{ $frontend->bullet1_s3 }}</li>
+							<li>{{ $frontend->bullet2_s3 }}</li>
+							<li>{{ $frontend->bullet3_s3 }}</li>
+							<li>{{ $frontend->bullet4_s3 }}</li>
 						</ul>
 					</div>
 				</div>
