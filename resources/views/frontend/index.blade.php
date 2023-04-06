@@ -96,8 +96,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-5 col-md-12 col-sm-12">
-						<h1>Simple online hotel management system</h1>
-						<p>Unlike traditional property management systems, that require days of training and are expensive, Webmania takes only 10 minutes to set up.</p>
+						<h1>{{ $frontend->title_s1 }}</h1>
+						<p>{{ $frontend->description_s1 }}</p>
 						<div class="email-box">
 							<div class="input">
 								<input type="email" placeholder="Enter your email">
@@ -113,7 +113,7 @@
 
 		<!-- ***** Play Button Start ***** -->
 		<div class="play-button-wrapper">
-			<a href="https://www.youtube.com/watch?v=dPZTh2NKTm4" class="btn-play">
+			<a href="https://www.youtube.com/watch?v=JA-Vr3pcTp0" class="btn-play">
 				<i class="fa fa-play"></i>
 			</a>
 		</div>
@@ -131,12 +131,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="center-heading">
-						<h2 class="section-title">4 ways Webmania helps your business succeed</h2>
+						<h2 class="section-title">{{ $frontend->title_s2 }}</h2>
 					</div>
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>Donec vulputate urna sed rutrum venenatis. Cras consequat magna quis arcu elementum, quis congue risus volutpat.</p>
+						<p>{{ $frontend->description_s2 }}</p>
 					</div>
 				</div>
 			</div>
@@ -149,8 +149,8 @@
 						<div class="icon">
 							<i class="fa fa-check-square-o"></i>
 						</div>
-						<h5 class="features-title">Manage In One Place</h5>
-						<p>Morbilling pharetra sapiening ut mattis viverra. Curabitur magna.</p>
+						<h5 class="features-title">{{ $frontend->title_icon1_s2 }}</h5>
+						<p>{{ $frontend->description_icon1_s2 }}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -164,8 +164,8 @@
 						<div class="icon">
 							<i class="fa fa-bed"></i>
 						</div>
-						<h5 class="features-title">Selling More Rooms</h5>
-						<p>Donec pellentesque turpis utium lorem imperdiet semper viverra.</p>
+						<h5 class="features-title">{{ $frontend->title_icon2_s2 }}</h5>
+						<p>{{ $frontend->description_icon2_s2 }}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -179,8 +179,8 @@
 						<div class="icon">
 							<i class="fa fa-bar-chart"></i>
 						</div>
-						<h5 class="features-title">Know Your Numbers</h5>
-						<p>Facilisis arcu ligula, malesuada id tincidunt laoreet, facilisis at justo.</p>
+						<h5 class="features-title">{{ $frontend->title_icon3_s2 }}</h5>
+						<p>{{ $frontend->description_icon3_s2 }}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -194,8 +194,8 @@
 						<div class="icon">
 							<i class="fa fa-shopping-cart"></i>
 						</div>
-						<h5 class="features-title">Fast & Secure Sales</h5>
-						<p>Proin arcu ligula, malesuada id tincidunt laoreet, facilisis at justo.</p>
+						<h5 class="features-title">{{ $frontend->title_icon4_s2 }}</h5>
+						<p>{{ $frontend->description_icon4_s2 }}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>

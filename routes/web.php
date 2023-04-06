@@ -8,6 +8,7 @@ use App\Http\Controllers\LivreController;
 use App\Http\Controllers\NumController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\WifiController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,19 +22,23 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('frontend.index');
+Route::get('/', [FrontendController::class,'index'])->name('vitrine.index');
+
+Route::middleware(['auth'])->group(function () {
+//vitrine
+    Route::get('/vitrine/editPage', [FrontendController::class, 'editPage'])->name('vitrine.edit');
+    Route::post('/vitrine/editForms/',[FrontendController::class,'editForms'])->name('vitrine.editforms');
 });
 
 Route::middleware(['auth'])->group(function () {
-//settings:
+//settings
     Route::get('/manage/modules', [SettingController::class, 'index'])->name('modules.manage');
     Route::post('/manage/modules/settings', [SettingController::class, 'settings'])->name('settings.post');
     Route::get('/delete/{id}', [SettingController::class, 'deleteImage'])->name('settings.imagedelete');
 });
 
 Route::middleware(['auth'])->group(function () {
-    //wifi
+//wifi
     Route::post('/module/wifi/create', [WifiController::class, 'addWifi'])->name('wifi.create');
     Route::get('/module/wifi/show', [WifiController::class, 'showWifis'])->name('wifi.show');
     Route::get('/module/wifi/index', [WifiController::class, 'index'])->name('wifi.index');
