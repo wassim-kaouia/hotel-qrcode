@@ -11,33 +11,41 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Tableau de Board') }}
                     </x-jet-nav-link>
+                    @endif
 
                     <x-jet-nav-link href="{{ route('modules.manage') }}" :active="request()->routeIs('modules.manage')">
                         {{ __('Gestion de Visuel') }}
                     </x-jet-nav-link>
 
+                    @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('vitrine.edit') }}" :active="request()->routeIs('vitrine.edit')">
                         {{ __('Gestion de Vitrine') }}
                     </x-jet-nav-link>
+                    @endif
 
                     <x-jet-nav-link href="{{ route('modules.index') }}" :active="request()->routeIs('modules.index')">
                         {{ __('Modules') }}
                     </x-jet-nav-link>
 
+                    @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('factures.index') }}" :active="request()->routeIs('factures.index')">
                         {{ __('Factures') }}
                     </x-jet-nav-link>
+                    @endif
 
                     <x-jet-nav-link href="{{ route('qrcodes.index') }}" :active="request()->routeIs('qrcodes.index')">
                         {{ __('QR Code') }}
                     </x-jet-nav-link>
 
+                    @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('commandes.index') }}" :active="request()->routeIs('commandes.index')">
                         {{ __('Commandes') }}
                     </x-jet-nav-link>
+                    @endif
                     
                 </div>
             </div>

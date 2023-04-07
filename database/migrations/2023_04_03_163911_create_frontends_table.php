@@ -48,6 +48,12 @@ return new class extends Migration
             $table->string('title_num4_s6')->nullable();
             $table->text('address')->nullable();
             $table->text('description_footer')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('instagram')->nullable();
             $table->text('footer')->nullable();
             $table->timestamps();
         });
