@@ -31,11 +31,11 @@
    
     <div class="mb-6">
         <label for="video_s1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lien video Promo</label>
-        <input type="text" id="video_s1" name="video_s1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+        <input type="text" id="video_s1" name="video_s1" value="{{ $frontend->bg_video }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
       </div>
 
     <div class="mb-6">
-        <label for="image_s1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Thumbnail Video Promo</label>
+        <label for="image_s1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Thumbnail Video Promo (Meilleur résolution : 1920x1264)</label>
         <input type="file" id="image_s1" name="image_s1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
     </div>
 

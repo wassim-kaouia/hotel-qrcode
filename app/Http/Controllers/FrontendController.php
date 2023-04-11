@@ -54,9 +54,26 @@ class FrontendController extends Controller
             } 
             
         }
+
+        if ($request->hasFile('image_s1')){
+            //get image extension and add time to its name 
+            $imageS1 = time() . '.' . $request->image_s1->extension();
+            //move the image to public folder in the desired path with the name generated above ($imageName)
+            $request->image_s1->move(public_path('imagesApp/frontend/images/'), $imageS1);
+            //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+            $imagePathPublicFolder2 = public_path('imagesApp/frontend/images/'. $front->image_s1);
+            //check wether the image exists in the folder of application 
+            if (File::exists($imagePathPublicFolder2)) {
+                // delete it
+                File::delete($imagePathPublicFolder2);
+            } 
+        }
+        
         $frontend = Frontend::updateOrCreate(['id' => 1],[
             'title_s1' => $request->title_s1,
             'description_s1' => $request->description_s1,
+            'bg_video' => $request->video_s1,
+            'bg_header' => $request->hasFile('image_s1') ?  $imageS1 : $front->bg_header,
             'title_s2' => $request->title_s2,
             'description_s2' => $request->description_s2,
             'title_icon1_s2' => $request->title_icon1_s2,
@@ -74,7 +91,7 @@ class FrontendController extends Controller
             'bullet3_s3' => $request->bullet3_s3,
             'bullet4_s3' => $request->bullet4_s3,
              //store path in DB:
-            'image_s3' => $imageName,
+            'image_s3' => $request->hasFile('image_s3') ?  $imageName : $front->image_s3,
             'title_s4' => $request->title_s4,
             'description_s4' => $request->description_s4,
             'title_s5' => $request->title_s5,

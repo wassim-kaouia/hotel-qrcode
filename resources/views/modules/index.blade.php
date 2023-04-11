@@ -302,15 +302,16 @@
                 $('#frame').contents().find('#avatar').attr("src","/imagesApp/images/"+{{ auth()->user()->id }}+"/"+app_avatar);
 
                 var app_title = "{{ $app->title }}";
-                $('#frame').contents().find('#app_title').text(app_title);
+                // i changed .text to .html to solve ascii caractere probleme - issued by Joel
+                $('#frame').contents().find('#app_title').html(app_title);
                 document.getElementById("title_input").addEventListener("change", function() {
-                    $('#frame').contents().find('#app_title').text(title_input);
+                    $('#frame').contents().find('#app_title').html(title_input);
                 });
 
                 var app_description = "{{ $app->description }}";
-                $('#frame').contents().find('#app_description').text(app_description);
+                $('#frame').contents().find('#app_description').html(app_description);
                 document.getElementById("description_input").addEventListener("change", function() {
-                    $('#frame').contents().find('#app_description').text(description_input);
+                    $('#frame').contents().find('#app_description').html(description_input);
                 });
 
                 var colors_icon = "{{ count($setting->app_theme) > 0  ?  $setting->app_theme['icons_color'] : '' }}";

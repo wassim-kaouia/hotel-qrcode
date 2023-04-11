@@ -16,7 +16,7 @@
                         {{ __('Tableau de Board') }}
                     </x-jet-nav-link>
                     @endif
-
+                    
                     <x-jet-nav-link href="{{ route('modules.manage') }}" :active="request()->routeIs('modules.manage')">
                         {{ __('Gestion de Visuel') }}
                     </x-jet-nav-link>

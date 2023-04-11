@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Webmania - Agency, Startup and SaaS template</title>
+	<title>MyDigihouse</title>
 	<meta name="description" content="Webmania is a Agency, Startup and SaaS template by tempload." />
 	<meta name="keywords" content="webmania, startup, saas, agency, development, html, template, tempload" />
 	<meta name="author" content="tempload"/>
@@ -45,17 +45,8 @@
 
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
-							<li><a href="blue-index.html#welcome">Home</a></li>
-							<li class="submenu">
-								<a href="javascript:;">Discover</a>
-								<ul>
-									<li><a href="#features">Features</a></li>
-									<li><a href="#testimonials">Testimonials</a></li>
-									<li><a href="#pricing-plans">Pricing Plans</a></li>
-									<li><a href="#blog">Latests Blogs</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
+							<li><a href="blue-index.html#welcome">Acceuil</a></li>
+							{{-- <li class="submenu">
 								<a href="javascript:;">Pages</a>
 								<ul>
 									<li><a href="blue-about.html">About Us</a></li>
@@ -63,8 +54,8 @@
 									<li><a href="blue-faq.html">FAQ's</a></li>
 									<li><a href="blue-blog.html">Blog</a></li>
 								</ul>
-							</li>
-							<li><a href="blue-contact.html">Contact</a></li>
+							</li> --}}
+							<li><a href="/contact">Contact</a></li>
 							<li><a href="/dashboard" class="btn-nav-line"><span>Mon Espace</span></a></li>
 						</ul>
 						<a class='menu-trigger'>
@@ -113,7 +104,7 @@
 
 		<!-- ***** Play Button Start ***** -->
 		<div class="play-button-wrapper">
-			<a href="https://www.youtube.com/watch?v=JA-Vr3pcTp0" class="btn-play">
+			<a href="{{ $frontend->bg_video }}" class="btn-play">
 				<i class="fa fa-play"></i>
 			</a>
 		</div>
@@ -405,7 +396,6 @@
 		</div>
 	</section>
 	<!-- ***** Pricing Plans End ***** -->
-
 
 	<!-- ***** Counter Parallax Start ***** -->
 	<section class="parallax-counter" data-image="frontend/assets/images/photos/parallax-counter.jpg">
