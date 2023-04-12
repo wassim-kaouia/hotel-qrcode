@@ -207,7 +207,7 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center">
 					<div class="left-heading">
-						<h2 class="section-title">{{ $frontend->titre_s3 }}</h2>
+						<h2 class="section-title">{{ $frontend->title_s3 }}</h2>
 					</div>
 					<div class="left-text">
 						<p>{{ $frontend->description_s3 }}</p>
