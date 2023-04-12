@@ -109,7 +109,7 @@ class FrontendController extends Controller
             'address' => $request->address,
         ]);
 
-        Alert::success('success', 'Problème de validation..');
+        Alert::success('success', ' Mise à jour avec succée..');
         return redirect()->back();
     }
 }

@@ -69,7 +69,6 @@
 	</header>
 	<!-- ***** Header Area End ***** -->
 
-
 	<!-- ***** Welcome Area Start ***** -->
 	<div class="welcome-area" id="welcome">
 		<!-- ***** Header Background Image Start ***** -->
