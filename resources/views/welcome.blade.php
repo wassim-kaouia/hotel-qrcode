@@ -29,10 +29,9 @@
 
                 <div data-page="index" class="page" style="background-color : {{ $app->setting->app_theme['background_color'] }}">
                     <div class="page-content homepagecontent">
-
+                        
                         <div class="homenavbar flex justify-between">
-                            <img class="p-2" src="{{ asset('assets/images/ovm_logo.png') }}" alt="" width="200"
-                                class="btn btn-danger">
+                            
                             <a href="{{ $app->urlName }}" data-panel="left" class="open-panel">
                                 <div class="navbar_right">
                                     <span class="fa fa-home text-4xl text-white" aria-hidden="true"></span>
@@ -111,7 +110,7 @@
                             </ul>
                             {{-- button of icons - end  --}}
                             <div class="p-10 flex justify-center bottom-0">
-                                <img class="w-36" src="/frontend/assets/images/logo_ovm.png" width="50" alt="">
+                                <img class="w-20"  src="/frontend/assets/images/logo_ovm.png" width="50" alt="">
                             </div>
                         </nav>
                     </div>

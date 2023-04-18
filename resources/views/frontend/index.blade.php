@@ -16,7 +16,7 @@
 	<link href="frontend/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="frontend/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="frontend/assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
-
+	
 	<!-- Custom CSS -->
 	<link href="frontend/assets/css/blue.css" rel="stylesheet" type="text/css">
 </head>
@@ -223,8 +223,6 @@
 		</div>
 	</section>
 	<!-- ***** Features Big Item End ***** -->
-
-
 
 	<!-- ***** Testimonials Start ***** -->
 	<section class="section padding-bottom-80" id="testimonials">
