@@ -16,7 +16,7 @@
 	<link href="frontend/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="frontend/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="frontend/assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
-	
+
 	<!-- Custom CSS -->
 	<link href="frontend/assets/css/blue.css" rel="stylesheet" type="text/css">
 </head>
@@ -45,7 +45,7 @@
 
 						<!-- ***** Menu Start ***** -->
 						<ul class="nav">
-							<li><a href="blue-index.html#welcome">Acceuil</a></li>
+							<li><a href="/">Le livret d’accueil</a></li>
 							{{-- <li class="submenu">
 								<a href="javascript:;">Pages</a>
 								<ul>
@@ -55,6 +55,10 @@
 									<li><a href="blue-blog.html">Blog</a></li>
 								</ul>
 							</li> --}}
+							<li><a href="/tarifs">Tarifs</a></li>
+							<li><a href="/tutorials">Tutorials</a></li>
+							<li><a href="/blog">Blog</a></li>
+							<li><a href="/aide">Aide</a></li>
 							<li><a href="/contact">Contact</a></li>
 							<li><a href="/dashboard" class="btn-nav-line"><span>Mon Espace</span></a></li>
 						</ul>
