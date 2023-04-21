@@ -55,7 +55,7 @@
 									<li><a href="blue-blog.html">Blog</a></li>
 								</ul>
 							</li> --}}
-							<li><a href="/tarifs">Tarifs</a></li>
+							<li><a href="#pricing-plans">Tarifs</a></li>
 							<li><a href="/tutorials">Tutorials</a></li>
 							<li><a href="/blog">Blog</a></li>
 							<li><a href="/aide">Aide</a></li>
@@ -77,7 +77,7 @@
 	<div class="welcome-area" id="welcome">
 		<!-- ***** Header Background Image Start ***** -->
 		<div class="right-bg">
-			<img src="frontend/assets/images/photos/header.jpg" class="img-fluid float-right" alt="">
+			<img src="{{ url('imagesApp/frontend/images/'.$frontend->bg_header) }}" class="img-fluid float-right" alt="">
 		</div>
 		<!-- ***** Header Background Image End ***** -->
 
@@ -91,13 +91,13 @@
 				<div class="row">
 					<div class="col-lg-5 col-md-12 col-sm-12">
 						<h1>{{ $frontend->title_s1 }}</h1>
-						<p>{{ $frontend->description_s1 }}</p>
+						<p>{!! $frontend->description_s1 !!}</p>
 						<div class="email-box">
 							<div class="input">
 								<input type="email" placeholder="Enter your email">
-								<button>Get started</button>
+								<button>Demander un essai Gratuit !</button>
 							</div>
-							<span>30-day FREE trial - no credit card needed</span>
+							<span>1 Jour d'essai Gratuit</span>
 						</div>
 					</div>
 				</div>
@@ -130,7 +130,7 @@
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>{{ $frontend->description_s2 }}</p>
+						<p>{!! $frontend->description_s2 !!}</p>
 					</div>
 				</div>
 			</div>
@@ -144,7 +144,7 @@
 							<i class="fa fa-check-square-o"></i>
 						</div>
 						<h5 class="features-title">{{ $frontend->title_icon1_s2 }}</h5>
-						<p>{{ $frontend->description_icon1_s2 }}</p>
+						<p>{!! $frontend->description_icon1_s2 !!}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -159,7 +159,7 @@
 							<i class="fa fa-bed"></i>
 						</div>
 						<h5 class="features-title">{{ $frontend->title_icon2_s2 }}</h5>
-						<p>{{ $frontend->description_icon2_s2 }}</p>
+						<p>{!! $frontend->description_icon2_s2 !!}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -174,7 +174,7 @@
 							<i class="fa fa-bar-chart"></i>
 						</div>
 						<h5 class="features-title">{{ $frontend->title_icon3_s2 }}</h5>
-						<p>{{ $frontend->description_icon3_s2 }}</p>
+						<p>{!! $frontend->description_icon3_s2 !!}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -189,7 +189,7 @@
 							<i class="fa fa-shopping-cart"></i>
 						</div>
 						<h5 class="features-title">{{ $frontend->title_icon4_s2 }}</h5>
-						<p>{{ $frontend->description_icon4_s2 }}</p>
+						<p>{!! $frontend->description_icon4_s2 !!}</p>
 						<div class="button">
 							<i class="fa fa-chevron-right"></i>
 						</div>
@@ -214,7 +214,7 @@
 						<h2 class="section-title">{{ $frontend->title_s3 }}</h2>
 					</div>
 					<div class="left-text">
-						<p>{{ $frontend->description_s3 }}</p>
+						<p>{!! $frontend->description_s3 !!}</p>
 						<ul>
 							<li>{{ $frontend->bullet1_s3 }}</li>
 							<li>{{ $frontend->bullet2_s3 }}</li>
@@ -240,29 +240,31 @@
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>{{ $frontend->description_s4 }}</p>
+						<p>{!! $frontend->description_s4 !!}</p>
 					</div>
 				</div>
 			</div>
 			<!-- ***** Section Title End ***** -->
 
 			<div class="row testimonials-wrapper">
-				<!-- ***** Testimonials Item Start ***** -->
+				@foreach ($comments as $comment)
+					<!-- ***** Testimonials Item Start ***** -->
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<div class="testimonials-item">
 						<div class="user">
-							<img src="assets/images/photos/profile/1.jpg" alt="">
+							<img src="{{ url('imagesApp/frontend/avatars/'.$comment->avatar) }}" class="object-cover w-100 h-100"  alt="">
 						</div>
 						<div class="testimonials-content">
-							<h3 class="user-name">Fletch Skinner</h3>
-							<span>Mellow Mountain Hotel</span>
+							<h3 class="user-name">{{ $comment->name }}</h3>
+							<span>{{ $comment->description }}</span>
 							<div class="txt">
-								<p>Nullam at venenatis dui. Suspendisse lectus lacus, ornare sed imperdiet eu, viverra vel neque. Duis nec nunc dolor. Cras non molestie sem, eu lacinia. </p>
+								<p>{!! $comment->comment !!}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- ***** Testimonials Item End ***** -->
+				@endforeach
 
 			
 			</div>
@@ -285,7 +287,7 @@
 				</div>
 				<div class="offset-lg-3 col-lg-6">
 					<div class="center-text">
-						<p>{{ $frontend->description_s5 }}</p>
+						<p>{!! $frontend->description_s5 !!}</p>
 					</div>
 				</div>
 			</div>
@@ -439,7 +441,7 @@
 			<div class="row">
 				<div class="col-lg-5 col-md-12 col-sm-12">
 					<img src="frontend/assets/images/logo_ovm.png" width="80" class="logo" alt="">
-					<div class="text">{{ $frontend->description_footer }}</div>
+					<div class="text">{!! $frontend->description_footer !!}</div>
 				</div>
 				<div class="col-lg-2 col-md-4 col-sm-6 col-6">
 					<h5>Helpful Links</h5>
@@ -464,7 +466,7 @@
 				<div class="col-lg-3 col-md-4 col-sm-12">
 					<h5>Contacter nous</h5>
 					<div class="address">
-						<p>{{ $frontend->address }}</p>
+						<p>{!! $frontend->address !!}</p>
 						<p>Phone: (272) 211-7370</p>
 						<p><span>E-Mail:</span><a href="#">contact@mydigihouse.fr</a></p>
 						<ul class="social">
@@ -479,7 +481,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="copyright">{{ $frontend->footer }}</p>
+					<p class="copyright">{!! $frontend->footer !!}</p>
 				</div>
 			</div>
 		</div>

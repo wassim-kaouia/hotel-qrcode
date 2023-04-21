@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Frontend;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 
 class FrontendController extends Controller
@@ -13,8 +14,10 @@ class FrontendController extends Controller
 
     public function index(){
         $frontend = Frontend::first();
+        $comments = Testimonial::all();
         return view('frontend.index',[
-            'frontend' => $frontend
+            'frontend' => $frontend,
+            'comments' => $comments
         ]);
     }
 
@@ -29,15 +32,16 @@ class FrontendController extends Controller
 
     public function editForms(Request $request)
     {
+        // dd($request->all());
         $front = Frontend::first();
         $imageName = '';
         
         $validator = Validator::make($request->all(),[
-            'image_section1' => 'image|mimes:jpeg,png,jpg|max:2048'
+            'image_s1' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:max_width=1920,max_height=1264'
         ]);
-
-        if(!$validator){
-            Alert::error('Erreur', 'Problème de validation..');
+        
+        if($validator->fails()){
+            Alert::error('Erreur', "Probleme de validation... vérifier la taille de l'image");
             return redirect()->back();
         }
         if ($request->hasFile('image_s3')){
@@ -69,6 +73,22 @@ class FrontendController extends Controller
             } 
         }
         
+
+    //     public function imageupload(Request $request){
+    //     if($request->hasFile('upload')){
+    //         $originName = $request->file('upload')->getClientOriginalName();
+    //         $fileName = pathinfo($originName, PATHINFO_FILENAME);
+    //         $extension = $request->file('upload')->getClientOriginalExtension();
+    //         $fileName = $fileName . '_' .time() . '.' .$extension;
+
+    //         $request->file('upload')->move(public_path('media'),$fileName);
+
+    //         $url = asset('media/' . $fileName);
+
+    //         return response()->json(['fileName' => $fileName, 'uploaded' => 1 , 'url' => $url]);
+    //     }
+    // }
+
         $frontend = Frontend::updateOrCreate(['id' => 1],[
             'title_s1' => $request->title_s1,
             'description_s1' => $request->description_s1,

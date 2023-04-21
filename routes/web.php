@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\ArroundController;
-use App\Http\Controllers\DigicodeController;
-use App\Http\Controllers\InfoController;
-use App\Http\Controllers\LivreController;
-use App\Http\Controllers\NumController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\WifiController;
-use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\NumController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\WifiController;
+use App\Http\Controllers\LivreController;
+use App\Http\Controllers\ArroundController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\DigicodeController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/deleteAlentours/{id}', [ArroundController::class, 'deleteAlentours'])->name('alentours.delete');
     Route::get('/updatealentours/{id}', [ArroundController::class, 'updateAlentours'])->name('alentours.update');
     Route::post('/update/alentours/', [ArroundController::class, 'update'])->name('alentours.updates');
+});
+
+Route::middleware(['auth'])->group(function () {
+//testiomonial
+    Route::get('/testimonials', [TestimonialController::class, 'index'])->name('index.testimonials');
+    Route::post('/testimonials/create', [TestimonialController::class, 'store'])->name('store.comment');
+    Route::get('/testimonial/{id}',[TestimonialController::class,'edit'])->name('edit.comment');
+    Route::post('testimonial/update',[TestimonialController::class,'update'])->name('update.comment');
+    Route::get('testimonial/delete/{id}',[TestimonialController::class,'delete'])->name('delete.comment');
 });
 
 Route::get('/app/{profile_name}', [AppController::class, 'index'])->name('profile.index');
