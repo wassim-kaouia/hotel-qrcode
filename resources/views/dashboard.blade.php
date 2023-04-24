@@ -20,7 +20,7 @@
                             <i class="fa fa-money text-red-600" aria-hidden="true"></i>
                         </div>
                         <div class="text-3xl">
-                            2k.23 €<span class="text-sm"> Aujourd'hui</span>
+                            2k.23 €<span class="text-sm"> Tolal</span>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                             <i class="fa fa-user text-green-600" aria-hidden="true"></i>
                         </div>
                         <div class="text-5xl">
-                            453 </br> <span class="text-sm">Utilisateurs</span>
+                            {{ count(App\Models\User::all()) }} </br> <span class="text-sm">{{ count(App\Models\User::all()) > 1 ? 'Utilisateurs' : 'Utilisateur' }} </span>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 

@@ -31,9 +31,15 @@
                         {{ __('Modules') }}
                     </x-jet-nav-link>
 
-                    @if (auth()->user()->role == 'admin')
+                    {{-- @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('factures.index') }}" :active="request()->routeIs('factures.index')">
                         {{ __('Factures') }}
+                    </x-jet-nav-link>
+                    @endif --}}
+
+                    @if (auth()->user()->role == 'admin')
+                    <x-jet-nav-link href="{{ route('index.plans') }}" :active="request()->routeIs('index.plans')">
+                        {{ __('Plans') }}
                     </x-jet-nav-link>
                     @endif
 

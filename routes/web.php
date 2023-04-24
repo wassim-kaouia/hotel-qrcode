@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\NumController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\WifiController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\ArroundController;
@@ -106,6 +107,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('testimonial/update',[TestimonialController::class,'update'])->name('update.comment');
     Route::get('testimonial/delete/{id}',[TestimonialController::class,'delete'])->name('delete.comment');
 });
+
+Route::middleware(['auth'])->group(function () {
+    //testiomonial
+        Route::get('/plans', [PlanController::class, 'index'])->name('index.plans');
+        Route::post('/plans/create', [PlanController::class, 'store'])->name('store.plans');
+        Route::get('/plan/{id}',[PlanController::class,'edit'])->name('edit.plan');
+        Route::post('plan/update',[PlanController::class,'update'])->name('update.plan');
+        Route::get('plan/delete/{id}',[PlanController::class,'delete'])->name('delete.plan');
+    });
 
 Route::get('/app/{profile_name}', [AppController::class, 'index'])->name('profile.index');
 

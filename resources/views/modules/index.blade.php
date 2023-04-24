@@ -227,7 +227,7 @@
                                 <div class="px-4 mb-2">
                                     <label for="icons-color"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icons</label>
-                                    <input type="color" id="icons-color" name="icons_color"
+                                    <input type="color" id="icons-color" name="icons_color"    
                                         value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['icons_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>

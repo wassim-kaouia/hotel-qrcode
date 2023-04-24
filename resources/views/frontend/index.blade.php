@@ -294,107 +294,34 @@
 			<!-- ***** Section Title End ***** -->
 
 			<div class="row">
-				<!-- ***** Pricing Item Start ***** -->
-				<div class="col-lg-4 col-md-4 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
-					<div class="pricing-item">
-						<div class="pricing-header">
-							<h3 class="pricing-title">BASIC PLAN</h3>
-							<div class="number">
-								<span>1</span>
-							</div>
-						</div>
-						<div class="pricing-body">
-							<div class="price-wrapper">
-								<span class="currency">$</span>
-								<span class="price">13.90</span>
-								<span class="period">/Month</span>
-							</div>
-							<ul class="list">
-								<li class="active">Unlimited Reservations</li>
-								<li class="active">2 Clients and Products</li>
-								<li class="active">Invoicing and Payments</li>
-								<li class="active">Housekeeping Status</li>
-								<li>Data Security and Backups</li>
-								<li>Unlimited Staff Accounts</li>
-								<li>Web Booking Widget</li>
-								<li>Monthly Reports and Analytics</li>
-							</ul>
-						</div>
-						<div class="pricing-footer">
-							<a href="#">Select Plan</a>
-						</div>
-					</div>
-					<div class="item-bg"></div>
-				</div>
-				<!-- ***** Pricing Item End ***** -->
-
-				<!-- ***** Pricing Item Start ***** -->
+				@foreach ($plans as $index => $plan)
+					<!-- ***** Pricing Item Start ***** -->
 				<div class="col-lg-4 col-md-4 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
-					<div class="pricing-item active">
+					<div class="pricing-item {{ $index % 2 == 0 ? '' : 'active' }}">
 						<div class="pricing-header">
-							<h3 class="pricing-title">ADVANCED PLAN</h3>
+							<h3 class="pricing-title">{{ $plan->title }}</h3>
 							<div class="number">
-								<span>2</span>
+								<span>{{ $index+1 }}</span>
 							</div>
 						</div>
 						<div class="pricing-body">
 							<div class="price-wrapper">
-								<span class="currency">$</span>
-								<span class="price">23.90</span>
-								<span class="period">/Month</span>
+								<span class="currency">€</span>
+								<span class="price">{{ $plan->price }}</span>
+								<span class="period">/Mois</span>
 							</div>
-							<ul class="list">
-								<li class="active">Unlimited Reservations</li>
-								<li class="active">2 Clients and Products</li>
-								<li class="active">Invoicing and Payments</li>
-								<li class="active">Housekeeping Status</li>
-								<li class="active">Data Security and Backups</li>
-								<li class="active">Unlimited Staff Accounts</li>
-								<li>Web Booking Widget</li>
-								<li>Monthly Reports and Analytics</li>
-							</ul>
+							<div class="list">
+								{!! $plan->description !!}
+							</div>
 						</div>
 						<div class="pricing-footer">
-							<a href="#">Select Plan</a>
+							<a href="#">Selectionner</a>
 						</div>
 					</div>
 					<div class="item-bg"></div>
 				</div>
 				<!-- ***** Pricing Item End ***** -->
-
-				<!-- ***** Pricing Item Start ***** -->
-				<div class="col-lg-4 col-md-4 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
-					<div class="pricing-item">
-						<div class="pricing-header">
-							<h3 class="pricing-title">EXPERT PLAN</h3>
-							<div class="number">
-								<span>3</span>
-							</div>
-						</div>
-						<div class="pricing-body">
-							<div class="price-wrapper">
-								<span class="currency">$</span>
-								<span class="price">33.90</span>
-								<span class="period">/Month</span>
-							</div>
-							<ul class="list">
-								<li class="active">Unlimited Reservations</li>
-								<li class="active">2 Clients and Products</li>
-								<li class="active">Invoicing and Payments</li>
-								<li class="active">Housekeeping Status</li>
-								<li class="active">Data Security and Backups</li>
-								<li class="active">Unlimited Staff Accounts</li>
-								<li class="active">Web Booking Widget</li>
-								<li class="active">Monthly Reports and Analytics</li>
-							</ul>
-						</div>
-						<div class="pricing-footer">
-							<a href="#">Select Plan</a>
-						</div>
-					</div>
-					<div class="item-bg"></div>
-				</div>
-				<!-- ***** Pricing Item End ***** -->
+				@endforeach
 			</div>
 		</div>
 	</section>

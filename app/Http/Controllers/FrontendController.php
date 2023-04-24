@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Plan;
 use App\Models\Frontend;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -15,9 +16,11 @@ class FrontendController extends Controller
     public function index(){
         $frontend = Frontend::first();
         $comments = Testimonial::all();
+        $plans = Plan::all();
         return view('frontend.index',[
             'frontend' => $frontend,
-            'comments' => $comments
+            'comments' => $comments,
+            'plans' => $plans,
         ]);
     }
 
