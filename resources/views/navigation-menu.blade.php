@@ -136,9 +136,11 @@
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
+                            @if (auth()->user()->role == 'admin')
                             <x-jet-dropdown-link href="{{ route('index.testimonials') }}">
                                 {{ __('Les avis') }}
                             </x-jet-dropdown-link>
+                            @endif
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
