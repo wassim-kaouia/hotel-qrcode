@@ -24,9 +24,18 @@ use App\Http\Controllers\TestimonialController;
 |
  */
 
+ Route::get('/welcome3',function(){
+    return view('welcome3');
+ });
+
 Route::get('/', [FrontendController::class,'index'])->name('vitrine.index');
 
 Route::middleware(['auth'])->group(function () {
+
+//update icons settings
+    Route::get('/icons/manage',[SettingController::class,'updateIcons'])->name('icons.update');
+    Route::post('/icons/update',[SettingController::class,'iconsUpdating'])->name('icons.updating');
+    
 //vitrine
     Route::get('/vitrine/editPage', [FrontendController::class, 'editPage'])->name('vitrine.edit');
     Route::post('/vitrine/editForms/',[FrontendController::class,'editForms'])->name('vitrine.editforms');
@@ -155,5 +164,5 @@ Route::get('/commandes', function () {
 })->name('commandes.index');
 
 Route::get('/welcome', function () {
-    return view('welcome-iframe');
+    return view('welcome3-iframe');
 })->name('home.index');

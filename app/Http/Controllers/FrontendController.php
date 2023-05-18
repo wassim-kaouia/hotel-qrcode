@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
-
 class FrontendController extends Controller
 {
 

@@ -28,6 +28,9 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        <div class="p-8">
+                            <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules</a>
+                        </div>
                         <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
                             {{-- wifi module  --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
@@ -226,21 +229,21 @@
                             <div class="grid grid-cols-4">
                                 <div class="px-4 mb-2">
                                     <label for="icons-color"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icons</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre et Description</label>
                                     <input type="color" id="icons-color" name="icons_color"    
                                         value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['icons_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                                 <div class="px-4 mb-2">
                                     <label for="titles-color"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titres</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titres - Icons</label>
                                     <input type="color" id="titles-color" name="title_color"
                                         value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['title_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                                 <div class="px-4 mb-2">
                                     <label for="bg-color"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Arrières-plan</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Arrières-plan - Icons</label>
                                     <input type="color" id="bgs-color" name="background_color"
                                         value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['background_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
@@ -303,62 +306,47 @@
 
                 var app_title = "{{ $app->title }}";
                 // i changed .text to .html to solve ascii caractere probleme - issued by Joel
-                $('#frame').contents().find('#app_title').html(app_title);
+                $('#frame').contents().find('.title-application').html(app_title);
                 document.getElementById("title_input").addEventListener("change", function() {
-                    $('#frame').contents().find('#app_title').html(title_input);
+                    $('#frame').contents().find('.title-application').html(title_input);
                 });
 
                 var app_description = "{{ $app->description }}";
-                $('#frame').contents().find('#app_description').html(app_description);
+                $('#frame').contents().find('.description-application').html(app_description);
                 document.getElementById("description_input").addEventListener("change", function() {
-                    $('#frame').contents().find('#app_description').html(description_input);
+                    $('#frame').contents().find('.description-application').html(description_input);
                 });
 
                 var colors_icon = "{{ count($setting->app_theme) > 0  ?  $setting->app_theme['icons_color'] : '' }}";
 
-                $('#frame').contents().find('#icon-color1').css('color', colors_icon);
-                $('#frame').contents().find('#icon-color2').css('color', colors_icon);
-                $('#frame').contents().find('#icon-color3').css('color', colors_icon);
-                $('#frame').contents().find('#icon-color4').css('color', colors_icon);
-                $('#frame').contents().find('#icon-color5').css('color', colors_icon);
-                $('#frame').contents().find('#icon-color6').css('color', colors_icon);
-
-                //change icons color in iframe when change event occurs in color input
+                $('#frame').contents().find('.title-application').css('color', colors_icon);
+                $('#frame').contents().find('.description-application').css('color', colors_icon);
+                
+                //change title + description color in iframe when change event occurs in color input
                 document.getElementById("icons-color").addEventListener("change", function() {
                     var currentColorIcon = icons_changer;
                     var currentColorTitle = title_changer;
-                    $('#frame').contents().find('#icon-color1').css('color', currentColorIcon.value);
-                    $('#frame').contents().find('#icon-color2').css('color', currentColorIcon.value);
-                    $('#frame').contents().find('#icon-color3').css('color', currentColorIcon.value);
-                    $('#frame').contents().find('#icon-color4').css('color', currentColorIcon.value);
-                    $('#frame').contents().find('#icon-color5').css('color', currentColorIcon.value);
-                    $('#frame').contents().find('#icon-color6').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('.title-application').css('color', currentColorIcon.value);
+                    $('#frame').contents().find('.description-application').css('color', currentColorIcon.value);
+                    
                 }, false);
 
                 var title_color = "{{ count($setting->app_theme) > 0  ? $setting->app_theme['title_color'] : '' }}";
-                $('#frame').contents().find('#title-color1').css('color', title_color);
-                $('#frame').contents().find('#title-color2').css('color', title_color);
-                $('#frame').contents().find('#title-color3').css('color', title_color);
-                $('#frame').contents().find('#title-color4').css('color', title_color);
-                $('#frame').contents().find('#title-color5').css('color', title_color);
-                $('#frame').contents().find('#title-color6').css('color', title_color);
-                //change title under icns in iframe when input color event change
+                $('#frame').contents().find('.icon-title').css('color', title_color);
+              
+                //change title under icons in iframe when input color event change
                 document.getElementById("titles-color").addEventListener("change", function() {
                     var currentColorTitle = title_changer;
-                    $('#frame').contents().find('#title-color1').css('color', currentColorTitle.value);
-                    $('#frame').contents().find('#title-color2').css('color', currentColorTitle.value);
-                    $('#frame').contents().find('#title-color3').css('color', currentColorTitle.value);
-                    $('#frame').contents().find('#title-color4').css('color', currentColorTitle.value);
-                    $('#frame').contents().find('#title-color5').css('color', currentColorTitle.value);
-                    $('#frame').contents().find('#title-color6').css('color', currentColorTitle.value);
+                    $('#frame').contents().find('.icon-title').css('color', currentColorTitle.value);
+                  
                 }, false);
 
                 var background_color = "{{ count($setting->app_theme) > 0 ? $setting->app_theme['background_color'] : '' }}";
-                $('#frame').contents().find('.homepage').css('background-color', background_color);
+                $('#frame').contents().find('.square-icon').css('background-color', background_color);
                 //change background color in iframe from color input event change
                 document.getElementById("bgs-color").addEventListener("change", function() {
                     var currentColorBg = bg_changer;
-                    $('#frame').contents().find('.homepage').css('background-color', currentColorBg
+                    $('#frame').contents().find('.square-icon').css('background-color', currentColorBg
                         .value);
                 });
 
@@ -378,14 +366,21 @@
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (wifi_state == 'on') {
                     $('#frame').contents().find('.wifi_module').css('display', 'block');
+                    $('#frame').contents().find('.wifi_module').removeClass('d-none');
+
                 } else if (wifi_state == 'off') {
                     $('#frame').contents().find('.wifi_module').css('display', 'none');
+                    $('#frame').contents().find('.wifi_module').addClass('d-none');
                 }
                 document.getElementById("wifi").addEventListener("change", function() {
                     if (this.checked) {
+                        console.log('checked');
                         $('#frame').contents().find('.wifi_module').css('display', 'block');
-                    } else if (!this.checked) {
+                        $('#frame').contents().find('.wifi_module').removeClass('d-none');
+                    } else {
+                        console.log('unchecked');
                         $('#frame').contents().find('.wifi_module').css('display', 'none');
+                        $('#frame').contents().find('.wifi_module').addClass('d-none');
                     }
                 });
 
@@ -394,14 +389,21 @@
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (digicode_state == 'on') {
                     $('#frame').contents().find('.digicode_module').css('display', 'block');
+                    $('#frame').contents().find('.wifi_module').removeClass('d-none');
+
                 } else if (digicode_state == 'off') {
                     $('#frame').contents().find('.digicode_module').css('display', 'none');
+                    $('#frame').contents().find('.digicode_module').addClass('d-none');
                 }
                 document.getElementById("digicode").addEventListener("change", function() {
                     if (this.checked) {
                         $('#frame').contents().find('.digicode_module').css('display', 'block');
+                        $('#frame').contents().find('.digicode_module').removeClass('d-none');
+
                     } else {
                         $('#frame').contents().find('.digicode_module').css('display', 'none');
+                        $('#frame').contents().find('.digicode_module').addClass('d-none');
+
                     }
                 });
 
@@ -410,14 +412,22 @@
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (livre_state == 'on') {
                     $('#frame').contents().find('.livre_module').css('display', 'block');
+                    $('#frame').contents().find('.livre_module').removeClass('d-none');
+
                 } else if (livre_state == 'off') {
                     $('#frame').contents().find('.livre_module').css('display', 'none');
+                    $('#frame').contents().find('.livre_module').addClass('d-none');
+
                 }
                 document.getElementById("livre").addEventListener("change", function() {
                     if (this.checked) {
                         $('#frame').contents().find('.livre_module').css('display', 'block');
+                        $('#frame').contents().find('.livre_module').removeClass('d-none');
+
                     } else {
                         $('#frame').contents().find('.livre_module').css('display', 'none');
+                        $('#frame').contents().find('.livre_module').addClass('d-none');
+
                     }
                 });
 

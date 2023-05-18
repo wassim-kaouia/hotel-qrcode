@@ -38,7 +38,7 @@
                                 </div>
                             </a>
                         </div>
-
+                        
                         <!-- Slider -->
                         <div class="swiper-container swiper-init" data-effect="slide" data-parallax="true"
                             data-pagination=".swiper-pagination" data-pagination-clickable="true">

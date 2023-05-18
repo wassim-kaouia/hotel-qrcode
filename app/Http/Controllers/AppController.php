@@ -16,14 +16,14 @@ class AppController extends Controller
         $app = App::where('urlName','=',$profile)->first();
         // $livres = Livre::where('app_id','=',$app->id)->paginate(4);
         if($app){
-            return view('welcome',[
+            return view('welcome3',[
                 'app' => $app,
                 // 'livres' => $livres
             ]);
         }else{
             return 'non';
         }
-        return view('welcome',[
+        return view('welcome3',[
             'app' => $app,
         ]);
     }
