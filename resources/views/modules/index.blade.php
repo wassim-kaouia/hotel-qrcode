@@ -28,6 +28,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        ds
                         <div class="p-8">
                             <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules</a>
                         </div>
