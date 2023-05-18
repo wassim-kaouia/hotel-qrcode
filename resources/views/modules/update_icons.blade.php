@@ -80,7 +80,7 @@
                                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
                                     PNG,
                                     JPG
-                                    (MAX. 145x145px).</p>
+                                    (MAX. 145x145px)</p>
                                 <div>
                                     <img src="{{ url('imagesApp/images/icons/'.$setting->livre_path) }}" alt="livre d'or">
                                 </div>    
