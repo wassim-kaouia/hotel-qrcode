@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
 
 //update icons settings
     Route::get('/icons',[SettingController::class,'updateIcons'])->name('icons.update');
-    Route::post('/icons/update',[SettingController::class,'iconsUpdating'])->name('icons.updating');
+    Route::post('/updateicon',[SettingController::class,'iconsUpdating'])->name('icons.updating');
     
 //vitrine
     Route::get('/vitrine/editPage', [FrontendController::class, 'editPage'])->name('vitrine.edit');
