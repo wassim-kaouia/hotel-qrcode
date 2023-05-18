@@ -156,4 +156,170 @@ class SettingController extends Controller
 
         return redirect()->back();
     }
+
+    public function updateIcons(Request $request){
+        $user = auth()->user();
+        $appId = $user->app->id;
+        $app = App::findOrFail($appId);
+
+        $settingId = $app->setting->id;
+        $setting = Setting::findOrFail($settingId);
+
+        return view('modules.update_icons',[
+            'setting' => $setting
+        ]);
+    }
+
+    public function iconsUpdating(Request $request){
+        //validate inputs
+        $validator = Validator::make($request->all(), [
+            'title_wifi' => 'required',
+            'icon_wifi'  => 'image|mimes:jpeg,png,jpg|max:2048',
+            'title_digicode' => 'required',
+            'icon_digicode'  => 'image|mimes:jpeg,png,jpg|max:2048',
+            'title_livre' => 'required',
+            'icon_livre'  => 'image|mimes:jpeg,png,jpg|max:2048',
+            'title_info' => 'required',
+            'icon_info'  => 'image|mimes:jpeg,png,jpg|max:2048',
+            'title_arround' => 'required',
+            'icon_arround'  => 'image|mimes:jpeg,png,jpg|max:2048',
+            'title_numero' => 'required',
+            'icon_numero'  => 'image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        //if validations fails
+        if ($validator->fails()) {
+            Alert::error('Erreur', 'Problème de validation..');
+            return redirect()->back();
+        }
+        
+        // store data coming from modules view in app model
+        $user = auth()->user();
+        $appId = $user->app->id;
+        $app = App::findOrFail($appId);
+
+        $settingId = $app->setting->id;
+        $setting = Setting::findOrFail($settingId);
+
+        //wifi title and icon 
+        $setting->wifi_text = $request->title_wifi;
+
+        if ($request->hasFile('icon_wifi')){
+            //get image extension and add time to its name 
+            $imageName_wifi = time() . '.' . $request->icon_wifi->extension();
+            //move the image to public folder in the desired path with the name generated above ($imageName)
+            $request->icon_wifi->move(public_path('imagesApp/images/icons/'), $imageName_wifi);
+            //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+            $imagePathPublicFolder_wifi = public_path('imagesApp/images/icons/'. $setting->wifi_path);
+            //check wether the image exists in the folder of application 
+            if (File::exists($imagePathPublicFolder_wifi)) {
+                // delete it
+                File::delete($imagePathPublicFolder_wifi);
+            } 
+            //store path in DB:
+            $setting->wifi_path = $imageName_wifi;
+        }
+
+         //digicode title and icon 
+         $setting->digicode_text = $request->title_digicode;
+
+         if ($request->hasFile('icon_digicode')){
+             //get image extension and add time to its name 
+             $imageName_digicode = time() . '.' . $request->icon_digicode->extension();
+             //move the image to public folder in the desired path with the name generated above ($imageName)
+             $request->icon_digicode->move(public_path('imagesApp/images/icons/'), $imageName_digicode);
+             //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+             $imagePathPublicFolder_digicode = public_path('imagesApp/images/icons/'. $setting->digicode_path);
+             //check wether the image exists in the folder of application 
+             if (File::exists($imagePathPublicFolder_digicode)) {
+                 // delete it
+                 File::delete($imagePathPublicFolder_digicode);
+             } 
+             //store path in DB:
+             $setting->digicode_path = $imageName_digicode;
+         }
+
+        //livre title and icon 
+        $setting->livre_text = $request->title_livre;
+
+        if ($request->hasFile('icon_livre')){
+            //get image extension and add time to its name 
+            $imageName_livre = time() . '.' . $request->icon_livre->extension();
+            //move the image to public folder in the desired path with the name generated above ($imageName)
+            $request->icon_livre->move(public_path('imagesApp/images/icons/'), $imageName_livre);
+            //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+            $imagePathPublicFolder_livre = public_path('imagesApp/images/icons/'. $setting->livre_path);
+            //check wether the image exists in the folder of application 
+            if (File::exists($imagePathPublicFolder_livre)) {
+                // delete it
+                File::delete($imagePathPublicFolder_livre);
+            } 
+            //store path in DB:
+            $setting->livre_path = $imageName_livre;
+        }
+
+         //info title and icon 
+         $setting->info_text = $request->title_info;
+
+         if ($request->hasFile('icon_info')){
+             //get image extension and add time to its name 
+             $imageName_info = time() . '.' . $request->icon_info->extension();
+             //move the image to public folder in the desired path with the name generated above ($imageName)
+             $request->icon_info->move(public_path('imagesApp/images/icons/'), $imageName_info);
+             //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+             $imagePathPublicFolder_info = public_path('imagesApp/images/icons/' . $setting->info_path);
+             //check wether the image exists in the folder of application 
+             if (File::exists($imagePathPublicFolder_info)) {
+                 // delete it
+                 File::delete($imagePathPublicFolder_info);
+             } 
+             //store path in DB:
+             $setting->info_path = $imageName_info;
+         }
+
+          //alenours title and icon 
+        $setting->arround_text = $request->title_arround;
+
+        if ($request->hasFile('icon_arround')){
+            //get image extension and add time to its name 
+            $imageName_arround = time() . '.' . $request->icon_arround->extension();
+            //move the image to public folder in the desired path with the name generated above ($imageName)
+            $request->icon_arround->move(public_path('imagesApp/images/icons/'), $imageName_arround);
+            //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+            $imagePathPublicFolder_arround = public_path('imagesApp/images/icons/'. $setting->arround_path);
+            //check wether the image exists in the folder of application 
+            if (File::exists($imagePathPublicFolder_arround)) {
+                // delete it
+                File::delete($imagePathPublicFolder_arround);
+            } 
+            //store path in DB:
+            $setting->arround_path = $imageName_arround;
+        }
+
+         //numero title and icon 
+         $setting->numero_text = $request->title_numero;
+
+         if ($request->hasFile('icon_numero')){
+             //get image extension and add time to its name 
+             $imageName_numero = time() . '.' . $request->icon_numero->extension();
+             //move the image to public folder in the desired path with the name generated above ($imageName)
+             $request->icon_numero->move(public_path('imagesApp/images/icons/'), $imageName_numero);
+             //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+             $imagePathPublicFolder_numero = public_path('imagesApp/images/icons/' . $setting->numero_path);
+             //check wether the image exists in the folder of application 
+             if (File::exists($imagePathPublicFolder_numero)) {
+                 // delete it
+                 File::delete($imagePathPublicFolder_numero);
+             } 
+             //store path in DB:
+             $setting->numero_path = $imageName_numero;
+         }
+
+        $setting->save();
+
+        Alert::success('Upload des icons', 'Upload des icons est fait avec succée !');
+
+        return redirect()->back();
+         
+    }
 }
