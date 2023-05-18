@@ -132,7 +132,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    'isAdmin'
+    // 'isAdmin'
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

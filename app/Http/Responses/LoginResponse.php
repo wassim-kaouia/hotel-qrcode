@@ -17,7 +17,11 @@ class LoginResponse implements LoginResponseContract
         
         return $request->wantsJson()
                     ? response()->json(['two_factor' => false])
-                    : (Auth::user()->role == 'admin' ? redirect()->route('dashboard') : redirect()->route('modules.manage'));
+                    : redirect()->route('dashboard');
+
+                    // return $request->wantsJson()
+                    // ? response()->json(['two_factor' => false])
+                    // : (Auth::user()->role == 'admin' ? redirect()->route('dashboard') : redirect()->route('modules.manage'));
     }
 
 }
