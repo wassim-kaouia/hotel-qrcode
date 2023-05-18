@@ -18,6 +18,7 @@ class SettingController extends Controller
     {
         $appData = auth()->user()->app;
         $appSetting = auth()->user()->app->setting;
+        
         return view('modules.index', [
             'app' => $appData,
             'setting' => $appSetting,
