@@ -247,7 +247,7 @@
                     @if ($app->setting->modules_state['arround'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$app->setting->arro3und_path) }}" class="icon icon d-block center-block" alt="">
+                            <img src="{{ url('imagesApp/images/icons/'.$app->setting->arround_path) }}" class="icon icon d-block center-block" alt="">
                             <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $app->setting->arround_text }}</p>
                         </div>
                     </div>

@@ -191,7 +191,7 @@
                                     (MAX. 800x800px).</p>
                             </div>
 
-                            <div class="px-4 mb-4">
+                            {{-- <div class="px-4 mb-4">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     for="multiple_files">Upload multiple files</label>
                                 <input name="gallery_images"
@@ -201,7 +201,7 @@
                                         PNG,
                                         JPG
                                         (MAX. 1050x1350px).</p>
-                            </div>
+                            </div> --}}
 
                             <div class="my-6 flex">
                                 {{-- fetch images of app  --}}
@@ -399,11 +399,9 @@
                     if (this.checked) {
                         $('#frame').contents().find('.digicode_module').css('display', 'block');
                         $('#frame').contents().find('.digicode_module').removeClass('d-none');
-
                     } else {
                         $('#frame').contents().find('.digicode_module').css('display', 'none');
                         $('#frame').contents().find('.digicode_module').addClass('d-none');
-
                     }
                 });
 
@@ -413,21 +411,17 @@
                 if (livre_state == 'on') {
                     $('#frame').contents().find('.livre_module').css('display', 'block');
                     $('#frame').contents().find('.livre_module').removeClass('d-none');
-
                 } else if (livre_state == 'off') {
                     $('#frame').contents().find('.livre_module').css('display', 'none');
                     $('#frame').contents().find('.livre_module').addClass('d-none');
-
                 }
                 document.getElementById("livre").addEventListener("change", function() {
                     if (this.checked) {
                         $('#frame').contents().find('.livre_module').css('display', 'block');
                         $('#frame').contents().find('.livre_module').removeClass('d-none');
-
                     } else {
                         $('#frame').contents().find('.livre_module').css('display', 'none');
                         $('#frame').contents().find('.livre_module').addClass('d-none');
-
                     }
                 });
 
@@ -436,14 +430,18 @@
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (alentour_state == 'on') {
                     $('#frame').contents().find('.alentour_module').css('display', 'block');
+                    $('#frame').contents().find('.alentour_module').removeClass('d-none');
                 } else if (alentour_state == 'off') {
                     $('#frame').contents().find('.alentour_module').css('display', 'none');
+                    $('#frame').contents().find('.alentour_module').addClass('d-none');
                 }
                 document.getElementById("arround").addEventListener("change", function() {
                     if (this.checked) {
                         $('#frame').contents().find('.alentour_module').css('display', 'block');
+                        $('#frame').contents().find('.alentour_module').removeClass('d-none');
                     } else {
                         $('#frame').contents().find('.alentour_module').css('display', 'none');
+                        $('#frame').contents().find('.alentour_module').addClass('d-none');
                     }
                 });
 
@@ -452,34 +450,43 @@
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (info_state == 'on') {
                     $('#frame').contents().find('.infos_module').css('display', 'block');
+                    $('#frame').contents().find('.infos_module').removeClass('d-none');
+
                 } else if (info_state == 'off') { 
                     $('#frame').contents().find('.infos_module').css('display', 'none');
+                    $('#frame').contents().find('.infos_module').addClass('d-none');
                 }
                 document.getElementById("info").addEventListener("change", function() {
                     if (this.checked) {
                         $('#frame').contents().find('.infos_module').css('display', 'block');
+                        $('#frame').contents().find('.infos_module').removeClass('d-none');
+
                     } else {
                         $('#frame').contents().find('.infos_module').css('display', 'none');
+                        $('#frame').contents().find('.infos_module').addClass('d-none');
                     }
                 });
-
 
                 //get nums state from blade 
                 var nums_state = "{{ count($setting->modules_state) > 0  ? $setting->modules_state['nums'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
                 if (nums_state == 'on') {
                     $('#frame').contents().find('.nums_module').css('display', 'block');
+                    $('#frame').contents().find('.nums_module').removeClass('d-none');
+
                 } else if (nums_state == 'off') {
                     $('#frame').contents().find('.nums_module').css('display', 'none');
+                    $('#frame').contents().find('.nums_module').addClass('d-none');
                 }
                 document.getElementById("nums").addEventListener("change", function() {
                     if (this.checked) {
                         $('#frame').contents().find('.nums_module').css('display', 'block');
+                        $('#frame').contents().find('.nums_module').removeClass('d-none');
                     } else {
                         $('#frame').contents().find('.nums_module').css('display', 'none');
+                        $('#frame').contents().find('.nums_module').addClass('d-none');
                     }
                 });
-
                 // trick to send on/off value in checkbox buttons to backend
                 document.getElementById("modules-form").addEventListener("submit", function() {
                     if (document.getElementById("wifi").checked) {
@@ -501,10 +508,7 @@
                         document.getElementById('nums_hidden').disabled = true;
                     } 
                 });
-
-                console.log(wifi_state);
             }
-
         });
     </script>
 </x-app-layout>
