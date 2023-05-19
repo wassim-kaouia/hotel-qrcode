@@ -28,7 +28,11 @@ use App\Http\Controllers\TestimonialController;
     return view('welcome3');
  });
 
-Route::get('/', [FrontendController::class,'index'])->name('vitrine.index');
+ Route::get('/',function(){
+    return redirect('https://mydigihouse.website');
+ });
+
+// Route::get('/', [FrontendController::class,'index'])->name('vitrine.index');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -37,8 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/icons_update',[SettingController::class,'iconsUpdating'])->name('icons.updating');
     
 //vitrine
-    Route::get('/vitrine/editPage', [FrontendController::class, 'editPage'])->name('vitrine.edit');
-    Route::post('/vitrine/editForms/',[FrontendController::class,'editForms'])->name('vitrine.editforms');
+    // Route::get('/vitrine/editPage', [FrontendController::class, 'editPage'])->name('vitrine.edit');
+    // Route::post('/vitrine/editForms/',[FrontendController::class,'editForms'])->name('vitrine.editforms');
 });
 
 Route::middleware(['auth'])->group(function () {

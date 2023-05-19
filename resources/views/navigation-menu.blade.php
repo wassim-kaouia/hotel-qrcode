@@ -21,11 +21,11 @@
                         {{ __('Gestion de Visuel') }}
                     </x-jet-nav-link>
 
-                    @if (auth()->user()->role == 'admin')
+                    {{-- @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('vitrine.edit') }}" :active="request()->routeIs('vitrine.edit')">
                         {{ __('Gestion de Vitrine') }}
                     </x-jet-nav-link>
-                    @endif
+                    @endif --}}
 
                     <x-jet-nav-link href="{{ route('modules.index') }}" :active="request()->routeIs('modules.index')">
                         {{ __('Modules') }}
@@ -136,11 +136,11 @@
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
-                            @if (auth()->user()->role == 'admin')
+                            {{-- @if (auth()->user()->role == 'admin')
                             <x-jet-dropdown-link href="{{ route('index.testimonials') }}">
                                 {{ __('Les avis') }}
                             </x-jet-dropdown-link>
-                            @endif
+                            @endif --}}
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
