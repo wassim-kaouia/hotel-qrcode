@@ -426,12 +426,12 @@
                 });
 
                 //get arround state from blade 
-                var alentour_state = "{{ count($setting->modules_state) > 0 ?  $setting->modules_state['arround'] : '' }}";
+                var arround_state = "{{ count($setting->modules_state) > 0 ?  $setting->modules_state['arround'] : '' }}";
                 // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
-                if (alentour_state == 'on') {
+                if (arround_state == 'on') {
                     $('#frame').contents().find('.alentour_module').css('display', 'block');
                     $('#frame').contents().find('.alentour_module').removeClass('d-none');
-                } else if (alentour_state == 'off') {
+                } else if (arround_state == 'off') {
                     $('#frame').contents().find('.alentour_module').css('display', 'none');
                     $('#frame').contents().find('.alentour_module').addClass('d-none');
                 }
