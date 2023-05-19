@@ -28,9 +28,11 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        @if (Auth::user()->role == 'admin')
                         <div class="p-8">
                             <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules</a>
                         </div>
+                        @endif
                         <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
                             {{-- wifi module  --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
@@ -189,6 +191,9 @@
                                     PNG,
                                     JPG
                                     (MAX. 800x800px).</p>
+                                <div>
+                                    <img src="{{ url('imagesApp/images/'.Auth::user()->id.'/'.$app->avatar) }}" alt="avatar" class="w-32">    
+                                </div>    
                             </div>
 
                             {{-- <div class="px-4 mb-4">

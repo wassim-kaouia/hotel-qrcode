@@ -79,24 +79,24 @@ class SettingController extends Controller
         $app->urlName = $request->app_link == '' ? $app->urlName : $request->app_link;
 
         //add carousel image - gallery 
-        if ($request->hasFile('gallery_images')) {
-            //get image extension and add time to its name 
-            $imageName = time() . '.' . $request->gallery_images->extension();
-            //move the image to public folderin the desired path with the name generated above ($imageName)
-            $request->gallery_images->move(public_path('imagesApp/gallery/' . Auth::user()->id), $imageName);
+        // if ($request->hasFile('gallery_images')) {
+        //     //get image extension and add time to its name 
+        //     $imageName = time() . '.' . $request->gallery_images->extension();
+        //     //move the image to public folderin the desired path with the name generated above ($imageName)
+        //     $request->gallery_images->move(public_path('imagesApp/gallery/' . Auth::user()->id), $imageName);
 
-            if (count($app->images) == 4) {
-                Alert::error('Erreur', 'Vous avez dépassé le nombre max des images ..');
-                return redirect()->back();
-            } else {
-                //instanciate ImageApp
-                $image = new Imageapp();
-                $image->title = '';
-                $image->url = $imageName;
-                $image->app_id = $app->id;
-                $image->save();
-            }
-        }
+        //     if (count($app->images) == 4) {
+        //         Alert::error('Erreur', 'Vous avez dépassé le nombre max des images ..');
+        //         return redirect()->back();
+        //     } else {
+        //         //instanciate ImageApp
+        //         $image = new Imageapp();
+        //         $image->title = '';
+        //         $image->url = $imageName;
+        //         $image->app_id = $app->id;
+        //         $image->save();
+        //     }
+        // }
 
         $app->save();
         

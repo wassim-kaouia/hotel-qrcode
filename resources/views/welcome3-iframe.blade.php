@@ -179,7 +179,7 @@
 
             {{-- start avatar application  --}}
             <div class="d-flex justify-content-center">
-                <img src="{{ asset('assets/images/avatar.png') }}" class="rounded-circle mt-4" style="width:150px; height:150px; object-fit : fill;" alt="Avatar" />
+                <img id="avatar" src="{{ asset('assets/images/avatar.png') }}" class="rounded-circle mt-4" style="width:150px; height:150px; object-fit : fill;" alt="Avatar" />
             </div>
             {{-- end avatar application  --}}
 
