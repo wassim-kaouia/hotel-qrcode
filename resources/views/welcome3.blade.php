@@ -202,8 +202,8 @@
                     @if ($app->setting->modules_state['wifi'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3 wifi_module" >
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->wifi_path) }}" class="icon icon d-block center-block" alt="" onclick="openWifi()">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openWifi()">{{ $app->setting->wifi_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->wifi_path) }}" class="icon icon d-block center-block" alt="" onclick="openWifi()">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openWifi()">{{ $setting->setting->wifi_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -211,8 +211,8 @@
                     @if ($app->setting->modules_state['digicode'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->digicode_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $app->setting->digicode_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->digicode_path) }}" class="icon icon d-block center-block" alt="">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->digicode_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -220,8 +220,8 @@
                     @if ($app->setting->modules_state['livre'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->livre_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $app->setting->livre_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->livre_path) }}" class="icon icon d-block center-block" alt="">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->livre_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -229,8 +229,8 @@
                     @if ($app->setting->modules_state['info'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->info_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $app->setting->info_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->info_path) }}" class="icon icon d-block center-block" alt="">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->info_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -238,8 +238,8 @@
                     @if ($app->setting->modules_state['nums'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->numero_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $app->setting->numero_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->numero_path) }}" class="icon icon d-block center-block" alt="">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->numero_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -247,8 +247,8 @@
                     @if ($app->setting->modules_state['arround'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->arround_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $app->setting->arround_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->arround_path) }}" class="icon icon d-block center-block" alt="">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->arround_text }}</p>
                         </div>
                     </div>
                     @endif
