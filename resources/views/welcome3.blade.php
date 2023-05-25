@@ -211,8 +211,8 @@
                     @if ($app->setting->modules_state['digicode'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->digicode_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->digicode_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->digicode_path) }}" class="icon icon d-block center-block" alt="" onclick="openDigicode()">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openDigicode()">{{ $setting->setting->digicode_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -220,8 +220,8 @@
                     @if ($app->setting->modules_state['livre'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->livre_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->livre_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->livre_path) }}" class="icon icon d-block center-block" alt="" onclick="openNumero()">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openNumero()">{{ $setting->setting->livre_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -238,8 +238,8 @@
                     @if ($app->setting->modules_state['nums'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->numero_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->numero_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->numero_path) }}" class="icon icon d-block center-block" alt="" onclick="openNumero()">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openNumero()">{{ $setting->setting->numero_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -385,6 +385,84 @@
     </div>
     {{-- end wifi overlay  --}} 
 
+    {{-- start digicode overlay  --}}
+    <div id="myDigicode" class="overlay">
+        <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeDigicode()">x</a>
+        <div class="overlay-content">
+            <p class="pt-4 text-muted">Vous trouvez les differents Digicodes</p>
+            <div class="flex column">
+                @foreach ($app->digicodes as $digicode)
+                <div class="d-flex justify-content-start px-4 pt-4">
+                    <p>Nom :</p>
+                </div>
+                <div class="d-flex justify-content-start p-4 ">
+                   <div class="wifi-box bg-white shadow-lg rounded">
+                      <div class="bg-light py-2 rounded">
+                         <p class="mt-2">{{ $digicode->title }}</p>
+                      </div>
+                   </div>
+                </div>
+
+                <div class="d-flex justify-content-start px-4 pt-4">
+                    <p>Digicode:</p>
+                </div>
+                <div class="d-flex justify-content-start p-4 ">
+                   <div class="wifi-box bg-white shadow-lg rounded">
+                      <div class="bg-light py-2 rounded">
+                         <p id="digicodeCode-{{ $digicode->id }}" class="mt-2">{{ $digicode->access_code }}</p>
+                      </div>
+                   </div>
+                </div>
+
+                @if (count($app->digicodes) > 1)
+                <hr class="dashed">    
+                @endif
+
+                @endforeach
+            </div>
+        </div>
+    </div>
+    {{-- end digicode overlay  --}} 
+    
+    {{-- start numero utiles overlay  --}}
+    <div id="myNumero" class="overlay">
+        <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeNumero()">x</a>
+        <div class="overlay-content">
+            <p class="pt-4 text-muted">Vous trouvez les differents Digicodes</p>
+            <div class="flex column">
+                @foreach ($app->numeros as $numero)
+                <div class="d-flex justify-content-start px-4 pt-4">
+                    <p>Nom :</p>
+                </div>
+                <div class="d-flex justify-content-start p-4 ">
+                   <div class="wifi-box bg-white shadow-lg rounded">
+                      <div class="bg-light py-2 rounded">
+                         <p class="mt-2">{{ $numero->title }}</p>
+                      </div>
+                   </div>
+                </div>
+
+                <div class="d-flex justify-content-start px-4 pt-4">
+                    <p>Digicode:</p>
+                </div>
+                <div class="d-flex justify-content-start p-4 ">
+                   <div class="wifi-box bg-white shadow-lg rounded">
+                      <div class="bg-light py-2 rounded">
+                         <p id="numeroCode-{{ $numero->id }}" class="mt-2">{{ $numero->numero }}</p>
+                      </div>
+                   </div>
+                </div>
+
+                @if (count($app->numeros) > 1)
+                <hr class="dashed">    
+                @endif
+
+                @endforeach
+            </div>
+        </div>
+    </div>
+    {{-- end numero utiles overlay  --}} 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
         function openNav() {
@@ -397,12 +475,31 @@
 </script>
 
 <script>
+    //wifi 
     function openWifi() {
         document.getElementById("myWifi").style.width = "100%";
     }
     
     function closeWifi() {
         document.getElementById("myWifi").style.width = "0%";
+    }
+
+    //digicode
+    function openDigicode() {
+        document.getElementById("myDigicode").style.width = "100%";
+    }
+    
+    function closeDigicode() {
+        document.getElementById("myDigicode").style.width = "0%";
+    }
+
+    //numero
+    function openNumero() {
+        document.getElementById("myNumero").style.width = "100%";
+    }
+    
+    function closeNumero() {
+        document.getElementById("myNumero").style.width = "0%";
     }
 
 
