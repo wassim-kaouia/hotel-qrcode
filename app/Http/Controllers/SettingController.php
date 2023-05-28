@@ -133,6 +133,23 @@ class SettingController extends Controller
         $setting->modules_state = $deserializedModules;
         $setting->app_theme = $deserializedAppTheme;
 
+         //upload background image
+         if ($request->hasFile('background_img')){
+            //get image extension and add time to its name 
+            $imageName_bg = time() . '.' . $request->background_img->extension();
+            //move the image to public folder in the desired path with the name generated above ($imageName)
+            $request->background_img->move(public_path('imagesApp/images/' . Auth::user()->id), $imageName_bg);
+            //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+            $imagePathPublicFolder_bg = public_path('imagesApp/images/' . Auth::user()->id . '/' . $setting->background_image);
+            //check wether the image exists in the folder of application 
+            if (File::exists($imagePathPublicFolder_bg)) {
+                // delete it
+                File::delete($imagePathPublicFolder_bg);
+            } 
+            //store path in DB:
+            $setting->background_image = $imageName_bg;
+        }
+
         $setting->save();
 
         Alert::success('Modification', 'Modifié avec succès !');

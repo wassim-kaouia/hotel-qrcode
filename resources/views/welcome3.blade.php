@@ -85,6 +85,7 @@
         }
 
         .icon {
+            margin-top: 15px;
             width: 70px;
         }
 
@@ -173,7 +174,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <div class="wrapper-container" style="background-image: url('{{ url('assets/images/paris.jpeg') }}')">
+    <div class="wrapper-container" style="background-image: url('{{ url('imagesApp/images/'.$app->user_id.'/'.$app->setting->background_image) }}')">
         <span class="hamburger" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
         <div class="container">
@@ -183,7 +184,6 @@
                 <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4" style="width:150px; height:150px; object-fit : fill;" alt="Avatar" />
             </div>
             {{-- end avatar application  --}}
-
 
             {{-- start title application  --}}
             <div class="d-flex justify-content-center">

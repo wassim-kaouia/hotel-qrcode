@@ -13,6 +13,7 @@ return new class extends Migration
             $table->text('modules_state');
             $table->text('app_theme');
             $table->text('app_setting')->nullable();
+            $table->text('background_image')->nullable();
 
             $table->string('wifi_text')->nullable();
             $table->text('wifi_path')->nullable();

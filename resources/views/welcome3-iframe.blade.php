@@ -85,6 +85,7 @@
         }
 
         .icon {
+            margin-top: 15px; 
             width: 70px;
         }
 
@@ -200,42 +201,42 @@
                 <div class="row">
                     <div class="wifi_module col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon">
-                            <img src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <img class="icon_wifi" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block"  alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Wifi</p>
                         </div>
                     </div>
                     
                     <div class="digicode_module col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon">
-                            <img src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <img class="icon_digicode" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Digicode</p>
                         </div>
                     </div>
 
                     <div class="livre_module col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon">
-                            <img src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <img class="icon_livre" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Livre D'Or</p>
                         </div>
                     </div>
 
                     <div class="infos_module col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon">
-                            <img src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <img class="icon_info" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Infos</p>
                         </div>
                     </div>
 
                     <div class="alentour_module col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon">
-                            <img src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <img class="icon_arround" class="icon_arround" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Alentours</p>
                         </div>
                     </div>
 
                     <div class="nums_module col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon">
-                            <img src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <img class="icon_nums" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Numeros</p>
                         </div>
                     </div>      

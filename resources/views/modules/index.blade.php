@@ -21,6 +21,16 @@
             height: 580px;
             padding: 100px 0 0 63px;
         }
+
+        .center-block {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .icon {
+            width: 50px;
+        }
     </style>
     <div class="py-12">
         <form action="{{ route('settings.post') }}" method="POST" enctype="multipart/form-data" id="modules-form">
@@ -37,8 +47,9 @@
                             {{-- wifi module  --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <i class="fa fa-wifi text-3xl flex justify-center" aria-hidden="true"></i>
-                                    <h2 class="flex justify-center mb-2">Wifi</h2>
+                                    {{-- <i class="fa fa-wifi text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                    <img src="{{ url('imagesApp/images/icons/'.$setting->wifi_path) }}" class="icon d-block center-block">
+                                    <h2 class="flex justify-center mb-2">{{ $setting->wifi_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -57,8 +68,10 @@
                             {{-- wifi module digicode --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <i class="fa fa-calculator text-3xl flex justify-center" aria-hidden="true"></i>
-                                    <h2 class="flex justify-center mb-2">Digicode</h2>
+                                    {{-- <i class="fa fa-calculator text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                    <img src="{{ url('imagesApp/images/icons/'.$setting->digicode_path) }}" class="icon d-block center-block">
+
+                                    <h2 class="flex justify-center mb-2">{{ $setting->digicode_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -77,8 +90,9 @@
                             {{-- wifi module Livre d'Or --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <i class="fa fa-bookmark text-3xl flex justify-center" aria-hidden="true"></i>
-                                    <h2 class="flex justify-center mb-2">Livre d'Or</h2>
+                                    <img src="{{ url('imagesApp/images/icons/'.$setting->livre_path) }}" class="icon d-block center-block">
+                                    {{-- <i class="fa fa-bookmark text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                    <h2 class="flex justify-center mb-2">{{ $setting->livre_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -97,8 +111,9 @@
                             {{-- wifi module Alentours --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <i class="fa fa-street-view text-3xl flex justify-center" aria-hidden="true"></i>
-                                    <h2 class="flex justify-center mb-2">Alentours</h2>
+                                    {{-- <i class="fa fa-street-view text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                    <img src="{{ url('imagesApp/images/icons/'.$setting->arround_path) }}" class="icon d-block center-block">
+                                    <h2 class="flex justify-center mb-2">{{ $setting->arround_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -117,8 +132,10 @@
                             {{-- wifi module Infos --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <i class="fa fa-info text-3xl flex justify-center" aria-hidden="true"></i>
-                                    <h2 class="flex justify-center mb-2">Infos</h2>
+                                    <img src="{{ url('imagesApp/images/icons/'.$setting->info_path) }}" class="icon d-block center-block">
+
+                                    {{-- <i class="fa fa-info text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                    <h2 class="flex justify-center mb-2">{{ $setting->info_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -137,9 +154,11 @@
                             {{-- wifi module Numéros --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <i class="fa fa-volume-control-phone text-3xl flex justify-center"
-                                        aria-hidden="true"></i>
-                                    <h2 class="flex justify-center mb-2">Numéros</h2>
+                                    {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
+                                        aria-hidden="true"></i> --}}
+                                        <img src="{{ url('imagesApp/images/icons/'.$setting->numero_path) }}" class="icon d-block center-block">
+
+                                    <h2 class="flex justify-center mb-2">{{ $setting->numero_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -196,6 +215,21 @@
                                 </div>    
                             </div>
 
+                            <div class="px-4 mb-2">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="file_input">Background de l'application</label>
+                                <input name="background_img"
+                                    class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    aria-describedby="file_input_help" id="file_input" type="file">
+                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
+                                    PNG,
+                                    JPG
+                                    (Image : Portrait).</p>
+                                <div>
+                                    <img src="{{ url('imagesApp/images/'.Auth::user()->id.'/'.$setting->background_image) }}" alt="background image" class="w-32">    
+                                </div>    
+                            </div>
+
                             {{-- <div class="px-4 mb-4">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     for="multiple_files">Upload multiple files</label>
@@ -208,28 +242,28 @@
                                         (MAX. 1050x1350px).</p>
                             </div> --}}
 
-                            <div class="my-6 flex">
+                            {{-- <div class="my-6 flex"> --}}
                                 {{-- fetch images of app  --}}
-                                @foreach($app->images as $image)
-                                <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
+                                {{-- @foreach($app->images as $image) --}}
+                                {{-- <div class="bg-gray-100 p-6 mx-4 relative rounded-lg"> --}}
                                     {{-- <form action="{{ route('settings.imagedelete',['id' => $image->id]) }}" method="POST"> --}}
                                         {{-- @csrf --}}
-                                        <a class="absolute top-3 right-3 text-2xl text-red-500" href="{{ route('settings.imagedelete',['id' => $image->id]) }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        {{-- <a class="absolute top-3 right-3 text-2xl text-red-500" href="{{ route('settings.imagedelete',['id' => $image->id]) }}"><i class="fa fa-trash" aria-hidden="true"></i></a> --}}
                                         {{-- <button class="fa fa-trash absolute top-3 right-3 text-2xl text-red-500" type="submit"></button> --}}
                                     {{-- </form> --}}
-                                    @if ($image->url == '')
+                                    {{-- @if ($image->url == '')
                                     <img class="mx-2 h-auto w-32 rounded-lg"
                                     src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
                                     alt="image description">
-                                    @else
+                                    @else --}}
                                     {{-- <p>{{ asset('imagesApp/gallery/'.auth()->user()->id.'/'.$image->url) }}</p> --}}
-                                    <img class="h-full w-full rounded-lg"
+                                    {{-- <img class="h-full w-full rounded-lg"
                                     src="{{ asset('imagesApp/gallery/'.auth()->user()->id.'/'.$image->url) }}"
                                     alt="">
-                                    @endif
-                                </div>
-                                @endforeach
-                            </div>
+                                    @endif --}}
+                                {{-- </div> --}}
+                                {{-- @endforeach --}}
+                            {{-- </div> --}}
 
                             <div class="grid grid-cols-4">
                                 <div class="px-4 mb-2">
@@ -291,7 +325,6 @@
     <script defer>
         //listen if the dom get loaded 
         document.addEventListener("DOMContentLoaded", () => {
-
             console.log("DOM Content Loaded !");
             //color inputs
             var icons_changer = document.getElementById('icons-color');
@@ -326,6 +359,42 @@
 
                 $('#frame').contents().find('.title-application').css('color', colors_icon);
                 $('#frame').contents().find('.description-application').css('color', colors_icon);
+
+                //change wifi icon
+                $('#frame').contents().find('.icon_wifi').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->wifi_path}}");
+                $('#frame').contents().find('.icon_wifi').addClass('icon');
+                $('#frame').contents().find('.icon_wifi').addClass('d-block');
+                $('#frame').contents().find('.icon_wifi').addClass('center-block');
+
+                //change digicode icon
+                $('#frame').contents().find('.icon_digicode').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->digicode_path}}");
+                $('#frame').contents().find('.icon_digicode').addClass('icon');
+                $('#frame').contents().find('.icon_digicode').addClass('d-block');
+                $('#frame').contents().find('.icon_digicode').addClass('center-block');
+
+                //change livre icon
+                $('#frame').contents().find('.icon_livre').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->livre_path}}");
+                $('#frame').contents().find('.icon_livre').addClass('icon');
+                $('#frame').contents().find('.icon_livre').addClass('d-block');
+                $('#frame').contents().find('.icon_livre').addClass('center-block');
+
+                //change infos icon
+                $('#frame').contents().find('.icon_info').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->info_path}}");
+                $('#frame').contents().find('.icon_info').addClass('icon');
+                $('#frame').contents().find('.icon_info').addClass('d-block');
+                $('#frame').contents().find('.icon_info').addClass('center-block');
+
+                //change arround icon
+                $('#frame').contents().find('.icon_arround').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->arround_path}}");
+                $('#frame').contents().find('.icon_arround').addClass('icon');
+                $('#frame').contents().find('.icon_arround').addClass('d-block');
+                $('#frame').contents().find('.icon_arround').addClass('center-block');
+
+                //change numeros icon
+                $('#frame').contents().find('.icon_nums').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->numero_path}}");
+                $('#frame').contents().find('.icon_nums').addClass('icon');
+                $('#frame').contents().find('.icon_nums').addClass('d-block');
+                $('#frame').contents().find('.icon_nums').addClass('center-block');
                 
                 //change title + description color in iframe when change event occurs in color input
                 document.getElementById("icons-color").addEventListener("change", function() {
