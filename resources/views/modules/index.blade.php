@@ -230,6 +230,15 @@
                                 </div>    
                             </div>
 
+                            <div class="px-4 mb-2 mt-4">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="file_input">Message de Bienvenue:</label>
+                                <textarea name="welcome_message"
+                                    class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                >{{ $setting->welcome_text }}</textarea>
+                                
+                            </div>
+
                             {{-- <div class="px-4 mb-4">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     for="multiple_files">Upload multiple files</label>

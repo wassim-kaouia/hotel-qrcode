@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\NumController;
@@ -24,8 +25,8 @@ use App\Http\Controllers\TestimonialController;
 |
  */
 
- Route::get('/welcome3',function(){
-    return view('welcome3');
+ Route::get('/users',function(){
+    return User::all();
  });
 
  Route::get('/',function(){

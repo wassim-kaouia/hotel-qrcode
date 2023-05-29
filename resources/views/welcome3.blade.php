@@ -169,6 +169,31 @@
             margin-right: auto;
         }
 
+        .splash{
+            cursor : pointer;
+            position : fixed;
+            top : 50%;
+            left : 50%;
+            height : 95%;
+            width : 95%;
+            transform : translate(-50%,-50%);    
+            background-color: #F7F7F2;
+            transition : all ease-in-out 600ms;
+        }
+        .hidden{
+            transition : 0.5s;
+            display : none;
+        }
+        .splash-header {
+            height : 90%;
+            color : white;
+            font-family : consolas;
+            font-size : 30px;
+            display : flex;
+            justify-content: center;
+            align-items : center;
+        }
+
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -456,12 +481,42 @@
                 @if (count($app->numeros) > 1)
                 <hr class="dashed">    
                 @endif
-
                 @endforeach
             </div>
         </div>
     </div>
     {{-- end numero utiles overlay  --}} 
+
+    <div class="splash">
+        <div class="container">
+            <h1 class="text-center py-5">Message de bienvenue</h1>
+            <div>
+                <p class="text-muted px-4 text-justify">
+                    {{ $app->setting->welcome_text }}
+                </p>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                {{-- start avatar application  --}}
+                <div class="d-flex justify-content-center">
+                    <img src="{{ asset('assets/images/avatar.png') }}" class="rounded-circle mt-4" style="width: 150px; height:150px; object-fit : cover;" alt="Avatar" />
+                </div>
+                {{-- end avatar application  --}}
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <div class="text-center">
+                    <span class="font-weight-bold">Wassim Dev</span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="text-center text-muted">
+                    Votre hôte
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Splash Screen code ends here  -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
@@ -523,6 +578,16 @@
       document.execCommand('copy');
       window.getSelection().removeAllRanges();
     } 
+
+    var splashScreen = document.querySelector('.splash');
+    splashScreen.addEventListener('click',()=>{
+    splashScreen.style.opacity = 0;
+    setTimeout(()=>{
+        splashScreen.classList.add('hidden')
+        },610)  
+    })
+
     </script>
+
 </body>
 </html>

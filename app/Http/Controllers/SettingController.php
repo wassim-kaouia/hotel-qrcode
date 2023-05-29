@@ -44,6 +44,7 @@ class SettingController extends Controller
             'title_color' => 'required',
             'background_color' => 'required',
             'notes_color' => 'required',
+            'welcome_message' => 'required',
         ]);
 
         //if validations fails
@@ -149,6 +150,9 @@ class SettingController extends Controller
             //store path in DB:
             $setting->background_image = $imageName_bg;
         }
+
+        //add welcome message 
+        $setting->welcome_text = $request->welcome_message;
 
         $setting->save();
 
