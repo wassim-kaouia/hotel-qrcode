@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Emergency;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class App extends Model
 {
@@ -45,5 +46,9 @@ class App extends Model
 
     public function infos(){
         return $this->hasMany(Info::class);
+    }
+
+    public function emergencies(){
+        return $this->hasMany(Emergency::class);
     }
 }

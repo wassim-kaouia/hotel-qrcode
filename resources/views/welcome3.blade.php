@@ -89,9 +89,9 @@
             width: 70px;
         }
 
-        .social-icon {
+        /* .social-icon {
             width: 24px;
-        }
+        } */
 
         .overlay {
             height: 100%;
@@ -194,6 +194,10 @@
             align-items : center;
         }
 
+        .box-emergency {
+            padding-inline: 3px;
+        }
+
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -281,7 +285,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">
-                    <img src="{{ url('assets/images/logo_ovm.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
                 
             </div>
@@ -294,7 +298,7 @@
         <div class="d-flex justify-content-center">
             {{-- start avatar application  --}}
             <div class="d-flex justify-content-center">
-                <img src="{{ asset('assets/images/avatar.png') }}" class="rounded-circle mt-4" style="width: 150px; height:150px; object-fit : cover;" alt="Avatar" />
+                <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4" style="width: 150px; height:150px; object-fit : cover;" alt="Avatar" />
             </div>
             {{-- end avatar application  --}}
         </div>
@@ -318,10 +322,10 @@
         {{-- start sidemenu  --}}
         <div class="d-flex justify-content-center">
             <div class="flex-column">
-                <a href="#">Wifi</a>
-                <a href="#">Digicode</a>
-                <a href="#">Alentours</a>
-                <a href="#">Numeros Utiles</a>
+                <a href="#" onclick="openWifi()">Wifi</a>
+                <a href="#" onclick="openDigicode()">Digicode</a>
+                <a href="#" >Alentours</a>
+                <a href="#" onclick="openNumero()">Numeros Utiles</a>
                 <a href="#">Livre D'Or</a>
                 <a href="#">Infos Pratiques</a>
                 <a href="#">Infos Arrivé</a>
@@ -331,34 +335,29 @@
         {{-- end sidemenu --}}
 
         <div class="d-flex justify-content-center">
-            <div class="flex-column">
                 <p class="text-muted mt-4 d-flex justify-content-center">Connecter Avec l'Hôte</p>
-                <div class="d-flex justify-between">
-                    <a href="#" class="mb-2">
-                        {{-- image size in photoshop 145x145 px --}}
-                        <img src="{{ url('assets/images/facebook.png') }}"  class="social-icon" alt="facebook">
-                    </a>
+        </div>
 
-                    <a href="#" class="mb-2">
-                        {{-- image size in photoshop 145x145 px --}}
-                        <img src="{{ url('assets/images/instagram.png') }}"  class="social-icon" alt="instagram">
-                    </a>
+        <div class="d-flex">
+            <a href="#" class="mb-2">
+                {{-- image size in photoshop 145x145 px --}}
+                <img src="{{ url('assets/images/facebook.png') }}"  class="social-icon" style="width: 30px;" alt="facebook">
+            </a>
 
-                    <a href="#" class="mb-2">
-                        {{-- image size in photoshop 145x145 px --}}
-                        <img src="{{ url('assets/images/youtube.png') }}"  class="social-icon" alt="youtube">
-                    </a>
+            <a href="#" class="mb-2">
+                {{-- image size in photoshop 145x145 px --}}
+                <img src="{{ url('assets/images/instagram.png') }}"  class="social-icon" style="width: 30px;" alt="instagram">
+            </a>
 
-                    <a href="#" class="mb-2">
-                        {{-- image size in photoshop 145x145 px --}}
-                        <img src="{{ url('assets/images/twitter.png') }}"  class="social-icon" alt="twitter">
-                    </a>
-                </div>
-            </div>
+            <a href="#" class="mb-2">
+                {{-- image size in photoshop 145x145 px --}}
+                <img src="{{ url('assets/images/youtube.png') }}"  class="social-icon" style="width: 30px;" alt="youtube">
+            </a>
+
         </div>
 
         <div class="d-flex justify-content-center">
-            <img src="{{ url('assets/images/logo_ovm.png') }}" class="w-25 mb-4 mt-2" alt="">
+            <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
         </div>
 
       </div>
@@ -453,7 +452,18 @@
     <div id="myNumero" class="overlay">
         <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeNumero()">x</a>
         <div class="overlay-content">
-            <p class="pt-4 text-muted">Vous trouvez les differents Digicodes</p>
+            <p class="pt-4 text-muted">Vous trouvez ici des numeros utiles</p>
+            <div class="d-flex justify-content-center">
+                @foreach ($app->emergencies as $emergency)
+                <div class="mx-4 ">
+                    <div class="w-20 py-2 bg-light text-secondary rounded">
+                        <span>{{ $emergency->emergency_numero }}</span>
+                    </div>
+                    {{-- <br> --}}
+                    <span>{{ $emergency->title }}</span>
+                </div>
+                @endforeach
+            </div>
             <div class="flex column">
                 @foreach ($app->numeros as $numero)
                 <div class="d-flex justify-content-start px-4 pt-4">
@@ -468,7 +478,7 @@
                 </div>
 
                 <div class="d-flex justify-content-start px-4 pt-4">
-                    <p>Digicode:</p>
+                    <p>Numero:</p>
                 </div>
                 <div class="d-flex justify-content-start p-4 ">
                    <div class="wifi-box bg-white shadow-lg rounded">
@@ -499,13 +509,13 @@
             <div class="d-flex justify-content-center">
                 {{-- start avatar application  --}}
                 <div class="d-flex justify-content-center">
-                    <img src="{{ asset('assets/images/avatar.png') }}" class="rounded-circle mt-4" style="width: 150px; height:150px; object-fit : cover;" alt="Avatar" />
+                    <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4" style="width: 150px; height:150px; object-fit : cover;" alt="Avatar" />
                 </div>
                 {{-- end avatar application  --}}
             </div>
             <div class="d-flex justify-content-center mt-4">
                 <div class="text-center">
-                    <span class="font-weight-bold">Wassim Dev</span>
+                    <span class="font-weight-bold">{{ $app->user->name }}</span>
                 </div>
             </div>
 

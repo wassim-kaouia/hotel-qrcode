@@ -12,6 +12,7 @@ use App\Http\Controllers\ArroundController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DigicodeController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\TestimonialController;
 
 /*
@@ -36,6 +37,12 @@ use App\Http\Controllers\TestimonialController;
 // Route::get('/', [FrontendController::class,'index'])->name('vitrine.index');
 
 Route::middleware(['auth'])->group(function () {
+
+//ADD EMERGENCY Numeros
+    Route::post('/emergency_add',[EmergencyController::class,'addEmergency'])->name('emergency.create');   
+    Route::get('/emergency_show_update/{id}',[EmergencyController::class,'showUpdateEmergency'])->name('emergency.updating');
+    Route::get('emergency_delete/{id}',[EmergencyController::class,''])->name('emergency.delete');
+    Route::post('/emergency_update',[EmergencyController::class,'updateEmergency'])->name('emergency.update');
 
 //update icons settings
     Route::get('/icons_show',[SettingController::class,'updateIcons'])->name('icons.update');

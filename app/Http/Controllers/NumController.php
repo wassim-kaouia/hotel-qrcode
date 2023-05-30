@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\App;
+use App\Models\Num;
+use App\Models\Emergency;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Num;
-use Illuminate\Support\Facades\Auth;
-use App\Models\App;
 
 
 class NumController extends Controller
@@ -16,13 +17,16 @@ class NumController extends Controller
         $user = auth()->user();
         $appId = $user->app->id;
         $numeros = Num::where('app_id','=',$appId)->paginate(5);
+        $emergencies = Emergency::where('app_id','=',$appId)->get();
 
         return view('modules.module.numero',
         [
-            'numeros' => $numeros
+            'numeros' => $numeros,
+            'emergencies' => $emergencies
         ]
     );
     }
+
     
     public function addNumeros(Request $request){
 
@@ -33,7 +37,7 @@ class NumController extends Controller
          //validate inputs
          $validator = Validator::make($request->all(), [
             'numero_title' => 'required',
-            'numero_description' => 'required',
+            'numero_description' => '',
             'numero' => '',
         ]);
         
@@ -71,18 +75,22 @@ class NumController extends Controller
     public function updateNumeros($id){
         $onenumeros = Num::findOrFail($id);
         $numeros = Num::paginate(5);  
+        $emergencies = Emergency::where('id','=',$id)->get();
+
         return view('modules.module.numero_update',[
             'onenumeros' => $onenumeros,
             'numeros' => $numeros,
+            'emergencies' => $emergencies
         ]);
     }
 
 
     public function update(Request $request){
         // dd($request->all());
-        $numero = Num::findOrFail($request->infos_id);
-        $numero->title = $request->info_name;
-        $numero->description = $request->info_description;
+        $numero = Num::findOrFail($request->numero_id);
+        $numero->title = $request->numero_title;
+        $numero->description = $request->numero_description;
+        $numero->numero = $request->numero;
         Alert::success('Modification', "Modification du numero est faite avec succée !");
         $numero->save();
         return redirect()->back();
