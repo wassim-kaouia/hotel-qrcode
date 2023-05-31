@@ -805,7 +805,7 @@
     {{-- end livre d'Or overlay  --}} 
 
         {{-- start infos pratiques overlay  --}}
-        <div id="myInfosArrival" class="overlay">
+        <div id="myInfosArrival" class="overlay" style="overflow: hidden;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrival()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
@@ -842,11 +842,11 @@
         {{-- end infos pratiques overlay  --}} 
 
         {{-- temps d'arrivé overlay  --}}
-         <div id="myInfosArrivalTime" class="overlay">
+         <div id="myInfosArrivalTime" class="overlay" style="overflow: hidden;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalTime()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
-                                           
+
             </div>
         </div>
         
