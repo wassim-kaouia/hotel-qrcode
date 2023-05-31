@@ -195,7 +195,12 @@
         }
 
         .box-emergency {
-            padding-inline: 3px;
+            width: 70px;
+            
+            /* margin-top: auto;
+            margin-bottom: auto; */
+            margin-right: auto;
+            margin-left: auto;
         }
 
     </style>
@@ -453,14 +458,15 @@
         <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeNumero()">x</a>
         <div class="overlay-content">
             <p class="pt-4 text-muted">Vous trouvez ici des numeros utiles</p>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center my-4">
                 @foreach ($app->emergencies as $emergency)
-                <div class="mx-4 ">
-                    <div class="w-20 py-2 bg-light text-secondary rounded">
-                        <span>{{ $emergency->emergency_numero }}</span>
+                <div class="d-flex flex-column mx-4">
+                    <div class="box-emergency  mx-auto bg-light text-secondary rounded">
+                        {{-- add icons here  --}}
+                        <a class="text-dark" href="tel:{{ $emergency->emergency_numero }}"><span class="">{{ $emergency->emergency_numero }}</span></a>
                     </div>
                     {{-- <br> --}}
-                    <span>{{ $emergency->title }}</span>
+                    <span class="text-center mt-2">{{ $emergency->title }}</span>
                 </div>
                 @endforeach
             </div>
