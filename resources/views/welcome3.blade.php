@@ -819,20 +819,20 @@
                             </div>
                             <div class="col-6 mb-4">
                                 <div class="bg-light rounded d-flex flex-column">
-                                    <i class="fa fa-book p-4" style="font-size: 60px;" aria-hidden="true"></i>
-                                    <span class="" style="padding-bottom: 10px; font-size:24px;">Réglement Interne</span>
+                                    <i class="fa fa-book p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalReg()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalReg3()">Réglement Interne</span>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
                                 <div class="bg-light rounded d-flex flex-column">
-                                    <i class="fa fa-bell p-4" style="font-size: 60px;" aria-hidden="true"></i>
-                                    <span class="" style="padding-bottom: 10px; font-size:24px;">Rappel</span>
+                                    <i class="fa fa-bell p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalRappel()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalRappel()">Rappel</span>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
                                 <div class="bg-light rounded d-flex flex-column">
-                                    <i class="fa fa-key p-4" style="font-size: 60px;" aria-hidden="true"></i>
-                                    <span class="" style="padding-bottom: 10px; font-size:24px;">Clés</span>
+                                    <i class="fa fa-key p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalKey()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalKey()" >Clés</span>
                                 </div>
                             </div>
                         </div>
@@ -846,11 +846,100 @@
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalTime()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                <div class="d-flex flex-column px-4">
+                    <div class="d-flex justify-content-start">
+                        <p>Temps d'arrivée</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                            <p class="p-3">test test</p>
+                        </div>  
+                    </div>
+                    
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
 
             </div>
         </div>
-        
         {{-- end temps d'arrivé overlay --}}
+
+        {{-- rappel overlay  --}}
+        <div id="myInfosArrivalRappel" class="overlay" style="overflow: hidden;">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalRappel()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                <div class="d-flex flex-column px-4">
+                    <div class="d-flex justify-content-start">
+                        <p>Rappels</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                            <p class="p-3">test test</p>
+                        </div>  
+                    </div>
+                    
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+
+            </div>
+        </div>
+        {{-- rappel overlay --}}
+
+        {{-- clé overlay  --}}
+        <div id="myInfosArrivalKey" class="overlay" style="overflow: hidden;">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalKey()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                <div class="d-flex flex-column px-4">
+                    <div class="d-flex justify-content-start">
+                        <p>Clés</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                            <p class="p-3">test test</p>
+                        </div>  
+                    </div>
+                    
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+
+            </div>
+        </div>
+        {{-- clé overlay --}}
+
+        {{-- reglement overlay  --}}
+        <div id="myInfosArrivalReg" class="overlay" style="overflow: hidden;">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalReg()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                <div class="d-flex flex-column px-4">
+                    <div class="d-flex justify-content-start">
+                        <p>Réglements Interne</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                            <p class="p-3">test test</p>
+                        </div>  
+                    </div>
+                    
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+
+            </div>
+        </div>
+        {{-- reglement overlay --}}
 
     <div class="splash">
         <div class="container">
@@ -946,13 +1035,40 @@
         document.getElementById("myInfosArrival").style.width = "0%";
     }
 
-      //arrival infos - overlay 
+    //arrival infos - time
       function openInfosArrivalTime() {
         document.getElementById("myInfosArrivalTime").style.width = "100%";
     }
     
     function closeInfosArrivalTime() {
         document.getElementById("myInfosArrivalTime").style.width = "0%";
+    }
+
+    //arrival infos - rappel 
+    function openInfosArrivalRappel() {
+        document.getElementById("myInfosArrivalRappel").style.width = "100%";
+    }
+    
+    function closeInfosArrivalRappel() {
+        document.getElementById("myInfosArrivalRappel").style.width = "0%";
+    }
+
+    //arrival infos - key 
+    function openInfosArrivalKey() {
+        document.getElementById("myInfosArrivalKey").style.width = "100%";
+    }
+    
+    function closeInfosArrivalKey() {
+        document.getElementById("myInfosArrivalKey").style.width = "0%";
+    }
+
+    //arrival infos - reglement
+    function openInfosArrivalReg() {
+        document.getElementById("myInfosArrivalReg").style.width = "100%";
+    }
+    
+    function closeInfosArrivalReg() {
+        document.getElementById("myInfosArrivalReg").style.width = "0%";
     }
 
 
