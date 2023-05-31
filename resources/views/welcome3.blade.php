@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mydigihouse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .wrapper-container{
             width: 100%;
@@ -263,8 +266,8 @@
                     @if ($app->setting->modules_state['info'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->info_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->info_text }}</p>
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->info_path) }}" class="icon icon d-block center-block" alt="" onclick="openInfosArrival()">
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openInfosArrival()">{{ $setting->setting->info_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -333,7 +336,7 @@
                 <a href="#" onclick="openNumero()">Numeros Utiles</a>
                 <a href="#" onclick="openLivre()">Livre D'Or</a>
                 <a href="#">Infos Pratiques</a>
-                <a href="#">Infos Arrivé</a>
+                <a href="#" onclick="openInfosArrival()">Infos Arrivé</a>
                 <a href="#">Infos Départ</a>
             </div>
         </div>
@@ -801,6 +804,54 @@
     </div>
     {{-- end livre d'Or overlay  --}} 
 
+        {{-- start infos pratiques overlay  --}}
+        <div id="myInfosArrival" class="overlay">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrival()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                     <div class="container mt-4">
+                        <div class="row px-4">
+                            <div class="col-6 mb-4">
+                                <div class="bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-clock-o p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalTime()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalTime()">Temps d'arrivée</span>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-book p-4" style="font-size: 60px;" aria-hidden="true"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;">Réglement Interne</span>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-bell p-4" style="font-size: 60px;" aria-hidden="true"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;">Rappel</span>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-key p-4" style="font-size: 60px;" aria-hidden="true"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;">Clés</span>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+            </div>
+        </div>
+        {{-- end infos pratiques overlay  --}} 
+
+        {{-- temps d'arrivé overlay  --}}
+         <div id="myInfosArrivalTime" class="overlay">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalTime()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                                           
+            </div>
+        </div>
+        
+        {{-- end temps d'arrivé overlay --}}
+
     <div class="splash">
         <div class="container">
             <h1 class="text-center py-5">Message de bienvenue</h1>
@@ -884,6 +935,24 @@
     
     function closeLivre() {
         document.getElementById("myLivre").style.width = "0%";
+    }
+
+     //arrival infoss
+     function openInfosArrival() {
+        document.getElementById("myInfosArrival").style.width = "100%";
+    }
+    
+    function closeInfosArrival() {
+        document.getElementById("myInfosArrival").style.width = "0%";
+    }
+
+      //arrival infos - overlay 
+      function openInfosArrivalTime() {
+        document.getElementById("myInfosArrivalTime").style.width = "100%";
+    }
+    
+    function closeInfosArrivalTime() {
+        document.getElementById("myInfosArrivalTime").style.width = "0%";
     }
 
 
