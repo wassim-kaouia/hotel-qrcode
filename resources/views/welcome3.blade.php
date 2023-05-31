@@ -331,7 +331,7 @@
                 <a href="#" onclick="openDigicode()">Digicode</a>
                 <a href="#" >Alentours</a>
                 <a href="#" onclick="openNumero()">Numeros Utiles</a>
-                <a href="#">Livre D'Or</a>
+                <a href="#" onclick="openLivre()">Livre D'Or</a>
                 <a href="#">Infos Pratiques</a>
                 <a href="#">Infos Arrivé</a>
                 <a href="#">Infos Départ</a>
