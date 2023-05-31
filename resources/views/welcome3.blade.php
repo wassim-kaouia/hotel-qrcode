@@ -462,7 +462,7 @@
                 @foreach ($app->emergencies as $emergency)
                 <div class="d-flex flex-column mx-4">
                     <div class="box-emergency  mx-auto bg-light text-secondary rounded">
-                        {{-- add icons here  --}}
+                    {{-- add icons here  --}}
                         <a class="text-dark" href="tel:{{ $emergency->emergency_numero }}"><span class="">{{ $emergency->emergency_numero }}</span></a>
                     </div>
                     {{-- <br> --}}
