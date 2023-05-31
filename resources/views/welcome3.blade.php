@@ -489,7 +489,7 @@
                 <div class="d-flex justify-content-start p-4 ">
                    <div class="wifi-box bg-white shadow-lg rounded">
                       <div class="bg-light py-2 rounded">
-                         <p id="numeroCode-{{ $numero->id }}" class="mt-2">{{ $numero->numero }}</p>
+                         <a class="text-dark" style="font-size: 18px;" href="tel:{{ $numero->numero }}"><p id="numeroCode-{{ $numero->id }}" class="mt-2">{{ $numero->numero }}</p></a>
                       </div>
                    </div>
                 </div>
