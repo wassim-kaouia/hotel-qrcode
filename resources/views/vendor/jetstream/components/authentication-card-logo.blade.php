@@ -6,5 +6,5 @@
 
     {{-- login logo  --}}
 
-    <img src="{{ url('/frontend/assets/images/logo_ovm.png') }}" alt="" class="w-32">
+    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" alt="" class="w-32">
 </a>

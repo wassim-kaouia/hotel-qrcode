@@ -165,7 +165,7 @@
                                 
                             </table>
                             <div class="m-3">
-                                {!! $infos->withQueryString()->links() !!}   
+                                {!! $arrivalinfos->withQueryString()->links() !!}   
                             </div>
                         </div>
                     </div>
