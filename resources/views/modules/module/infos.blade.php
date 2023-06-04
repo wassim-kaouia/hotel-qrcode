@@ -64,7 +64,7 @@
                                             {{ $reglement->title }}
                                         </th> 
                                         <td class="px-6 py-4">
-                                            {{ $reglement->reglement }}
+                                            {{ mb_strimwidth($reglement->reglement, 0, 40, "..."); }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <a href="{{ route('reglement.updating',['id' => $reglement->id]) }}"
@@ -142,7 +142,7 @@
                                             {{ $info->title }}
                                         </th> 
                                         <td class="px-6 py-4">
-                                            {{ $info->arrival_message }}
+                                            {{ mb_strimwidth($info->arrival_message, 0, 40, "...") }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <a href="{{ route('arrivalinfo.updating',['id' => $info->id]) }}"
@@ -218,7 +218,7 @@
                                             {{ $info->title }}
                                         </th> 
                                         <td class="px-6 py-4">
-                                            {{ $info->description }}
+                                            {{ mb_strimwidth($info->description, 0, 40, "..."); }}
                                         </td>
                                        
                                         <td class="px-6 py-4">
