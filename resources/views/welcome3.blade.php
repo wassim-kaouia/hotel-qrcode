@@ -826,25 +826,25 @@
                      <div class="container mt-4">
                         <div class="row px-4">
                             <div class="col-6 mb-4">
-                                <div class="bg-light rounded d-flex flex-column">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
                                     <i class="fa fa-clock-o p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalTime()"></i>
                                     <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalTime()">Temps d'arrivée</span>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
-                                <div class="bg-light rounded d-flex flex-column">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
                                     <i class="fa fa-book p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalReg()"></i>
                                     <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalReg3()">Réglement Interne</span>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
-                                <div class="bg-light rounded d-flex flex-column">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
                                     <i class="fa fa-bell p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalRappel()"></i>
                                     <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalRappel()">Rappel</span>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
-                                <div class="bg-light rounded d-flex flex-column">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
                                     <i class="fa fa-key p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalKey()"></i>
                                     <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalKey()" >Clés</span>
                                 </div>
@@ -1048,6 +1048,7 @@
     
     function closeLivre() {
         document.getElementById("myLivre").style.width = "0%";
+        
     }
 
      //arrival infoss
@@ -1057,6 +1058,7 @@
     
     function closeInfosArrival() {
         document.getElementById("myInfosArrival").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
     }
 
     //arrival infos - time
@@ -1066,6 +1068,7 @@
     
     function closeInfosArrivalTime() {
         document.getElementById("myInfosArrivalTime").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
     }
 
     //arrival infos - rappel 
@@ -1075,6 +1078,7 @@
     
     function closeInfosArrivalRappel() {
         document.getElementById("myInfosArrivalRappel").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
     }
 
     //arrival infos - key 
@@ -1084,6 +1088,7 @@
     
     function closeInfosArrivalKey() {
         document.getElementById("myInfosArrivalKey").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
     }
 
     //arrival infos - reglement
@@ -1093,6 +1098,7 @@
     
     function closeInfosArrivalReg() {
         document.getElementById("myInfosArrivalReg").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
     }
 
 
@@ -1135,6 +1141,10 @@
             $('#btn-element').html('Copier');
         },3000);
 
+    });
+
+    $('.btn-box').on('click',function(){
+        $('#myInfosArrival').css('display','none');
     });
 
     </script>
