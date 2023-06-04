@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\App;
+use App\Models\Info;
+use App\Models\Reglement;
+use App\Models\ArrivalInfo;
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Info;
-use Illuminate\Support\Facades\Auth;
-use App\Models\App;
-
-use Illuminate\Http\Request;
 
 class InfoController extends Controller
 {
@@ -18,9 +20,14 @@ class InfoController extends Controller
         $appId = $user->app->id;
         $infos = Info::where('app_id','=',$appId)->paginate(5);
 
+        $arrivalinfos = ArrivalInfo::where('app_id','=',$appId)->get();
+        $reglements = Reglement::where('app_id','=',$appId)->get();
+
         return view('modules.module.infos',
         [
-            'infos' => $infos
+            'infos' => $infos,
+            'arrivalinfos' => $arrivalinfos,
+            'reglements' => $reglements
         ]
     );
     }

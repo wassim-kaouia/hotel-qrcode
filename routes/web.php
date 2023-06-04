@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\ArrivalInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\NumController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DigicodeController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\EmergencyController;
+use App\Http\Controllers\ReglementController;
+use App\Http\Controllers\ArrivalInfoController;
 use App\Http\Controllers\TestimonialController;
 
 /*
@@ -43,6 +46,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/emergency_show_update/{id}',[EmergencyController::class,'showUpdateEmergency'])->name('emergency.updating');
     Route::get('emergency_delete/{id}',[EmergencyController::class,''])->name('emergency.delete');
     Route::post('/emergency_update',[EmergencyController::class,'updateEmergency'])->name('emergency.update');
+
+//ADD Arrival Info
+    Route::post('/reglement_add',[ReglementController::class,'addReglement'])->name('reglement.create');   
+    Route::get('/reglement_show_update/{id}',[ReglementController::class,'showUpdateReglement'])->name('reglement.updating');
+    Route::get('reglement_delete/{id}',[ReglementController::class,''])->name('reglement.delete');
+    Route::post('/reglement_update',[ReglementController::class,'updateReglement'])->name('reglement.update');  
+    
+//ADD Arrival Info
+    Route::post('/arrivalInfo_add',[ArrivalInfoController::class,'addArrivalInfo'])->name('arrivalinfo.create');   
+    Route::get('/arrivalInfo_show_update/{id}',[ArrivalInfoController::class,'showUpdateArrivalInfo'])->name('arrivalinfo.updating');
+    Route::get('arrivalInfo_delete/{id}',[ArrivalInfoController::class,''])->name('arrivalinfo.delete');
+    Route::post('/arrivalInfo_update',[ArrivalInfoController::class,'updateArrivalInfo'])->name('arrivalinfo.update');      
 
 //update icons settings
     Route::get('/icons_show',[SettingController::class,'updateIcons'])->name('icons.update');

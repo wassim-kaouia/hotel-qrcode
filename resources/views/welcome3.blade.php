@@ -218,7 +218,7 @@
 
             {{-- start avatar application  --}}
             <div class="d-flex justify-content-center">
-                <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4" style="width:150px; height:150px; object-fit : fill;" alt="Avatar" />
+                <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4" style="width:130px; height:130px; object-fit : fill;" alt="Avatar" />
             </div>
             {{-- end avatar application  --}}
 
@@ -400,8 +400,8 @@
                          <p id="wifiCode-{{ $wifi->id }}" class="mt-2">{{ $wifi->code }}</p>
                       </div>
                       <div class="pt-4 px-5">
-                        <div class="d-flex justify-content-center bg-danger rounded hover:bg-primary">
-                            <p class="text-white pt-2 mt-2" onclick="CopyToClipboard('wifiCode-'+{{ $wifi->id }})">Copier</p>
+                        <div id="copier_btn" class="d-flex justify-content-center bg-danger rounded hover:bg-primary">
+                            <p id="btn-element" class="text-white pt-2 mt-2" onclick="CopyToClipboard('wifiCode-'+{{ $wifi->id }})">Copier</p>
                         </div>
                       </div>
                    </div>
@@ -847,14 +847,19 @@
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
                 <div class="d-flex flex-column px-4">
-                    <div class="d-flex justify-content-start">
-                        <p>Temps d'arrivée</p>
+                    
+                    @foreach ($app->arrivalInfo as $info)
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-start">
+                            <p>{{ $info->title }}</p>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                                <p class="p-3">{{ $info->arrival_message }}</p>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-start">
-                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
-                            <p class="p-3">test test</p>
-                        </div>  
-                    </div>
+                    @endforeach
                     
                 </div>
 
@@ -922,17 +927,19 @@
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
                 <div class="d-flex flex-column px-4">
-                    <div class="d-flex justify-content-start">
-                        <p>Réglements Interne</p>
+                    @foreach ($app->reglements as $reglement)
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-start">
+                            <p>{{ $reglement->title }}</p>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                                <p class="p-3">{{ $reglement->reglement }}</p>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-start">
-                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
-                            <p class="p-3">test test</p>
-                        </div>  
-                    </div>
-                    
+                    @endforeach
                 </div>
-
                 <div class="d-flex justify-content-center mt-4">
                     <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
@@ -941,7 +948,7 @@
         </div>
         {{-- reglement overlay --}}
 
-    <div class="splash">
+    <div class="splash rounded">
         <div class="container">
             <h1 class="text-center py-5">Message de bienvenue</h1>
             <div>
@@ -1100,6 +1107,18 @@
         splashScreen.classList.add('hidden')
         },610)  
     })
+
+    $('#copier_btn').on('click',function(){
+        $('#copier_btn').removeClass('bg-danger');
+        $('#copier_btn').addClass('bg-success');
+        $('#btn-element').html('Copié');
+        setTimeout(function(){
+            $('#copier_btn').removeClass('bg-success');
+            $('#copier_btn').addClass('bg-danger');
+            $('#btn-element').html('Copier');
+        },3000);
+
+    });
 
     </script>
 

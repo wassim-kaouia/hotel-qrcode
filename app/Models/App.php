@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Emergency;
+use App\Models\Reglement;
+use App\Models\ArrivalInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -51,4 +53,13 @@ class App extends Model
     public function emergencies(){
         return $this->hasMany(Emergency::class);
     }
+
+    public function arrivalInfo(){
+        return $this->hasMany(ArrivalInfo::class);
+    }
+
+    public function reglements(){
+        return $this->hasMany(Reglement::class);
+    }
+    
 }
