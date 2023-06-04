@@ -364,8 +364,8 @@
 
         </div>
 
-        <div class="d-flex justify-content-center">
-            <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+        <div class="d-flex justify-content-center mt-4">
+            <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
         </div>
 
       </div>
@@ -413,6 +413,9 @@
 
                 @endforeach
             </div>
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+            </div>
         </div>
     </div>
     {{-- end wifi overlay  --}} 
@@ -451,6 +454,9 @@
                 @endif
 
                 @endforeach
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
             </div>
         </div>
     </div>
@@ -502,6 +508,11 @@
                 @endif
                 @endforeach
             </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+            </div>
+
         </div>
     </div>
     {{-- end numero utiles overlay  --}} 
@@ -800,6 +811,9 @@
 
                 @endforeach
             </div>
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+            </div>
         </div>
     </div>
     {{-- end livre d'Or overlay  --}} 
@@ -837,12 +851,15 @@
                             </div>
                         </div>
                      </div>
+                     <div class="d-flex justify-content-center mt-4">
+                        <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    </div>
             </div>
         </div>
         {{-- end infos pratiques overlay  --}} 
 
         {{-- temps d'arrivé overlay  --}}
-         <div id="myInfosArrivalTime" class="overlay" style="overflow: hidden;">
+         <div id="myInfosArrivalTime" class="overlay" style="overflow-y: scroll;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalTime()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
@@ -864,7 +881,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">
-                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
 
             </div>
@@ -872,7 +889,7 @@
         {{-- end temps d'arrivé overlay --}}
 
         {{-- rappel overlay  --}}
-        <div id="myInfosArrivalRappel" class="overlay" style="overflow: hidden;">
+        <div id="myInfosArrivalRappel" class="overlay" style="overflow-y: scroll;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalRappel()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
@@ -889,7 +906,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">
-                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
 
             </div>
@@ -897,7 +914,7 @@
         {{-- rappel overlay --}}
 
         {{-- clé overlay  --}}
-        <div id="myInfosArrivalKey" class="overlay" style="overflow: hidden;">
+        <div id="myInfosArrivalKey" class="overlay" style="overflow-y: scroll;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalKey()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
@@ -914,7 +931,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">
-                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
 
             </div>
@@ -922,7 +939,7 @@
         {{-- clé overlay --}}
 
         {{-- reglement overlay  --}}
-        <div id="myInfosArrivalReg" class="overlay" style="overflow: hidden;">
+        <div id="myInfosArrivalReg" class="overlay" style="overflow-y: scroll;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrivalReg()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
@@ -941,7 +958,7 @@
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <img src="{{ url('assets/images/logo-mydigihouse.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
 
             </div>
