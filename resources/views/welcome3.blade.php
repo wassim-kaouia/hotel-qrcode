@@ -819,7 +819,7 @@
     {{-- end livre d'Or overlay  --}} 
 
         {{-- start infos pratiques overlay  --}}
-        <div id="myInfosArrival" class="overlay" style="overflow: hidden;">
+        <div id="myInfosArrival" class="overlay" style="overflow-y: scroll;">
             <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInfosArrival()">x</a>
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
@@ -851,7 +851,7 @@
                             </div>
                         </div>
                      </div>
-                     <div class="d-flex justify-content-center mt-4 pb-4">
+                     <div class="d-flex justify-content-center my-4">
                         <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                     </div>
             </div>
