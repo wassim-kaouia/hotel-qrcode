@@ -217,8 +217,8 @@
         <div class="container">
 
             {{-- start avatar application  --}}
-            <div class="d-flex justify-content-center">
-                <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4 p-4" style="width:130px; height:130px; object-fit : fill;" alt="Avatar" />
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('imagesApp/images/'.$app->user_id.'/'.$app->avatar) }}" class="rounded-circle mt-4 p-2" style="width:125px; height:125px; object-fit : fill;" alt="Avatar" />
             </div>
             {{-- end avatar application  --}}
 
