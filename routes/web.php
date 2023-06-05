@@ -10,6 +10,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\WifiController;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\RappelController;
 use App\Http\Controllers\ArroundController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DigicodeController;
@@ -59,6 +60,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/key_show_update/{id}',[KeyController::class,'showUpdateKey'])->name('key.updating');
     Route::get('key_delete/{id}',[KeyController::class,''])->name('key.delete');
     Route::post('/key_update',[KeyController::class,'updateKey'])->name('key.update');  
+
+//ADD Key Info
+    Route::post('/rappel_add',[RappelController::class,'addRappel'])->name('rappel.create');   
+    Route::get('/rappel_show_update/{id}',[RappelController::class,'showUpdateRappel'])->name('rappel.updating');
+    Route::get('rappel_delete/{id}',[RappelController::class,''])->name('rappel.delete');
+    Route::post('/rappel_update',[RappelController::class,'updateRappel'])->name('rappel.update');      
     
 //ADD Arrival Info
     Route::post('/arrivalInfo_add',[ArrivalInfoController::class,'addArrivalInfo'])->name('arrivalinfo.create');   

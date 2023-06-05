@@ -894,15 +894,18 @@
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
                 <div class="d-flex flex-column px-4">
-                    <div class="d-flex justify-content-start">
-                        <p>Rappels</p>
+                    @foreach ($app->rappels as $rappel)
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-start">
+                            <p>{{ $rappel->title }}</p>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                                <p class="p-3">{{ $rappel->rappel_info }}</p>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-start">
-                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
-                            <p class="p-3">test test</p>
-                        </div>  
-                    </div>
-                    
+                    @endforeach
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">
@@ -932,7 +935,6 @@
                         @endforeach
                     </div>
                 </div>
-
                 <div class="d-flex justify-content-center mt-4">
                     <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>

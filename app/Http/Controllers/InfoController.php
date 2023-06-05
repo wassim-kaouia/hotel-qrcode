@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\App;
 use App\Models\Key;
 use App\Models\Info;
+use App\Models\Rappel;
 use App\Models\Reglement;
-use App\Models\ArrivalInfo;
 
+use App\Models\ArrivalInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -24,6 +25,7 @@ class InfoController extends Controller
         $arrivalinfos = ArrivalInfo::where('app_id','=',$appId)->get();
         $reglements = Reglement::where('app_id','=',$appId)->get();
         $keys = Key::where('app_id','=',$appId)->get();
+        $rappels = Rappel::where('app_id','=',$appId)->get();
 
         return view('modules.module.infos',
         [
@@ -31,6 +33,7 @@ class InfoController extends Controller
             'arrivalinfos' => $arrivalinfos,
             'reglements' => $reglements,
             'keys' => $keys,
+            'rappels' => $rappels,
         ]
     );
     }

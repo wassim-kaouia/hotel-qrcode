@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Key;
+use App\Models\Rappel;
 use App\Models\Emergency;
 use App\Models\Reglement;
 use App\Models\ArrivalInfo;
@@ -65,6 +66,10 @@ class App extends Model
 
     public function keys(){
         return $this->hasMany(Key::class);
+    }
+
+    public function rappels(){
+        return $this->hasMany(Rappel::class);
     }
     
 }
