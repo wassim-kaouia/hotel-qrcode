@@ -7,6 +7,7 @@ use App\Models\Rappel;
 use App\Models\Emergency;
 use App\Models\Reglement;
 use App\Models\ArrivalInfo;
+use App\Models\Partenariat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -70,6 +71,10 @@ class App extends Model
 
     public function rappels(){
         return $this->hasMany(Rappel::class);
+    }
+
+    public function partenariats(){
+        return $this->hasMany(Partenariat::class);
     }
     
 }

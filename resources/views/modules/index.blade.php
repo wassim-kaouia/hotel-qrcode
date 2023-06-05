@@ -151,7 +151,7 @@
                                 </div>
                             </div>
                             {{-- end module Infos  --}}
-                            {{-- wifi module Numéros --}}
+                            {{-- start module Numéros --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
                                     {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
@@ -174,6 +174,31 @@
                                 </div>
                             </div>
                             {{-- end module Numéros --}}
+
+                            {{-- start module partenariat --}}
+                                 <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
+                                            aria-hidden="true"></i> --}}
+                                            <img src="{{ url('imagesApp/images/icons/'.$setting->partenariat_path) }}" class="icon d-block center-block">
+    
+                                        <h2 class="flex justify-center mb-2">{{ $setting->partenariat_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['partenariat'] == 'on' ? 'checked' : '' }}
+                                                    name="partenariat_state" class="sr-only peer" id="partenariat">
+                                                <input type="hidden" name="partenariat_state" value="off"
+                                                    class="sr-only peer" id="partenariat_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module Partenariat --}}
+
                         </div>
                         <div class="grid lg:grid-cols-1">
                             <div class="px-4 mb-2">
@@ -404,6 +429,12 @@
                 $('#frame').contents().find('.icon_nums').addClass('icon');
                 $('#frame').contents().find('.icon_nums').addClass('d-block');
                 $('#frame').contents().find('.icon_nums').addClass('center-block');
+
+                //change partenariat icon
+                $('#frame').contents().find('.icon_partenariat').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->partenariat_path}}");
+                $('#frame').contents().find('.icon_partenariat').addClass('icon');
+                $('#frame').contents().find('.icon_partenariat').addClass('d-block');
+                $('#frame').contents().find('.icon_partenariat').addClass('center-block');
                 
                 //change title + description color in iframe when change event occurs in color input
                 document.getElementById("icons-color").addEventListener("change", function() {
@@ -464,6 +495,29 @@
                         console.log('unchecked');
                         $('#frame').contents().find('.wifi_module').css('display', 'none');
                         $('#frame').contents().find('.wifi_module').addClass('d-none');
+                    }
+                });
+
+                //get partenariat state from blade 
+                var partenariat_state = "{{ count($setting->modules_state) > 0 ? $setting->modules_state['partenariat'] : '' }}";
+                // switch buttons -> display or hide elements on iframe screen when change event occurs in switch buttons
+                if (partenariat_state == 'on') {
+                    $('#frame').contents().find('.partenariat_module').css('display', 'block');
+                    $('#frame').contents().find('.partenariat_module').removeClass('d-none');
+
+                } else if (partenariat_state == 'off') {
+                    $('#frame').contents().find('.partenariat_module').css('display', 'none');
+                    $('#frame').contents().find('.partenariat_module').addClass('d-none');
+                }
+                document.getElementById("partenariat").addEventListener("change", function() {
+                    if (this.checked) {
+                        console.log('checked');
+                        $('#frame').contents().find('.partenariat_module').css('display', 'block');
+                        $('#frame').contents().find('.partenariat_module').removeClass('d-none');
+                    } else {
+                        console.log('unchecked');
+                        $('#frame').contents().find('.partenariat_module').css('display', 'none');
+                        $('#frame').contents().find('.partenariat_module').addClass('d-none');
                     }
                 });
 
@@ -589,6 +643,10 @@
                     }
                     if (document.getElementById("nums").checked) {
                         document.getElementById('nums_hidden').disabled = true;
+                    } 
+
+                    if (document.getElementById("partenariat").checked) {
+                        document.getElementById('partenariat_hidden').disabled = true;
                     } 
                 });
             }

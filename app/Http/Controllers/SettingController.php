@@ -34,6 +34,7 @@ class SettingController extends Controller
             'livre_state' => '',
             'arround_state' => '',
             'info_state' => '',
+            'partenariat_state' => '',
             'gallery_images' => 'image|mimes:jpeg,png,jpg|max:2048',
             'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
             'nums_state' => '',
@@ -109,6 +110,7 @@ class SettingController extends Controller
             'arround' => $request->arround_state,
             'info' => $request->info_state,
             'nums' => $request->nums_state,
+            'partenariat' => $request->partenariat_state,
         ];
 
         //convert array to json
@@ -207,6 +209,8 @@ class SettingController extends Controller
             'icon_arround'  => 'image|mimes:jpeg,png,jpg|max:2048',
             'title_numero' => 'required',
             'icon_numero'  => 'image|mimes:jpeg,png,jpg|max:2048',
+            'title_partenariat' => 'required',
+            'icon_partenariat'  => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         //if validations fails
@@ -336,6 +340,23 @@ class SettingController extends Controller
              //store path in DB:
              $setting->numero_path = $imageName_numero;
          }
+         //partenariat title and icon 
+         $setting->partenariat_text = $request->title_partenariat;
+         if ($request->hasFile('icon_partenariat')){
+            //get image extension and add time to its name 
+            $imageName_partenariat = time() . '.' . $request->icon_partenariat->extension();
+            //move the image to public folder in the desired path with the name generated above ($imageName)
+            $request->icon_partenariat->move(public_path('imagesApp/images/icons/'), $imageName_partenariat);
+            //get the path of the uploaded image in order to delete it in case new image is being uploaded to avoid having many images stored in the app without using them
+            $imagePathPublicFolder_partenariat = public_path('imagesApp/images/icons/' . $setting->partenariat_path);
+            //check wether the image exists in the folder of application 
+            if (File::exists($imagePathPublicFolder_partenariat)) {
+                // delete it
+                File::delete($imagePathPublicFolder_partenariat);
+            } 
+            //store path in DB:
+            $setting->partenariat_path = $imageName_partenariat;
+        }
 
         $setting->save();
 

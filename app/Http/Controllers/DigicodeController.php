@@ -41,7 +41,7 @@ class DigicodeController extends Controller
             Alert::error('Erreur', 'Problème de validation..Merci de vérifier les champs !');
             return redirect()->back();
         }
-
+        
         $digicode = new Digicode();
         $digicode->title = $request->digicode_titre;
         $digicode->access_code = $request->digicode_key;

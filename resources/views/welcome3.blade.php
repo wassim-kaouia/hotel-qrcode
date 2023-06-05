@@ -289,6 +289,15 @@
                         </div>
                     </div>
                     @endif
+
+                    @if ($app->setting->modules_state['partenariat'] == 'on')
+                    <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
+                        <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
+                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->partenariat_path) }}" class="icon icon d-block center-block" alt="" onclick="openPartenariat()">
+                            <p class="icon-title d-block text-center" onclick="openPartenariat()" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->partenariat_text }}</p>
+                        </div>
+                    </div>
+                    @endif
   
                 </div>
 
@@ -970,6 +979,30 @@
         </div>
         {{-- reglement overlay --}}
 
+    {{-- start parteariat overlay  --}}
+    <div id="myPartenariat" class="overlay">
+        <a href="javascript:void(0)" class="closebtn-icon"  onclick="closePartenariat()">x</a>
+        <div class="overlay-content">
+            <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+                 <div class="container mt-4">
+                    <div class="row px-4">
+
+                        @foreach ($app->partenariats as $partenariat)
+                        <div class="col-6 mb-4">
+                            <div class="btn-box bg-light rounded d-flex flex-column">
+                                <img src="{{ url('imagesApp/images/partenariats/'.$partenariat->partenariat_icon) }}" alt="">
+                                <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openPartenariat()">{{ $partenariat->name }}</span>
+                            </div>
+                        </div>
+                        @endforeach
+                   
+                 <div class="d-flex justify-content-center my-4">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+        </div>
+    </div>
+    {{-- end partenariat overlay  --}} 
+
     <div class="splash rounded">
         <div class="container">
             <h1 class="text-center py-5">Message de bienvenue</h1>
@@ -1104,6 +1137,15 @@
     function closeInfosArrivalReg() {
         document.getElementById("myInfosArrivalReg").style.width = "0%";
         $('#myInfosArrival').css('display','block');
+    }
+
+    //partenariat
+    function openPartenariat() {
+        document.getElementById("myPartenariat").style.width = "100%";
+    }
+    
+    function closePartenariat() {
+        document.getElementById("myPartenariat").style.width = "0%";
     }
 
 

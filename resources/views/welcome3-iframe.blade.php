@@ -239,7 +239,14 @@
                             <img class="icon_nums" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
                             <p id="icon-title" class="icon-title text-center d-block">Numeros</p>
                         </div>
-                    </div>      
+                    </div>  
+                    
+                    <div class="partenariat_module col-sm-6 col-6 d-flex justify-content-center mt-3">
+                        <div class="square-icon">
+                            <img class="icon_partenariat" src="{{ url('assets/images/wifi.png') }}" class="icon d-block center-block" style="" alt="">
+                            <p id="icon-title" class="icon-title text-center d-block">Partenariat</p>
+                        </div>
+                    </div>  
 
                 </div>
 

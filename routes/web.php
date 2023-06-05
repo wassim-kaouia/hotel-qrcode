@@ -18,6 +18,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\ReglementController;
 use App\Http\Controllers\ArrivalInfoController;
+use App\Http\Controllers\PartenariatController;
 use App\Http\Controllers\TestimonialController;
 
 /*
@@ -150,6 +151,16 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    //Alentours
+        Route::post('/module/partenariat/create', [PartenariatController::class, 'addPartenariat'])->name('partenariat.create');
+        Route::get('/module/partenariat/show', [PartenariatController::class, 'showPartenariat'])->name('partenariat.show');
+        Route::get('/module/partenariat/index', [PartenariatController::class, 'index'])->name('partenariat.index');
+        Route::get('/deletePartenariat/{id}', [PartenariatController::class, 'deletePartenariat'])->name('partenariat.delete');
+        Route::get('/updatepartenariat/{id}', [PartenariatController::class, 'updatePartenariat'])->name('partenariat.update');
+        Route::post('/update/partenariat/', [PartenariatController::class, 'update'])->name('partenariat.updates');
+});
+
+Route::middleware(['auth'])->group(function () {
 //testiomonial
     Route::get('/testimonials', [TestimonialController::class, 'index'])->name('index.testimonials');
     Route::post('/testimonials/create', [TestimonialController::class, 'store'])->name('store.comment');
@@ -159,7 +170,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    //testiomonial
+//testiomonial
         Route::get('/plans', [PlanController::class, 'index'])->name('index.plans');
         Route::post('/plans/create', [PlanController::class, 'store'])->name('store.plans');
         Route::get('/plan/{id}',[PlanController::class,'edit'])->name('edit.plan');

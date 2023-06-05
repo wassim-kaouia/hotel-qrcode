@@ -155,6 +155,28 @@
                                 </div>    
                             </div>
 
+                            <div class="px-4 mb-2">
+                                <label for="default-input"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom du Module Partenariat</label>
+                                <input type="text" id="title_input" name="title_partenariat"
+                                    value="{{ $setting->partenariat_text }}"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="px-4 mb-2">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="file_input">Icon Partenariat</label>
+                                <input name="icon_partenariat"
+                                    class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    aria-describedby="file_input_help" id="file_input" type="file">
+                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
+                                    PNG,
+                                    JPG
+                                    (MAX. 145x145px).</p>
+                                <div>
+                                    <img src="{{ url('imagesApp/images/icons/'.$setting->partenariat_path) }}" alt="Partenariats">
+                                </div>    
+                            </div>
+
 
     
                             <div class="px-4 mb-2">

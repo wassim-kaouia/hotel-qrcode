@@ -58,12 +58,22 @@
                             </div>
                         </div>
                         {{-- end module Infos  --}}
-                        {{-- wifi module Numéros --}}
+                        {{-- start module Numéros --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
                                 <i class="fa fa-volume-control-phone text-6xl flex justify-center"
                                     aria-hidden="true"></i>
                                 <a href="{{ route('numeros.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Numeros</a>
+                                
+                            </div>
+                        </div>
+                        {{-- end module Numéros --}}
+                        {{-- start module partenariat  --}}
+                        <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
+                            <div class="p-4">
+                                <i class="fa fa-handshake-o text-6xl flex justify-center"
+                                    aria-hidden="true"></i>
+                                <a href="{{ route('partenariat.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Partenariat</a>
                                 
                             </div>
                         </div>
