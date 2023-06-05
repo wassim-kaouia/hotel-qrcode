@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\ArrivalInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\KeyController;
 use App\Http\Controllers\NumController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PlanController;
@@ -52,6 +53,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/reglement_show_update/{id}',[ReglementController::class,'showUpdateReglement'])->name('reglement.updating');
     Route::get('reglement_delete/{id}',[ReglementController::class,''])->name('reglement.delete');
     Route::post('/reglement_update',[ReglementController::class,'updateReglement'])->name('reglement.update');  
+
+//ADD Key Info
+    Route::post('/key_add',[KeyController::class,'addKey'])->name('key.create');   
+    Route::get('/key_show_update/{id}',[KeyController::class,'showUpdateKey'])->name('key.updating');
+    Route::get('key_delete/{id}',[KeyController::class,''])->name('key.delete');
+    Route::post('/key_update',[KeyController::class,'updateKey'])->name('key.update');  
     
 //ADD Arrival Info
     Route::post('/arrivalInfo_add',[ArrivalInfoController::class,'addArrivalInfo'])->name('arrivalinfo.create');   

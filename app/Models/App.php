@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Key;
 use App\Models\Emergency;
 use App\Models\Reglement;
 use App\Models\ArrivalInfo;
@@ -60,6 +61,10 @@ class App extends Model
 
     public function reglements(){
         return $this->hasMany(Reglement::class);
+    }
+
+    public function keys(){
+        return $this->hasMany(Key::class);
     }
     
 }

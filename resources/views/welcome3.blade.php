@@ -919,15 +919,18 @@
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
                 <div class="d-flex flex-column px-4">
-                    <div class="d-flex justify-content-start">
-                        <p>Clés</p>
+                    <div class="mt-4">
+                        @foreach ($app->keys as $key)
+                        <div class="d-flex justify-content-start">
+                            <p>{{ $key->title }}</p>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                                <p class="p-3">{{ $key->key_info }}</p>
+                            </div>  
+                        </div>
+                        @endforeach
                     </div>
-                    <div class="d-flex justify-content-start">
-                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
-                            <p class="p-3">test test</p>
-                        </div>  
-                    </div>
-                    
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">

@@ -244,7 +244,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-4">
-                    <img src="{{ url('assets/images/logo_ovm.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
                 
             </div>
@@ -312,10 +312,6 @@
                         <img src="{{ url('assets/images/youtube.png') }}"  class="social-icon" alt="youtube">
                     </a>
 
-                    <a href="#" class="mb-2">
-                        {{-- image size in photoshop 145x145 px --}}
-                        <img src="{{ url('assets/images/twitter.png') }}"  class="social-icon" alt="twitter">
-                    </a>
                 </div>
             </div>
         </div>
