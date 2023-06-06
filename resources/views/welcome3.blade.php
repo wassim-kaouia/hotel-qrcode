@@ -983,15 +983,16 @@
     <div id="myPartenariat" class="overlay">
         <a href="javascript:void(0)" class="closebtn-icon"  onclick="closePartenariat()">x</a>
         <div class="overlay-content">
-            <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
+            <p class="pt-4 mx-4 text-muted">Nos Partenaires</p>
                  <div class="container mt-4">
                     <div class="row px-4">
 
                         @foreach ($app->partenariats as $partenariat)
                         <div class="col-6 mb-4">
-                            <div class="btn-box bg-light rounded d-flex flex-column">
-                                <img src="{{ url('imagesApp/images/partenariats/'.$partenariat->partenariat_icon) }}" alt="">
-                                <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openPartenariat()">{{ $partenariat->name }}</span>
+                            <div class="btn-box bg-light rounded h-100">
+                                <a href="{{ $partenariat->partenariat_website }}"><img class="mx-auto my-auto p-4 d-block img-fluid" style="width: 120px;" src="{{ url('imagesApp/images/partenariats/'.$partenariat->partenariat_icon) }}" alt=""></a>
+                                {{-- <a class="text-dark" href="{{ $partenariat->partenariat_website }}"><span class="d-block text-center" style="padding-bottom: 10px; font-size:24px;" >{{ $partenariat->name }}</span>
+                                </a> --}}
                             </div>
                         </div>
                         @endforeach

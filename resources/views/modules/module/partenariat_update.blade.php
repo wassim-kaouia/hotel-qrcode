@@ -36,7 +36,7 @@
                                                     <a href="{{ url('imagesApp/images/partenariats/'.$partenariat->partenariat_icon) }}"><img class="w-32" src="{{ url('imagesApp/images/partenariats/'.$partenariat->partenariat_icon) }}" alt=""></a>
                                                  </div>        
                             </div>
-
+                            
                             <div class="mb-6">
                                 <label for="partenariat_icon"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Icon du Partenaire</label>
@@ -44,8 +44,6 @@
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                                 >
                             </div>
-
-
                             
                             <input type="hidden" value="{{ $partenariat->id }}" name="partenariat_id">
                             <button type="submit"
