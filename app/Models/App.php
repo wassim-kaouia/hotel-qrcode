@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Key;
 use App\Models\Rappel;
+use App\Models\Alentour;
+use App\Models\Category;
 use App\Models\Emergency;
 use App\Models\Reglement;
 use App\Models\ArrivalInfo;
@@ -37,7 +39,7 @@ class App extends Model
         return $this->hasMany(Digicode::class);
     }
 
-    public function alentours(){
+    public function arrounds(){
         return $this->hasMany(Arround::class);
     }
 
@@ -76,5 +78,13 @@ class App extends Model
     public function partenariats(){
         return $this->hasMany(Partenariat::class);
     }
+
+    public function categories(){
+        return $this->hasMany(Category::class);
+    }
+
+    // public function alentours(){
+    //     return $this->hasMany(Alentour::class);
+    // }
     
 }

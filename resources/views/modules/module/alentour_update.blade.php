@@ -26,25 +26,26 @@
                                     placeholder="Palais des congres VI">
                             </div>
 
-                            {{-- <div class="mb-6">
-                                <label
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                    for="multiple_files">Uploader jusqu'a 4 Photos (1200px x
-                                    800px)</label>
-                                <input
-                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="multiple_files" type="file" name="alentour_gallery"  multiple>
+                            <div class="mb-6">
+                                <label for="alentour_name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Point D'interet</label>
 
-                                <div class="my-6 flex">
-                                    <div class="bg-gray-100 p-6 mx-4 relative rounded-lg">
-                                        <a class="absolute top-3 right-3 text-2xl text-red-500" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                        <img class="mx-2 h-auto w-32 rounded-lg"
-                                            src="https://customercare.igloosoftware.com/.api2/api/v1/communities/10068556/previews/thumbnails/4fc20722-5368-e911-80d5-b82a72db46f2?width=680&height=680&crop=False"
-                                            alt="image description">
-                                    </div>
-                                 
-                                </div>
-                            </div> --}}
+                                <label for="interest" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Selectionnr une option</label>
+                                <select id="interest" name="interest" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    @foreach ($interests as $interest)
+                                         <option {{ $interest->id == $onealentours->interest_id ? 'selected' : ''}} value="{{ $interest->id }}">{{ $interest->title }}</option>
+                                    @endforeach
+                                 </select>
+                            </div> 
+                            
+                            <div class="mb-6">
+                                <label for="address"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adresse</label>
+                                <input type="text" id="address" placeholder="l'adresse ..." name="address" value="{{ $onealentours->address }}"
+                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    >
+                            </div>
+
 
                             <div class="mb-6">
                                 <label for="distance"
@@ -55,9 +56,9 @@
                             </div>
 
                             <div class="mb-6">
-                                <label for="distance"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lien</label>
-                                <input type="text" id="distance" placeholder="Lien sur internet" name="link" value="{{ $onealentours->link }}"
+                                <label for="link"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adresse</label>
+                                <input type="text" id="link" placeholder="Adresse" name="link" value="{{ $onealentours->link }}"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                                     >
                             </div>

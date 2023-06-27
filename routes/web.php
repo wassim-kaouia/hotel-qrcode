@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Category;
 use App\Models\ArrivalInfo;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
@@ -13,8 +14,11 @@ use App\Http\Controllers\LivreController;
 use App\Http\Controllers\RappelController;
 use App\Http\Controllers\ArroundController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\AlentourController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DigicodeController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\InterestController;
 use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\ReglementController;
 use App\Http\Controllers\ArrivalInfoController;
@@ -32,8 +36,39 @@ use App\Http\Controllers\TestimonialController;
 |
  */
 
- Route::get('/users',function(){
-    return User::all();
+Route::get('/wassim',function(){
+    $app = auth()->user()->app;
+
+    return $app->arrounds->first()->interest;
+});
+
+Route::get('/imagecopy',function(){
+    $photo_to_paste='assets/images/manque.png';  //image 321 x 400
+    $white_image= 'assets/images/frame.png'; //873 x 622 
+
+     $im = imagecreatefrompng($white_image);
+     $condicion = GetImageSize($photo_to_paste); // image format?
+
+     if($condicion[2] == 1) //gif
+     $im2 = imagecreatefromgif("$photo_to_paste");
+     if($condicion[2] == 2) //jpg
+     $im2 = imagecreatefromjpeg("$photo_to_paste");
+     if($condicion[2] == 3) //png
+     $im2 = imagecreatefrompng("$photo_to_paste");
+
+     imagecopy($im, $im2, (imagesx($im)/2)-(imagesx($im2)/2), (imagesy($im)/2)-(imagesy($im2)/2), 0, 0, imagesx($im2), imagesy($im2));
+
+     imagepng($im,public_path('assets/wassim.png'));
+     imagedestroy($im);
+     imagedestroy($im2);
+
+     return 'ok';
+});
+
+ Route::get('/test',function(){
+    $adress  = "rua do carmo N83 Braga";
+
+    return "<a href='https://www.google.com/maps/place/$adress'>Open In Google Maps</a>";
  });
 
  Route::get('/',function(){
@@ -41,8 +76,24 @@ use App\Http\Controllers\TestimonialController;
  });
 
 // Route::get('/', [FrontendController::class,'index'])->name('vitrine.index');
+Route::get('/getInterests/{category}',[InterestController::class,'getInterests'])->name('interests.get');   
+Route::get('/getArrounds/{interest}',[ArroundController::class,'getArrounds'])->name('arrounds.get');   
+
 
 Route::middleware(['auth'])->group(function () {
+//ADD Interests points
+    Route::get('/interest/index',[InterestController::class,'index'])->name('interest.index');   
+    Route::post('/interest_add',[InterestController::class,'addInterest'])->name('interest.create');   
+    Route::get('/interest_show_update/{id}',[InterestController::class,'showUpdateInterest'])->name('interest.updating');
+    Route::get('interest_delete/{id}',[InterestController::class,'deleteInterest'])->name('interest.delete');
+    Route::post('/interest_update',[InterestController::class,'updateInterest'])->name('interest.update');
+
+//ADD Interests points
+    Route::get('/category/index',[CategoryController::class,'index'])->name('category.index');   
+    Route::post('/category_add',[CategoryController::class,'addCategory'])->name('category.create');   
+    Route::get('/category_show_update/{id}',[CategoryController::class,'showUpdateCategory'])->name('category.updating');
+    Route::get('category_delete/{id}',[CategoryController::class,'deleteCategory'])->name('category.delete');
+    Route::post('/category_update',[CategoryController::class,'updateCategory'])->name('category.update');   
 
 //ADD EMERGENCY Numeros
     Route::post('/emergency_add',[EmergencyController::class,'addEmergency'])->name('emergency.create');   
@@ -50,7 +101,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('emergency_delete/{id}',[EmergencyController::class,''])->name('emergency.delete');
     Route::post('/emergency_update',[EmergencyController::class,'updateEmergency'])->name('emergency.update');
 
-//ADD Arrival Info
+//ADD reglement Info
     Route::post('/reglement_add',[ReglementController::class,'addReglement'])->name('reglement.create');   
     Route::get('/reglement_show_update/{id}',[ReglementController::class,'showUpdateReglement'])->name('reglement.updating');
     Route::get('reglement_delete/{id}',[ReglementController::class,''])->name('reglement.delete');
@@ -62,11 +113,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('key_delete/{id}',[KeyController::class,''])->name('key.delete');
     Route::post('/key_update',[KeyController::class,'updateKey'])->name('key.update');  
 
-//ADD Key Info
+//ADD rappel Info
     Route::post('/rappel_add',[RappelController::class,'addRappel'])->name('rappel.create');   
     Route::get('/rappel_show_update/{id}',[RappelController::class,'showUpdateRappel'])->name('rappel.updating');
     Route::get('rappel_delete/{id}',[RappelController::class,''])->name('rappel.delete');
-    Route::post('/rappel_update',[RappelController::class,'updateRappel'])->name('rappel.update');      
+    Route::post('/rappel_update',[RappelController::class,'updateRappel'])->name('rappel.update');   
+    
+//ADD Arround
+    Route::post('/arround_add',[AlentourController::class,'addArround'])->name('arround.create');   
+    Route::get('/arround_show_update/{id}',[AlentourController::class,'showUpdateArround'])->name('arround.updating');
+    Route::get('arround_delete/{id}',[AlentourController::class,''])->name('arround.delete');
+    Route::post('/arround_update',[AlentourController::class,'updateArround'])->name('arround.update');       
     
 //ADD Arrival Info
     Route::post('/arrivalInfo_add',[ArrivalInfoController::class,'addArrivalInfo'])->name('arrivalinfo.create');   
@@ -78,9 +135,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/icons_show',[SettingController::class,'updateIcons'])->name('icons.update');
     Route::post('/icons_update',[SettingController::class,'iconsUpdating'])->name('icons.updating');
     
-//vitrine
-    // Route::get('/vitrine/editPage', [FrontendController::class, 'editPage'])->name('vitrine.edit');
-    // Route::post('/vitrine/editForms/',[FrontendController::class,'editForms'])->name('vitrine.editforms');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -152,12 +206,12 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     //Alentours
-        Route::post('/module/partenariat/create', [PartenariatController::class, 'addPartenariat'])->name('partenariat.create');
-        Route::get('/module/partenariat/show', [PartenariatController::class, 'showPartenariat'])->name('partenariat.show');
-        Route::get('/module/partenariat/index', [PartenariatController::class, 'index'])->name('partenariat.index');
-        Route::get('/deletePartenariat/{id}', [PartenariatController::class, 'deletePartenariat'])->name('partenariat.delete');
-        Route::get('/updatepartenariat/{id}', [PartenariatController::class, 'updatePartenariat'])->name('partenariat.update');
-        Route::post('/update/partenariat/', [PartenariatController::class, 'update'])->name('partenariat.updates');
+    Route::post('/module/partenariat/create', [PartenariatController::class, 'addPartenariat'])->name('partenariat.create');
+    Route::get('/module/partenariat/show', [PartenariatController::class, 'showPartenariat'])->name('partenariat.show');
+    Route::get('/module/partenariat/index', [PartenariatController::class, 'index'])->name('partenariat.index');
+    Route::get('/deletePartenariat/{id}', [PartenariatController::class, 'deletePartenariat'])->name('partenariat.delete');
+    Route::get('/updatepartenariat/{id}', [PartenariatController::class, 'updatePartenariat'])->name('partenariat.update');
+    Route::post('/update/partenariat/', [PartenariatController::class, 'update'])->name('partenariat.updates');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -196,6 +250,10 @@ Route::get('/phpinfo', function () {
 });
 
 // Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modules.manage');
+
+Route::get('/index/categories/{app}',[AppController::class,'categoryByApp'])->name('categories.app');
+Route::get('/index/interests/{category}',[AppController::class,'interestsByCategory'])->name('interests.app');
+Route::get('/index/arrounds/{interest}',[AppController::class,'arroundsByInterest'])->name('arrounds.app');
 
 Route::get('/index/modules', [AppController::class, 'indexModules'])->name('modules.index');
 

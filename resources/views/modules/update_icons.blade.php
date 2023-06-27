@@ -8,13 +8,16 @@
             {{ __('Gestion des Icons') }}
         </h2>
     </x-slot>
-    <div class="py-12">
+    <div class="py-6">
         <form action="{{ route('icons.updating') }}" method="POST" enctype="multipart/form-data" id="modules-form">
             @csrf
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-1 gap-4">
                     <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="grid lg:grid-cols-1 p-4">
+                            <div class="px-4 mb-2">
+                                <span>Icons de La partie Front </span>
+                            </div>
                             <div class="px-4 mb-2">
                                 <label for="default-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom du Module Wifi</label>
@@ -193,9 +196,9 @@
             </div>
         </form>
     </div>
+
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     
-
 </x-app-layout>
 
 <div class="">

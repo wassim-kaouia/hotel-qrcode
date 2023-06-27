@@ -42,6 +42,9 @@ return new class extends Migration
             $table->string('departure_text')->nullable();
             $table->text('departure_path')->nullable();
 
+            $table->string('partenariat_text')->nullable();
+            $table->text('partenariat_path')->nullable();
+
             $table->unsignedBigInteger('app_id');
             $table->foreign('app_id')->references('id')->on('apps');
 

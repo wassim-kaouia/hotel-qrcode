@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use App\Models\App;
+use App\Models\User;
 use App\Models\Wifi;
 use App\Models\Livre;
+use App\Models\Category;
 use App\Models\Digicode;
+use App\Models\Interest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppController extends Controller
 {   
@@ -30,6 +32,33 @@ class AppController extends Controller
         ]);
     }
     
+    public function categoryByApp($app){
+        $app = App::find($app);
+        $categories = $app->categories;
+        return view('welcome_categories',[
+            'app' => $app,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function interestsByCategory($category){
+        $category = Category::find($category);
+        $interests = $category->interests;
+        return view('welcome_interests',[ 
+            'category' => $category,
+            'interests' => $interests,
+        ]);
+    }
+
+    public function arroundsByInterest($interest){
+        $interest = Interest::find($interest);
+        $arrounds = $interest->arrounds;
+        return view('welcome_arrounds',[ 
+            'interest' => $interest,
+            'arrounds' => $arrounds,
+        ]);
+    }
+
     public function generateQrCode(){
         $urlName = Auth::user()->app->urlName;
         $fullLink = request()->getSchemeAndHttpHost().'/app/'.$urlName;

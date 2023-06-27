@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('settings', function (Blueprint $table) {
-            $table->string('partenariat_text')->nullable();
-            $table->text('partenariat_path')->nullable();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->foreignId('app_id');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('settings', function (Blueprint $table) {
-            $table->dropColumn('partenariat_text');
-            $table->dropCplumn('partenariat_path');
-        });
+        Schema::dropIfExists('categories');
     }
 };

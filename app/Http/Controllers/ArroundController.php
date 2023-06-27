@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\App;
+use App\Models\Arround;
+use App\Models\Interest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Arround;
-use Illuminate\Support\Facades\Auth;
-use App\Models\App;
 
 class ArroundController extends Controller
 {
@@ -16,10 +17,14 @@ class ArroundController extends Controller
         $user = auth()->user();
         $appId = $user->app->id;
         $alentours = Arround::where('app_id','=',$appId)->paginate(5);
+        $app = $user->app;
+        $interests = Interest::all();
 
         return view('modules.module.alentour',
         [
-            'alentours' => $alentours
+            'alentours' => $alentours,
+            'app' => $app, 
+            'interests' => $interests
         ]
     );
     }
@@ -36,6 +41,7 @@ class ArroundController extends Controller
             // 'alentour_gallery' => 'required',
             'distance' => '',
             'link' => '',
+            'interest_id',
         ]);
         
         //if validations fails
@@ -48,7 +54,9 @@ class ArroundController extends Controller
         $alentour = new Arround();
         $alentour->site_name = $request->alentour_name;
         $alentour->distance = $request->distance;
+        $alentour->address = $request->address;        
         $alentour->link = $request->link;
+        $alentour->interest_id = $request->interest;
         $alentour->app_id = $app->id;
 
         //upload arrounds gallery
@@ -95,9 +103,12 @@ class ArroundController extends Controller
     public function updateAlentours($id){
         $onealentours = Arround::findOrFail($id);
         $alentours = Arround::paginate(5);  
+        $interests = Interest::all();
+
         return view('modules.module.alentour_update',[
             'onealentours' => $onealentours,
             'alentours' => $alentours,
+            'interests' => $interests
         ]);
     }
 
@@ -107,8 +118,17 @@ class ArroundController extends Controller
         $alentour->site_name = $request->alentour_name;
         $alentour->distance = $request->distance;
         $alentour->link = $request->link;
+        $alentour->address = $request->address;        
+        $alentour->interest_id = $request->interest;
+
         Alert::success('Modification', "Modification de l'alentour est faite avec succée !");
         $alentour->save();
         return redirect()->back();
+    }
+
+    public function getArrounds(Request $request,$interest){
+        $arrounds = Arround::where('interest_id','=',$interest)->get();
+
+        return response()->json(['arrounds' => $arrounds],200);
     }
 }

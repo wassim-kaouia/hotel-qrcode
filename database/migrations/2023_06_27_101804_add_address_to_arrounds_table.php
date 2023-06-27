@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('settings', function (Blueprint $table) {
-           $table->text('background_image')->nullable();
+        Schema::table('arrounds', function (Blueprint $table) {
+            $table->text('address')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('settings', function (Blueprint $table) {
-            $table->dropColumn('background_image');
+        Schema::table('arrounds', function (Blueprint $table) {
+            $table->dropColum('address');
         });
     }
 };

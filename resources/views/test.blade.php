@@ -1,103 +1,69 @@
-@extends('layout.master')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+      #map {
+        height: 400px;
+        width: 400px;
+      }
+  </style>
+</head>
+<body>
+    <div id="map"></div>
 
-@section('title')
-    
-@endsection
-
-@section('mycss')
-    <style>
-        .mybg {
-            background-image: url('https://mapio.net/images-p/40292896.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            
-        }
-    </style>
-@endsection
-
-@section('content')
-
-<div class="h-max mybg w-screen">
-
-    <div class="text-center">
-        <div class="flex justify-center py-3">
-            <img class="h-10" src="https://1000logos.net/wp-content/uploads/2017/08/Airbnb-emblem.jpg" alt="">
-        </div>
-        <h1 class="text-bold font-extrabold	text-white">Hey !</h1>
-        <h2 class="text-white px-4 mx-5">
-            Chère Visiteur, je vous souhaite un agréable séjour !
-        </h2>
-    </div>
-
-    <div class="grid grid-cols-2 gab-2 p-6">
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-3">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-wifi text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white">Wifi</h2>
-        </div>
-
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center">
-                <span class=""><i class="fa fa-address-book text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white">Digicode</h2>
-        </div>
-
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-map-marker text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white text-center">Autour de moi</h2>
-        </div>
+<button onclick="showMap(25.594095, 85.137566)">Show Map</button>  
+<button onclick="codeAddress()">Show Map by address</button>  
 
 
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-info text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white text-center">Infos Pratiques</h2>
-        </div>
-
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-bookmark text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white">Livre d'or</h2>
-        </div>
-
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-mobile text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white text-center">Numéros utiles</h2>
-        </div>
-
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-mobile text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white text-center">Numéros utiles</h2>
-        </div>
-
-        <div class="bg-blue-500 m-6 rounded-md opacity-75 p-4">
-            <div class="flex justify-center ">
-                <span class=""><i class="fa fa-mobile text-white text-6xl" aria-hidden="true"></i></span>
-            </div>
-            <h2 class="flex justify-center mt-2 text-white text-center">Numéros utiles</h2>
-        </div>
-
-        
-    </div>
-    <div class="py-4 sticky flex justify-center">
-        <img class="w-1/2" src="{{ asset('assets/images/ovm_logo.png') }}" alt="">
-    </div>
-
-</div>
-@endsection
-
-@section('js')
-<script>
-
+<script defer type="text/javascript"
+    src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries" >
 </script>
-@endsection
+<script type="text/javascript">
+       
+    // function showMap(lat, lng) {
+    //   const myLatLng = { lat: lat, lng: lng };
+    //   const map = new google.maps.Map(document.getElementById("map"), {
+    //     zoom: 5,
+    //     center: myLatLng,
+    //   });
+
+    //   new google.maps.Marker({
+    //     position: myLatLng,
+    //     map,
+    //     title: "Hello Rajkot!",
+    //   });
+    // }  
+    var geocoder;
+var map;
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var mapOptions = {
+    zoom: 8,
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
+
+function codeAddress() {
+  // var address = document.getElementById('map').value;
+  geocoder.geocode( { 'address': }, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+</script>
+
+</body>
+</html>

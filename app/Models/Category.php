@@ -7,7 +7,7 @@ use App\Models\Interest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Arround extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,7 @@ class Arround extends Model
         return $this->belongsTo(App::class);
     }
 
-    public function interest(){
-        return $this->belongsTo(Interest::class);
+    public function interests(){
+        return $this->hasMany(Interest::class);
     }
 }

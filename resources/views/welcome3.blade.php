@@ -284,8 +284,10 @@
                     @if ($app->setting->modules_state['arround'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setting->setting->arround_path) }}" class="icon icon d-block center-block" alt="">
-                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}">{{ $setting->setting->arround_text }}</p>
+                            <a href="{{ route('categories.app',['app' => $app->id]) }}">               
+                                <img src="{{ url('imagesApp/images/icons/'.$setting->setting->arround_path) }}" class="icon icon d-block center-block" alt="">
+                            </a>
+                            <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openCategories()">{{ $setting->setting->arround_text }}</p>
                         </div>
                     </div>
                     @endif
@@ -873,7 +875,6 @@
             <div class="overlay-content">
                 <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les informations de votre arrivée</p>
                 <div class="d-flex flex-column px-4">
-                    
                     @foreach ($app->arrivalInfo as $info)
                     <div class="mt-4">
                         <div class="d-flex justify-content-start">
@@ -974,10 +975,69 @@
                 <div class="d-flex justify-content-center mt-4">
                     <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
-
             </div>
         </div>
         {{-- reglement overlay --}}
+
+
+      {{-- start infos pratiques overlay  --}}
+      <div id="myCategories" class="overlay" style="overflow-y: scroll;">
+        <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeCategories()">x</a>
+        <div class="overlay-content">
+            <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les Categories</p>
+                 <div class="container mt-4">
+                    <div class="row px-4">
+                           @foreach ($app->categories as $category)
+                           <div class="col-6 mb-4">
+                            <div class="btn-box bg-light rounded d-flex flex-column">
+                               <i class="fa fa-clock-o p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInterests({{ $category->id }})"></i>
+                               <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInterests({{ $category->id }})">{{ $category->title }}</span>
+                             </div>
+                            </div>
+                           @endforeach
+                    </div>
+                 </div>
+                 <div class="d-flex justify-content-center my-4">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+        </div>
+    </div>
+    {{-- end infos pratiques overlay  --}}    
+
+        {{-- start infos pratiques overlay  --}}
+          <div id="myInterests" class="overlay" style="overflow-y: scroll;">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeInterests()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les points d'interets</p>
+                     <div class="container mt-4">
+                        <div class="row px-4 inters">
+                               
+                        </div>
+                     </div>
+                     <div class="d-flex justify-content-center my-4">
+                        <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+                    </div>
+            </div>
+        </div>
+        {{-- end infos pratiques overlay  --}}   
+        
+        {{-- arrounds overlay  --}}
+        <div id="myArrounds" class="overlay" style="overflow-y: scroll;">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeArrounds()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les adresses </p>
+                <div class="d-flex flex-column px-4">
+                    <div class="mt-4 arrds">
+                     
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+
+            </div>
+        </div>
+        {{-- arrounds overlay --}}    
 
     {{-- start parteariat overlay  --}}
     <div id="myPartenariat" class="overlay">
@@ -1053,6 +1113,7 @@
 </script>
 
 <script>
+    var allinterests = [];
     //wifi 
     function openWifi() {
         document.getElementById("myWifi").style.width = "100%";
@@ -1090,14 +1151,108 @@
         
     }
 
+     //Categories
+     function openCategories() {
+        document.getElementById("myCategories").style.width = "100%";
+        console.log('categorie opend');
+    }
+    
+    function closeCategories() {
+        document.getElementById("myCategories").style.width = "0%";
+        console.log('categorie closed');
+
+
+    }
+
+    //Iterests
+    function openInterests(category) {
+        // closeCategories();
+        document.getElementById("myInterests").style.width = "100%";
+        allinterests.forEach( i => {
+        var html = "<div class='col-6 mb-4'>"+
+                                            "<div class='btn-box1 bg-light rounded d-flex flex-column'>"+
+                                               "<i class='fa fa-clock-o p-4' style='font-size: 60px;' aria-hidden='true' onclick='"+'ok'+"'></i>"+
+                                               "<span class='' style='padding-bottom: 10px; font-size:24px;' onclick=''>"+i.title+"</span>"+
+                                             "</div>"
+                                        +"</div>";
+        $('.inters').append(html);                                        
+            
+        });
+        console.log(category);
+        //send ajax request to backend
+        $('.inters').empty();   
+            $.get('/getInterests/'+category,function(data,status){
+            console.log(data.interests);
+            // $('.inters').empty();                                
+            // data.interests.forEach(element => {
+            //     var html = "<div class='col-6 mb-4'>"+
+            //                                 "<div class='btn-box1 bg-light rounded d-flex flex-column'>"+
+            //                                    "<i class='fa fa-clock-o p-4' style='font-size: 60px;' aria-hidden='true' onclick='"+openArrounds(element.id)+"'></i>"+
+            //                                    "<span class='' style='padding-bottom: 10px; font-size:24px;' onclick=''>"+element.title+"</span>"+
+            //                                  "</div>"
+            //                             +"</div>";
+            //     console.log(element);
+            //     // $('.inters').append(html);
+            //     // console.log(count);
+            // });
+            data.interests.forEach(item => {
+                console.log(item)
+                allinterests.push(item);
+            });
+            console.log(allinterests[0].title);
+
+        });   
+
+
+    }
+    
+    function closeInterests() {
+        document.getElementById("myInterests").style.width = "0%";
+        // $('#myCategories').css('display','block');
+    }
+     //Adresses
+     function openArrounds(arround) {
+        document.getElementById("myArrounds").style.width = "100%";
+        console.log('address :'+arround);
+        console.log('adress opened');
+
+        $('.arrds').empty();   
+            $.get('/getArrounds/'+arround,function(data,status){
+            console.log(data.arrounds);
+            // $('.inters').empty();                                
+            data.arrounds.forEach(element => {
+                var html = "<div class='d-flex justify-content-start'>"+
+                            "<p>"+element.site_name+"</p>"+
+                        "</div>"
+                        "<div class='d-flex justify-content-start'>"+
+                            "<div class='rounded bg-light' style='width: 100%; text-align: left;'>"+
+                                "<p class='p-3'>"+element.distance+"</p>"+
+                            "</div>"+  
+                        "</div>";
+                console.log(element);
+                $('.arrds').append(html);
+            });
+        });  
+        closeInterests(); 
+    }
+
+    function closeArrounds() {
+        document.getElementById("myArrounds").style.width = "0%";
+        $('#myInterests').css('display','block');
+    }
+
      //arrival infoss
      function openInfosArrival() {
         document.getElementById("myInfosArrival").style.width = "100%";
+        console.log('infos opend');
+
     }
     
     function closeInfosArrival() {
         document.getElementById("myInfosArrival").style.width = "0%";
-        $('#myInfosArrival').css('display','block');
+        // $('#myInfosArrival').css('display','block');
+        console.log('infos closed');
+
     }
 
     //arrival infos - time
@@ -1193,7 +1348,16 @@
 
     $('.btn-box').on('click',function(){
         $('#myInfosArrival').css('display','none');
+        // $('#myCategories').css('display','none');
+        // $('#myInterests').css('display','none');
     });
+
+    // $('.btn-box1').on('click',function(){
+    //     $('#myInterests').css('display','none');
+    //     $('#myInfosArrival').css('display','block');
+
+    // });
+
 
     </script>
 
