@@ -395,43 +395,43 @@
                 $('#frame').contents().find('.description-application').css('color', colors_icon);
 
                 //change wifi icon
-                $('#frame').contents().find('.icon_wifi').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->wifi_path}}");
+                $('#frame').contents().find('.icon_wifi').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->wifi_path}}");
                 $('#frame').contents().find('.icon_wifi').addClass('icon');
                 $('#frame').contents().find('.icon_wifi').addClass('d-block');
                 $('#frame').contents().find('.icon_wifi').addClass('center-block');
 
                 //change digicode icon
-                $('#frame').contents().find('.icon_digicode').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->digicode_path}}");
+                $('#frame').contents().find('.icon_digicode').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->digicode_path}}");
                 $('#frame').contents().find('.icon_digicode').addClass('icon');
                 $('#frame').contents().find('.icon_digicode').addClass('d-block');
                 $('#frame').contents().find('.icon_digicode').addClass('center-block');
 
                 //change livre icon
-                $('#frame').contents().find('.icon_livre').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->livre_path}}");
+                $('#frame').contents().find('.icon_livre').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->livre_path}}");
                 $('#frame').contents().find('.icon_livre').addClass('icon');
                 $('#frame').contents().find('.icon_livre').addClass('d-block');
                 $('#frame').contents().find('.icon_livre').addClass('center-block');
 
                 //change infos icon
-                $('#frame').contents().find('.icon_info').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->info_path}}");
+                $('#frame').contents().find('.icon_info').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->info_path}}");
                 $('#frame').contents().find('.icon_info').addClass('icon');
                 $('#frame').contents().find('.icon_info').addClass('d-block');
                 $('#frame').contents().find('.icon_info').addClass('center-block');
 
                 //change arround icon
-                $('#frame').contents().find('.icon_arround').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->arround_path}}");
+                $('#frame').contents().find('.icon_arround').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->arround_path}}");
                 $('#frame').contents().find('.icon_arround').addClass('icon');
                 $('#frame').contents().find('.icon_arround').addClass('d-block');
                 $('#frame').contents().find('.icon_arround').addClass('center-block');
 
                 //change numeros icon
-                $('#frame').contents().find('.icon_nums').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->numero_path}}");
+                $('#frame').contents().find('.icon_nums').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->numero_path}}");
                 $('#frame').contents().find('.icon_nums').addClass('icon');
                 $('#frame').contents().find('.icon_nums').addClass('d-block');
                 $('#frame').contents().find('.icon_nums').addClass('center-block');
 
                 //change partenariat icon
-                $('#frame').contents().find('.icon_partenariat').attr('src',"/imagesApp/images/icons/"+"{{ $app->setting->partenariat_path}}");
+                $('#frame').contents().find('.icon_partenariat').attr('src',"/imagesApp/images/icons/"+"{{ $settingGeneral->partenariat_path}}");
                 $('#frame').contents().find('.icon_partenariat').addClass('icon');
                 $('#frame').contents().find('.icon_partenariat').addClass('d-block');
                 $('#frame').contents().find('.icon_partenariat').addClass('center-block');
