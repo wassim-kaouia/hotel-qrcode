@@ -28,7 +28,7 @@
     </div>
     <div class="container mt-4">
             <div class="d-flex justify-content-center align-items-center mb-5 rounded py-2" style="background-color:#E7F2F8;">
-                <i class="fa fa-clock-o text-center mb-2" style="font-size: 60px;" aria-hidden="true" ></i>
+                <img src="{{ url('imagesApp/fronticons/'.$interest->icon->icon_path) }}" width="50" alt="">
                 <p class="mx-4">{{ $interest->title }}</p>
             </div>
             <?php $count=0; ?>
@@ -55,7 +55,7 @@
                     <span class="m-3">{{ $arround->distance }}km</span>
                 </div>
             </div>
-            
+
             <div class="d-flex justify-content-center rounded mt-4" style="background-color:#6DECE0;">
                 <div class="d-flex justify-center align-items-center">
                     <img src="{{ url('/assets/images/maps.png') }}" width="40px;" alt="">
