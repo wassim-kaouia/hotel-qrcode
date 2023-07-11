@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
+use App\Models\Icon;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,11 +18,13 @@ class CategoryController extends Controller
         $appId = $user->app->id;
         $categories = Category::all();
         $app = $user->app;
+        $icones  = Icon::all();
 
         return view('modules.category',
         [
             'categories' => $categories,
             'app' => $app, 
+            'icones' => $icones
         ]
     );
     }
@@ -44,10 +47,10 @@ class CategoryController extends Controller
             return redirect()->back();
         }
 
-        
         $category = new Category();
         $category->title = $request->category;  
         $category->app_id = $app->id;
+        $category->icon_id = $request->icone;
     
         $category->save();
 
@@ -72,10 +75,12 @@ class CategoryController extends Controller
         $onecategory = Category::findOrFail($id);
         // $categories = Category::paginate(5);  
         $categories = Category::all();
+        $icones = Icon::all();
 
         return view('modules.category_update',[
             'onecategory' => $onecategory,
-            'categories' => $categories
+            'categories' => $categories,
+            'icones' => $icones
         ]);
     }
 
@@ -84,6 +89,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($request->category_id);
         $category->title = $request->category;
         $category->app_id = Auth::user()->app->id;
+        $category->icon_id = $request->icone;
 
         Alert::success('Modification', "Modification de Categorie est faite avec succée !");
         $category->save();

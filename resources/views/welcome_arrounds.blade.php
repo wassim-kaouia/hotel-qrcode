@@ -55,7 +55,7 @@
                     <span class="m-3">{{ $arround->distance }}km</span>
                 </div>
             </div>
-
+            
             <div class="d-flex justify-content-center rounded mt-4" style="background-color:#6DECE0;">
                 <div class="d-flex justify-center align-items-center">
                     <img src="{{ url('/assets/images/maps.png') }}" width="40px;" alt="">

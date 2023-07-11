@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\NumController;
+use App\Http\Controllers\IconController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\WifiController;
@@ -87,6 +88,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/interest_show_update/{id}',[InterestController::class,'showUpdateInterest'])->name('interest.updating');
     Route::get('interest_delete/{id}',[InterestController::class,'deleteInterest'])->name('interest.delete');
     Route::post('/interest_update',[InterestController::class,'updateInterest'])->name('interest.update');
+
+//ADD Icons Front
+    Route::get('/icons_front/index',[IconController::class,'index'])->name('iconfront.index');   
+    Route::post('/icons_front_add',[IconController::class,'addIconFront'])->name('iconfront.create');   
+    Route::get('/icons_front_show_update/{id}',[IconController::class,'showUpdateIconFront'])->name('iconfront.updating');
+    Route::get('icons_front_delete/{id}',[IconController::class,'deleteIconFront'])->name('iconfront.delete');
+    Route::post('/icons_front_update',[IconController::class,'updateIconFront'])->name('iconfront.update');    
+    //update icons settings
+    // Route::get('/icons_front_show',[IconController::class,'updateIcons'])->name('icons_front.update');
+    // Route::post('/icons_front_update',[IconController::class,'iconsUpdating'])->name('icons_front.updating');
 
 //ADD Interests points
     Route::get('/category/index',[CategoryController::class,'index'])->name('category.index');   

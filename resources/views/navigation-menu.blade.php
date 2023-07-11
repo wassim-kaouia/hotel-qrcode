@@ -37,11 +37,11 @@
                     </x-jet-nav-link>
                     @endif --}}
 
-                    @if (auth()->user()->role == 'admin')
+                    {{-- @if (auth()->user()->role == 'admin')
                     <x-jet-nav-link href="{{ route('index.plans') }}" :active="request()->routeIs('index.plans')">
                         {{ __('Plans') }}
                     </x-jet-nav-link>
-                    @endif
+                    @endif --}}
 
                     <x-jet-nav-link href="{{ route('qrcodes.index') }}" :active="request()->routeIs('qrcodes.index')">
                         {{ __('QR Code') }}
@@ -136,11 +136,11 @@
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
-                            {{-- @if (auth()->user()->role == 'admin')
-                            <x-jet-dropdown-link href="{{ route('index.testimonials') }}">
-                                {{ __('Les avis') }}
+                            @if (auth()->user()->role == 'admin')
+                            <x-jet-dropdown-link href="{{ route('iconfront.index') }}">
+                                {{ __('Mes Icons') }}
                             </x-jet-dropdown-link>
-                            @endif --}}
+                            @endif
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
