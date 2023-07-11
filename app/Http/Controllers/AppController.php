@@ -24,7 +24,7 @@ class AppController extends Controller
             return view('welcome3',[
                 'app' => $app,
                 'setting' => $appGeneral,
-                'setingGeneral' => $settingGeneral
+                'settingGeneral' => $settingGeneral
                 // 'livres' => $livres
             ]);
         }else{
