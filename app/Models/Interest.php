@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Icon;
 use App\Models\Arround;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -19,5 +20,9 @@ class Interest extends Model
 
     public function arrounds(){
         return $this->hasMany(Arround::class);
+    }
+
+    public function icon(){
+        return $this->hasOne(Icon::class,'id','icon_id');
     }
 }

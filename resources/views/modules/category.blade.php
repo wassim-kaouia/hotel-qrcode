@@ -34,7 +34,7 @@
                                     @foreach ($icones as $icone)
                                         <option  value="{{ $icone->id }}">Icone {{ $icone->title }}</option>
                                     @endforeach
-                                 </select>
+                                </select>
                             </div> 
 
                             <button type="submit"

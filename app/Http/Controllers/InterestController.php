@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
+use App\Models\Icon;
 use Nette\Utils\Json;
 use App\Models\Category;
 use App\Models\Interest;
@@ -20,12 +21,14 @@ class InterestController extends Controller
         $interests = Interest::all();
         $app = $user->app;
         $categories = Category::all();
+        $icones  = Icon::all();
 
         return view('modules.interest',
         [
             'interests' => $interests,
             'app' => $app, 
-            'categories' => $categories
+            'categories' => $categories,
+            'icones' => $icones
         ]
     );
     }
@@ -52,6 +55,7 @@ class InterestController extends Controller
         $interest = new Interest();
         $interest->title = $request->interest;  
         $interest->category_id = $request->category;
+        $interest->icon_id = $request->icone;
     
         $interest->save();
 
@@ -76,19 +80,23 @@ class InterestController extends Controller
         $oneinterest = Interest::findOrFail($id);
         $interests = Interest::paginate(5);  
         $categories = Category::all();
+        $icones  = Icon::all();
+
 
         return view('modules.interest_update',[
             'oneinterest' => $oneinterest,
             'interests' => $interests,
-            'categories' => $categories
+            'categories' => $categories,
+            'icones' => $icones,
         ]);
     }
-
+    
     public function updateInterest(Request $request){
         // dd($request->all());
         $interest = Interest::findOrFail($request->interest_id);
         $interest->title = $request->interest;
         $interest->category_id = $request->category;
+        $interest->icon_id = $request->icone;
 
         Alert::success('Modification', "Modification du point d'interet est faite avec succée !");
         $interest->save();
