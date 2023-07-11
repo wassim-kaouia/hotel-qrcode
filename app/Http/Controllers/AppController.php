@@ -5,6 +5,7 @@ use App\Models\App;
 use App\Models\User;
 use App\Models\Wifi;
 use App\Models\Livre;
+use App\Models\Setting;
 use App\Models\Category;
 use App\Models\Digicode;
 use App\Models\Interest;
@@ -17,11 +18,13 @@ class AppController extends Controller
         //get data based on profile name 
         $app = App::where('urlName','=',$profile)->first();
         $appGeneral = App::first();
+        $settingGeneral = Setting::first();
         // $livres = Livre::where('app_id','=',$app->id)->paginate(4);
         if($app){
             return view('welcome3',[
                 'app' => $app,
                 'setting' => $appGeneral,
+                'setingGeneral' => $settingGeneral
                 // 'livres' => $livres
             ]);
         }else{
