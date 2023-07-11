@@ -266,7 +266,7 @@
                     @if ($app->setting->modules_state['info'] == 'on')
                     <div class="col-sm-6 col-6 d-flex justify-content-center mt-3">
                         <div class="square-icon " style="background-color : {{ $app->setting->app_theme['background_color'] }}">
-                            <img src="{{ url('imagesApp/images/icons/'.$setingGeneral->info_path) }}" class="icon icon d-block center-block" alt="" onclick="openInfosArrival()">
+                            <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->info_path) }}" class="icon icon d-block center-block" alt="" onclick="openInfosArrival()">
                             <p class="icon-title d-block text-center" style="color :{{ $app->setting->app_theme['title_color'] }}" onclick="openInfosArrival()">{{ $setting->setting->info_text }}</p>
                         </div>
                     </div>
