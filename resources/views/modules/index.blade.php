@@ -48,8 +48,8 @@
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
                                     {{-- <i class="fa fa-wifi text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <img src="{{ url('imagesApp/images/icons/'.$setting->wifi_path) }}" class="icon d-block center-block">
-                                    <h2 class="flex justify-center mb-2">{{ $setting->wifi_text }}</h2>
+                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->wifi_path) }}" class="icon d-block center-block">
+                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->wifi_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -69,9 +69,9 @@
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
                                     {{-- <i class="fa fa-calculator text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <img src="{{ url('imagesApp/images/icons/'.$setting->digicode_path) }}" class="icon d-block center-block">
+                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->digicode_path) }}" class="icon d-block center-block">
 
-                                    <h2 class="flex justify-center mb-2">{{ $setting->digicode_text }}</h2>
+                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->digicode_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -90,9 +90,9 @@
                             {{-- wifi module Livre d'Or --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <img src="{{ url('imagesApp/images/icons/'.$setting->livre_path) }}" class="icon d-block center-block">
+                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->livre_path) }}" class="icon d-block center-block">
                                     {{-- <i class="fa fa-bookmark text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <h2 class="flex justify-center mb-2">{{ $setting->livre_text }}</h2>
+                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->livre_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -112,8 +112,8 @@
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
                                     {{-- <i class="fa fa-street-view text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <img src="{{ url('imagesApp/images/icons/'.$setting->arround_path) }}" class="icon d-block center-block">
-                                    <h2 class="flex justify-center mb-2">{{ $setting->arround_text }}</h2>
+                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->arround_path) }}" class="icon d-block center-block">
+                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->arround_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -132,10 +132,10 @@
                             {{-- wifi module Infos --}}
                             <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                 <div class="p-4">
-                                    <img src="{{ url('imagesApp/images/icons/'.$setting->info_path) }}" class="icon d-block center-block">
+                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->info_path) }}" class="icon d-block center-block">
 
                                     {{-- <i class="fa fa-info text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <h2 class="flex justify-center mb-2">{{ $setting->info_text }}</h2>
+                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->info_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -156,9 +156,9 @@
                                 <div class="p-4">
                                     {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
                                         aria-hidden="true"></i> --}}
-                                        <img src="{{ url('imagesApp/images/icons/'.$setting->numero_path) }}" class="icon d-block center-block">
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->numero_path) }}" class="icon d-block center-block">
 
-                                    <h2 class="flex justify-center mb-2">{{ $setting->numero_text }}</h2>
+                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->numero_text }}</h2>
                                     <div class="flex justify-center">
                                         <label class="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox"
@@ -180,9 +180,9 @@
                                     <div class="p-4">
                                         {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
                                             aria-hidden="true"></i> --}}
-                                            <img src="{{ url('imagesApp/images/icons/'.$setting->partenariat_path) }}" class="icon d-block center-block">
+                                            <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->partenariat_path) }}" class="icon d-block center-block">
     
-                                        <h2 class="flex justify-center mb-2">{{ $setting->partenariat_text }}</h2>
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->partenariat_text }}</h2>
                                         <div class="flex justify-center">
                                             <label class="relative inline-flex items-center cursor-pointer">
                                                 <input type="checkbox"

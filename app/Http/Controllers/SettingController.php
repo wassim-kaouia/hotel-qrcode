@@ -18,10 +18,12 @@ class SettingController extends Controller
     {
         $appData = auth()->user()->app;
         $appSetting = auth()->user()->app->setting;
+        $settingGeneral  = Setting::first();
         
         return view('modules.index', [
             'app' => $appData,
             'setting' => $appSetting,
+            'settingGeneral' => $settingGeneral,
         ]);
     }
 
