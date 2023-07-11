@@ -20,7 +20,9 @@
             @foreach ($categories as $category)
             <div class="col-6 mb-4 p-2">
                 <div class="mx-auto my-auto p-4 bg-light rounded d-flex flex-column">
-                    <a class="text-center mb-2" style="color:black;" href="{{ route('interests.app',['category' => $category->id]) }}"><i class="fa fa-clock-o " style="font-size: 60px;" aria-hidden="true" ></i></a>
+                    <a class="text-center mb-2" style="color:black;" href="{{ route('interests.app',['category' => $category->id]) }}">
+                        <img src="{{ url('imagesApp/fronticons/'.$category->icon->icon_path) }}" width="50" alt="">
+                    </a>
                     <span class="text-center mx-auto" style="padding-bottom: 5px; font-size:18px;">{{ $category->title }}</span>
                 </div>
             </div>

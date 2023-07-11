@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\App;
+use App\Models\Icon;
 use App\Models\Interest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,5 +20,9 @@ class Category extends Model
 
     public function interests(){
         return $this->hasMany(Interest::class);
+    }
+
+    public function icon(){
+        return $this->hasOne(Icon::class,'id','icon_id');
     }
 }
