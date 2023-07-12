@@ -78,7 +78,7 @@ class InterestController extends Controller
 
     public function showUpdateInterest($id){
         $oneinterest = Interest::findOrFail($id);
-        $interests = Interest::paginate(5);  
+        $interests = Interest::where('category_id','=',$oneinterest->category->id)->get();  
         $categories = Category::all();
         $icones  = Icon::all();
 

@@ -19,7 +19,7 @@ class CategoryController extends Controller
         $categories = Category::where('app_id','=',$appId)->get();
         $app = $user->app;
         $icones  = Icon::all();
-
+        
         return view('modules.category',
         [
             'categories' => $categories,
