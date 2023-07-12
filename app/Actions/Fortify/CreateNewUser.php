@@ -3,12 +3,13 @@
 namespace App\Actions\Fortify;
 
 use App\Models\App;
-use App\Models\Setting;
 use App\Models\User;
+use App\Models\Setting;
+use App\Models\Category;
+use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
-use Laravel\Jetstream\Jetstream;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -52,6 +53,18 @@ class CreateNewUser implements CreatesNewUsers
         // $setting->app_setting = json_decode('{}');
         $setting->app_id = $app->id;
         $setting->save();
+        // // dd(App::first());
+        // //get first set model of category
+        // $firstCategory = Category::where('app_id','=',App::first()->id)->get();
+       
+        // foreach($firstCategory as $firstcat){
+        //     //instanciate pre-set category with current app id
+        //     $category = new Category();
+        //     $category->title = $firstcat->title;
+        //     $category->app_id = $user->app->id;
+        //     $category->icon_id = $firstcat->icon_id;
+        //     $category->save();
+        // }
 
         return $user;
     }

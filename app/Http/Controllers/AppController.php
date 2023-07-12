@@ -36,17 +36,19 @@ class AppController extends Controller
     }
     
     public function categoryByApp($app){
+       
         $app = App::find($app);
-        $categories = $app->categories;
+        $categories = Category::where('app_id','=',$app->id)->get();
+        
         return view('welcome_categories',[
             'app' => $app,
             'categories' => $categories,
         ]);
     }
-
+    
     public function interestsByCategory($category){
         $category = Category::find($category);
-        $interests = $category->interests;
+        $interests = Interest::where('category_id','=',$category->id)->get();
         return view('welcome_interests',[ 
             'category' => $category,
             'interests' => $interests,

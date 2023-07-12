@@ -5,7 +5,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Gestion de Visuel') }}
+            {{ __('Gestion de Visuel') }} 
         </h2>
     </x-slot>
     <style>
@@ -40,7 +40,7 @@
                     <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         @if (Auth::user()->role == 'admin')
                         <div class="p-8">
-                            <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules</a>
+                            <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules </a>
                         </div>
                         @endif
                         <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">

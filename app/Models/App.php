@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\App;
 use App\Models\Key;
 use App\Models\Rappel;
 use App\Models\Alentour;
@@ -10,6 +11,7 @@ use App\Models\Emergency;
 use App\Models\Reglement;
 use App\Models\ArrivalInfo;
 use App\Models\Partenariat;
+use App\Observers\AppObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -18,6 +20,7 @@ class App extends Model
     use HasFactory;
 
     protected $guarded = [];
+    
 
     public function setting(){
         return $this->hasOne(Setting::class);
@@ -74,7 +77,7 @@ class App extends Model
     public function rappels(){
         return $this->hasMany(Rappel::class);
     }
-
+    
     public function partenariats(){
         return $this->hasMany(Partenariat::class);
     }
@@ -82,9 +85,12 @@ class App extends Model
     public function categories(){
         return $this->hasMany(Category::class);
     }
-
+    
     // public function alentours(){
     //     return $this->hasMany(Alentour::class);
     // }
     
+    // public function boot(){
+    //     App::observe(AppObserver::class);
+    // }
 }

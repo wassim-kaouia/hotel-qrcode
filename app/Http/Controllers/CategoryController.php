@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(Request $request){
         $user = auth()->user();
         $appId = $user->app->id;
-        $categories = Category::all();
+        $categories = Category::where('app_id','=',$appId)->get();
         $app = $user->app;
         $icones  = Icon::all();
 
@@ -72,9 +72,12 @@ class CategoryController extends Controller
     }
 
     public function showUpdateCategory($id){
+        $user = auth()->user();
+        $appId = $user->app->id;
+        
         $onecategory = Category::findOrFail($id);
         // $categories = Category::paginate(5);  
-        $categories = Category::all();
+        $categories = Category::where('app_id','=',$appId)->get();
         $icones = Icon::all();
 
         return view('modules.category_update',[
