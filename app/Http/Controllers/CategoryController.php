@@ -16,7 +16,8 @@ class CategoryController extends Controller
     public function index(Request $request){
         $user = auth()->user();
         $appId = $user->app->id;
-        $categories = Category::where('app_id','=',$appId)->get();
+        // $categories = Category::where('app_id','=',$appId)->get();
+        $categories = Category::all();
         $app = $user->app;
         $icones  = Icon::all();
         
@@ -38,7 +39,6 @@ class CategoryController extends Controller
          //validate inputs
          $validator = Validator::make($request->all(), [
             'category' => 'required',
-            'app_id'=> '',
         ]);
         
         //if validations fails
@@ -49,7 +49,6 @@ class CategoryController extends Controller
 
         $category = new Category();
         $category->title = $request->category;  
-        $category->app_id = $app->id;
         $category->icon_id = $request->icone;
     
         $category->save();
@@ -76,8 +75,8 @@ class CategoryController extends Controller
         $appId = $user->app->id;
         
         $onecategory = Category::findOrFail($id);
-        // $categories = Category::paginate(5);  
-        $categories = Category::where('app_id','=',$appId)->get();
+        $categories = Category::paginate(5);  
+        // $categories = Category::where('app_id','=',$appId)->get();
         $icones = Icon::all();
 
         return view('modules.category_update',[
@@ -91,7 +90,6 @@ class CategoryController extends Controller
         // dd($request->all());
         $category = Category::findOrFail($request->category_id);
         $category->title = $request->category;
-        $category->app_id = Auth::user()->app->id;
         $category->icon_id = $request->icone;
 
         Alert::success('Modification', "Modification de Categorie est faite avec succée !");

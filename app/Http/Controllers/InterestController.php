@@ -19,15 +19,11 @@ class InterestController extends Controller
         $user = auth()->user();
         $appId = $user->app->id;
         $interests = Interest::all();
-        $app = $user->app;
-        $categories = Category::all();
         $icones  = Icon::all();
 
         return view('modules.interest',
         [
             'interests' => $interests,
-            'app' => $app, 
-            'categories' => $categories,
             'icones' => $icones
         ]
     );
@@ -42,7 +38,6 @@ class InterestController extends Controller
          //validate inputs
          $validator = Validator::make($request->all(), [
             'interest' => 'required',
-            'category'=> 'required',
         ]);
         
         //if validations fails
@@ -54,7 +49,6 @@ class InterestController extends Controller
         
         $interest = new Interest();
         $interest->title = $request->interest;  
-        $interest->category_id = $request->category;
         $interest->icon_id = $request->icone;
     
         $interest->save();
@@ -77,18 +71,18 @@ class InterestController extends Controller
     }
 
     public function showUpdateInterest($id){
+        // dd('ha');
         $oneinterest = Interest::findOrFail($id);
-        // dd(Interest::where('category_id','=',$oneinterest->category->id)->get());
+        // dd(Auth::user()->app->categories->first()->interests);
         // $app = Auth::user()->app->category
-        $interests = Interest::where('category_id','=',$oneinterest->category_id)->get();  
-        $categories = Category::all();
+        // $interests = Interest::where('category_id','=',$oneinterest->category_id)->get();  
+        $interests = Interest::all();
         $icones  = Icon::all();
 
 
         return view('modules.interest_update',[
             'oneinterest' => $oneinterest,
             'interests' => $interests,
-            'categories' => $categories,
             'icones' => $icones,
         ]);
     }
@@ -97,7 +91,6 @@ class InterestController extends Controller
         // dd($request->all());
         $interest = Interest::findOrFail($request->interest_id);
         $interest->title = $request->interest;
-        $interest->category_id = $request->category;
         $interest->icon_id = $request->icone;
 
         Alert::success('Modification', "Modification du point d'interet est faite avec succée !");

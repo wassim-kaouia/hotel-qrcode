@@ -20,7 +20,7 @@
             @foreach ($interests as $interest)
             <div class="col-6 mb-4 p-2">
                 <div class="mx-auto my-auto p-4 bg-light rounded d-flex flex-column">
-                    <a class="text-center mb-2" style="color:black;" href="{{ route('arrounds.app',['interest' => $interest->id]) }}">
+                    <a class="text-center mb-2" style="color:black;" href="{{ route('arrounds.app',['app'=>$app,'interest' => $interest->id]) }}">
                         <img src="{{ url('imagesApp/fronticons/'.$interest->icon->icon_path) }}" width="50" alt="">
                     </a>
                     <span class="text-center mx-auto" style="padding-bottom: 5px; font-size:18px;">{{ $interest->title }}</span>

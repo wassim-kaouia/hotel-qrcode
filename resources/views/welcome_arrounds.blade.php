@@ -34,7 +34,7 @@
             <?php $count=0; ?>
             @foreach ($arrounds as $arround)
             <?php $count++; ?>
-
+            
             <div class="d-flex justify-start align-items-center">
                 <div class="d-flex justify-start align-items-center pt-4">
                     <div class="mycircle mx-2">

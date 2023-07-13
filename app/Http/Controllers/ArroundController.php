@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\App;
 use App\Models\Arround;
+use App\Models\Category;
 use App\Models\Interest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,12 +20,14 @@ class ArroundController extends Controller
         $alentours = Arround::where('app_id','=',$appId)->paginate(5);
         $app = $user->app;
         $interests = Interest::all();
+        $categories = Category::all();
 
         return view('modules.module.alentour',
         [
             'alentours' => $alentours,
             'app' => $app, 
-            'interests' => $interests
+            'interests' => $interests,
+            'categories' => $categories
         ]
     );
     }
@@ -42,6 +45,7 @@ class ArroundController extends Controller
             'distance' => '',
             'link' => '',
             'interest_id',
+            'category_id',
         ]);
         
         //if validations fails
@@ -57,6 +61,7 @@ class ArroundController extends Controller
         $alentour->address = $request->address;        
         $alentour->link = $request->link;
         $alentour->interest_id = $request->interest;
+        $alentour->category_id = $request->category;
         $alentour->app_id = $app->id;
 
         //upload arrounds gallery
@@ -120,6 +125,7 @@ class ArroundController extends Controller
         $alentour->link = $request->link;
         $alentour->address = $request->address;        
         $alentour->interest_id = $request->interest;
+        $alentour->category_id = $request->category;
 
         Alert::success('Modification', "Modification de l'alentour est faite avec succée !");
         $alentour->save();

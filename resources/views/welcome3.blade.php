@@ -981,7 +981,7 @@
 
 
       {{-- start infos pratiques overlay  --}}
-      <div id="myCategories" class="overlay" style="overflow-y: scroll;">
+      {{-- <div id="myCategories" class="overlay" style="overflow-y: scroll;">
         <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeCategories()">x</a>
         <div class="overlay-content">
             <p class="pt-4 mx-4 text-muted">Vous trouvez ici toutes les Categories</p>
@@ -1001,7 +1001,7 @@
                     <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
         </div>
-    </div>
+    </div> --}}
     {{-- end infos pratiques overlay  --}}    
 
         {{-- start infos pratiques overlay  --}}

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\App;
 use App\Models\Icon;
+use App\Models\Arround;
 use App\Models\Interest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +21,10 @@ class Category extends Model
 
     public function interests(){
         return $this->hasMany(Interest::class);
+    }
+
+    public function arrounds(){
+        return $this->hasMany(Arround::class);
     }
 
     public function icon(){

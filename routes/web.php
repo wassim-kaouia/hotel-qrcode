@@ -263,8 +263,8 @@ Route::get('/phpinfo', function () {
 // Route::get('/manage/modules',[AppController::class,'manageModules'])->name('modules.manage');
 
 Route::get('/index/categories/{app}',[AppController::class,'categoryByApp'])->name('categories.app');
-Route::get('/index/interests/{category}',[AppController::class,'interestsByCategory'])->name('interests.app');
-Route::get('/index/arrounds/{interest}',[AppController::class,'arroundsByInterest'])->name('arrounds.app');
+Route::get('/index/interests/{app}/{category}',[AppController::class,'interestsByCategory'])->name('interests.app');
+Route::get('/index/arrounds/{app}/{interest}',[AppController::class,'arroundsByInterest'])->name('arrounds.app');
 
 Route::get('/index/modules', [AppController::class, 'indexModules'])->name('modules.index');
 

@@ -37,7 +37,7 @@
                                  </select>
                             </div> 
 
-                            <div class="mb-6">
+                            {{-- <div class="mb-6">
                                 <label for="alentour_name"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categorie</label>
                                 
@@ -50,7 +50,7 @@
                                     @endforeach
                                  </select>
 
-                            </div> 
+                            </div>  --}}
 
                             <input type="hidden" value="{{ $oneinterest->id }}" name="interest_id">
 

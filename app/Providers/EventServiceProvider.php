@@ -31,8 +31,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        App::observe(AppObserver::class);
-        Category::observe(CategoryObserver::class);
+        // App::observe(AppObserver::class);
+        // Category::observe(CategoryObserver::class);
     }
 
     /**

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('interests', function (Blueprint $table) {
-            $table->foreignId('icon_id');
+        Schema::table('arrounds', function (Blueprint $table) {
+            $table->foreignId('category_id');
         });
     }
 
@@ -25,9 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('interests', function (Blueprint $table) {
-            $table->dropColumn('icon_id');
-
+        Schema::table('arrounds', function (Blueprint $table) {
+            $table->dropColumn('category_id');
         });
     }
 };

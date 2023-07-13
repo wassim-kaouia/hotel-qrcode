@@ -5,6 +5,7 @@ use App\Models\App;
 use App\Models\User;
 use App\Models\Wifi;
 use App\Models\Livre;
+use App\Models\Arround;
 use App\Models\Setting;
 use App\Models\Category;
 use App\Models\Digicode;
@@ -36,9 +37,9 @@ class AppController extends Controller
     }
     
     public function categoryByApp($app){
-       
+        
         $app = App::find($app);
-        $categories = Category::where('app_id','=',$app->id)->get();
+        $categories = Category::all();
         
         return view('welcome_categories',[
             'app' => $app,
@@ -46,21 +47,37 @@ class AppController extends Controller
         ]);
     }
     
-    public function interestsByCategory($category){
+    public function interestsByCategory($appId,$category){
+        // dd($appId);
         $category = Category::find($category);
-        $interests = Interest::where('category_id','=',$category->id)->get();
+        $interests = $category->interests;
+        $app = $appId;
+        // $interests = 
+        // dd($category->app);
+        // dd(Arround::where('app_id','=',1)->);
+        // $interestsBycategory = [];
+
+        // foreach($category->arrounds as $arround){
+        //     array_push($interestsBycategory,$arround->interest);
+        // }
+        // dd($interestsBycategory);
+        // $interests = Arround::where('category_id');
         return view('welcome_interests',[ 
             'category' => $category,
             'interests' => $interests,
+            'app' => $app
         ]);
     }
 
-    public function arroundsByInterest($interest){
+    public function arroundsByInterest($appId,$interest){
+        // dd('app id :'.$appId.' and interest id :'.$interest);
         $interest = Interest::find($interest);
-        $arrounds = $interest->arrounds;
+        $app = $appId;
+        $arrounds = Arround::where('app_id','=',$appId)->where('interest_id','=',$interest->id)->get();
+        // dd($arrounds);
         return view('welcome_arrounds',[ 
-            'interest' => $interest,
             'arrounds' => $arrounds,
+            'interest' => $interest
         ]);
     }
 

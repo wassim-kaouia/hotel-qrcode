@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('interests', function (Blueprint $table) {
-            $table->id();
-            $table->string('title')->nullable();
+        Schema::table('interests', function (Blueprint $table) {
             $table->foreignId('category_id');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +25,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interests');
+        Schema::table('interests', function (Blueprint $table) {
+            $table->dropColumn('category_id');
+
+        });
     }
 };
