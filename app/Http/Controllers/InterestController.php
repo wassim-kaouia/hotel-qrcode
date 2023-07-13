@@ -20,11 +20,13 @@ class InterestController extends Controller
         $appId = $user->app->id;
         $interests = Interest::all();
         $icones  = Icon::all();
+        $categories = Category::all();
 
         return view('modules.interest',
         [
             'interests' => $interests,
-            'icones' => $icones
+            'icones' => $icones,
+            'categories' => $categories
         ]
     );
     }
@@ -50,6 +52,7 @@ class InterestController extends Controller
         $interest = new Interest();
         $interest->title = $request->interest;  
         $interest->icon_id = $request->icone;
+        $interest->category_id = $request->category;
     
         $interest->save();
 
@@ -78,12 +81,14 @@ class InterestController extends Controller
         // $interests = Interest::where('category_id','=',$oneinterest->category_id)->get();  
         $interests = Interest::all();
         $icones  = Icon::all();
+        $categories = Category::all();
 
 
         return view('modules.interest_update',[
             'oneinterest' => $oneinterest,
             'interests' => $interests,
             'icones' => $icones,
+            'categories' => $categories
         ]);
     }
     
@@ -92,6 +97,7 @@ class InterestController extends Controller
         $interest = Interest::findOrFail($request->interest_id);
         $interest->title = $request->interest;
         $interest->icon_id = $request->icone;
+        $interest->category_id = $request->category;
 
         Alert::success('Modification', "Modification du point d'interet est faite avec succée !");
         $interest->save();
