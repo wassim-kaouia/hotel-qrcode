@@ -98,9 +98,10 @@ class InterestController extends Controller
         $interest->title = $request->interest;
         $interest->icon_id = $request->icone;
         $interest->category_id = $request->category;
-
-        Alert::success('Modification', "Modification du point d'interet est faite avec succée !");
         $interest->save();
+        
+        Alert::success('Modification', "Modification du point d'interet est faite avec succée !");
+        
         return redirect()->back();
     }
 

@@ -109,11 +109,13 @@ class ArroundController extends Controller
         $onealentours = Arround::findOrFail($id);
         $alentours = Arround::paginate(5);  
         $interests = Interest::all();
+        $categories = Category::all();
 
         return view('modules.module.alentour_update',[
             'onealentours' => $onealentours,
             'alentours' => $alentours,
-            'interests' => $interests
+            'interests' => $interests,
+            'categories' => $categories
         ]);
     }
 
