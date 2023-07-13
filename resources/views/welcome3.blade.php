@@ -333,7 +333,7 @@
         <div class="d-flex justify-content-center">
             {{-- start position title   --}}
             <div class="d-flex justify-content-center">
-                <p class="text-muted">Votre Hebergeur</p>
+                <p class="text-muted">Votre(vos) Hôte(s)</p>
             </div>
             {{-- end position title  --}}
         </div>  
