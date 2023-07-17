@@ -347,10 +347,8 @@
                 <a href="#" onclick="openInfosArrivalKey()">Clés</a>
                 <a href="#" onclick="openNumero()">Numéros utiles</a>
                 <a href="#" onclick="openLivre()">Livre d'or</a>
-                <a href="#" onclick="openInfosArrival()">Informations d'arrivée</a>
-                <a href="#" onclick="openInfosArrival()">Informations de départ</a>
-                <a href="#">Informations pratiques</a>
-                <a href="#">Infos Pratiques</a>
+                <a href="#" onclick="openInfosArrival()">Informations pratiques</a>
+
             </div>
         </div>
         {{-- end sidemenu --}}
