@@ -321,14 +321,14 @@
                                         value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['background_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
-                                {{-- <div class="px-4 mb-2">
+                                <div class="px-4 mb-2">
                                     <label for="carousel-color"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                         Carousel</label>
                                     <input type="color" id="carousel-color" name="notes_color"
                                         value="{{ empty($setting->app_theme) ? '' : $setting->app_theme['notes_color'] }}"
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
-                                </div> --}}
+                                </div>
                             </div>
                             <div class="px-4 mb-2">
                                 <div class="flex items-start mb-6">
