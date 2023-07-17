@@ -9,6 +9,7 @@ use App\Models\Plant;
 use App\Models\Animal;
 
 use App\Models\Rappel;
+use App\Models\Parking;
 use App\Models\Reglement;
 use App\Models\ArrivalInfo;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class InfoController extends Controller
         $rappels = Rappel::where('app_id','=',$appId)->get();
         $plants = Plant::where('app_id','=',$appId)->get();
         $animals = Animal::where('app_id','=',$appId)->get();
+        $parkings = Parking::where('app_id','=',$appId)->get();
 
         return view('modules.module.infos',
         [
@@ -39,7 +41,8 @@ class InfoController extends Controller
             'keys' => $keys,
             'rappels' => $rappels,
             'plants' => $plants,
-            'animals' => $animals
+            'animals' => $animals,
+            'parkings' => $parkings
         ]
     );
     }

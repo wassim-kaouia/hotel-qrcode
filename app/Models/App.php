@@ -7,6 +7,7 @@ use App\Models\Key;
 use App\Models\Plant;
 use App\Models\Animal;
 use App\Models\Rappel;
+use App\Models\Parking;
 use App\Models\Alentour;
 use App\Models\Category;
 use App\Models\Emergency;
@@ -86,6 +87,10 @@ class App extends Model
 
     public function animals(){
         return $this->hasMany(Animal::class);
+    }
+
+    public function parkings(){
+        return $this->hasMany(Parking::class);
     }
     
     public function partenariats(){

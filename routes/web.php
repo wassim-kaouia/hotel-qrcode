@@ -16,6 +16,7 @@ use App\Http\Controllers\PlantController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\RappelController;
 use App\Http\Controllers\ArroundController;
+use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\AlentourController;
 use App\Http\Controllers\CategoryController;
@@ -155,6 +156,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/animal_show_update/{id}',[AnimalController::class,'showUpdateAnimal'])->name('animal.updating');
     Route::get('animal_delete/{id}',[AnimalController::class,''])->name('animal.delete');
     Route::post('/animal_update',[AnimalController::class,'updateAnimal'])->name('animal.update');  
+
+//ADD Parking Info
+    Route::post('/parking_add',[ParkingController::class,'addParking'])->name('parking.create');   
+    Route::get('/parking_show_update/{id}',[ParkingController::class,'showUpdateParking'])->name('parking.updating');
+    Route::get('parking_delete/{id}',[ParkingController::class,''])->name('parking.delete');
+    Route::post('/parking_update',[ParkingController::class,'updateParking'])->name('parking.update');  
 
 //update icons settings
     Route::get('/icons_show',[SettingController::class,'updateIcons'])->name('icons.update');

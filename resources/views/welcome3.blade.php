@@ -879,6 +879,12 @@
                                     <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openAnimal()" >Animaux</span>
                                 </div>
                             </div>
+                            <div class="col-6 mb-4">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-product-hunt p-4" style="font-size: 60px;" aria-shidden="true" onclick="openParking()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openParking()" >Parking</span>
+                                </div>
+                            </div>
                         </div>
                      </div>
                      <div class="d-flex justify-content-center my-4">
@@ -887,6 +893,34 @@
             </div>
         </div>
         {{-- end infos pratiques overlay  --}} 
+
+    {{-- start parking overlay  --}}
+      <div id="myParking" class="overlay" style="overflow-y: scroll;">
+        <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeParking()">x</a>
+        <div class="overlay-content">
+            <p class="pt-4 mx-4 text-muted">Parking</p>
+            <div class="d-flex flex-column px-4">
+                @foreach ($app->parkings as $parking)
+                <div class="mt-4">
+                    <div class="d-flex justify-content-start">
+                        <p>Information</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                            <p class="p-3">{{ $parking->parking_info }}</p>
+                        </div>  
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+            </div>
+
+        </div>
+    </div>
+    {{-- end parking overlay --}}
 
       {{-- start animal overlay  --}}
       <div id="myAnimal" class="overlay" style="overflow-y: scroll;">
@@ -1220,6 +1254,16 @@
     
     function closeAnimal() {
         document.getElementById("myAnimal").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
+    }
+
+     //parking
+     function openParking() {
+        document.getElementById("myParking").style.width = "100%";
+    }
+    
+    function closeParking() {
+        document.getElementById("myParking").style.width = "0%";
         $('#myInfosArrival').css('display','block');
     }
 
