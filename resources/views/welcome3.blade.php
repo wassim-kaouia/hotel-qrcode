@@ -992,11 +992,9 @@
                     </div>
                     @endforeach
                 </div>
-
                 <div class="d-flex justify-content-center mt-4">
                     <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
-
             </div>
         </div>
         {{-- rappel overlay --}}
@@ -1023,7 +1021,6 @@
                 <div class="d-flex justify-content-center mt-4">
                     <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
                 </div>
-
             </div>
         </div>
         {{-- clé overlay --}}

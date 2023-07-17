@@ -16,7 +16,8 @@
                 <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="grid lg:grid-cols-1 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
 
-                       <p class="text-3xl mb-3"> Mon lien d'application:</p> {{ $link }}
+                       <p class="text-3xl mb-3"> Mon lien d'application:</p>  
+                       <a href="{{ $link }}">{{ $link }}</a>
                        <p class="mt-10 mb-4">
                         Pour imprimer ou enregistrer le Qr Code 
                        </p>
