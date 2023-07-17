@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\App;
 use App\Models\Key;
+use App\Models\Plant;
+use App\Models\Animal;
 use App\Models\Rappel;
 use App\Models\Alentour;
 use App\Models\Category;
@@ -76,6 +78,14 @@ class App extends Model
 
     public function rappels(){
         return $this->hasMany(Rappel::class);
+    }
+
+    public function plants(){
+        return $this->hasMany(Plant::class);
+    }
+
+    public function animals(){
+        return $this->hasMany(Animal::class);
     }
     
     public function partenariats(){

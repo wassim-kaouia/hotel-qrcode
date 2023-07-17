@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\App;
 use App\Models\Key;
 use App\Models\Info;
+use App\Models\Plant;
+use App\Models\Animal;
+
 use App\Models\Rappel;
 use App\Models\Reglement;
-
 use App\Models\ArrivalInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +28,8 @@ class InfoController extends Controller
         $reglements = Reglement::where('app_id','=',$appId)->get();
         $keys = Key::where('app_id','=',$appId)->get();
         $rappels = Rappel::where('app_id','=',$appId)->get();
+        $plants = Plant::where('app_id','=',$appId)->get();
+        $animals = Animal::where('app_id','=',$appId)->get();
 
         return view('modules.module.infos',
         [
@@ -34,6 +38,8 @@ class InfoController extends Controller
             'reglements' => $reglements,
             'keys' => $keys,
             'rappels' => $rappels,
+            'plants' => $plants,
+            'animals' => $animals
         ]
     );
     }

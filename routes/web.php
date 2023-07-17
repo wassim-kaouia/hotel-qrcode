@@ -12,6 +12,8 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\WifiController;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\PlantController;
+use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\RappelController;
 use App\Http\Controllers\ArroundController;
 use App\Http\Controllers\SettingController;
@@ -140,7 +142,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/arrivalInfo_add',[ArrivalInfoController::class,'addArrivalInfo'])->name('arrivalinfo.create');   
     Route::get('/arrivalInfo_show_update/{id}',[ArrivalInfoController::class,'showUpdateArrivalInfo'])->name('arrivalinfo.updating');
     Route::get('arrivalInfo_delete/{id}',[ArrivalInfoController::class,''])->name('arrivalinfo.delete');
-    Route::post('/arrivalInfo_update',[ArrivalInfoController::class,'updateArrivalInfo'])->name('arrivalinfo.update');      
+    Route::post('/arrivalInfo_update',[ArrivalInfoController::class,'updateArrivalInfo'])->name('arrivalinfo.update');  
+    
+//ADD plants Info
+    Route::post('/plant_add',[PlantController::class,'addPlant'])->name('plant.create');   
+    Route::get('/plant_show_update/{id}',[PlantController::class,'showUpdatePlant'])->name('plant.updating');
+    Route::get('plant_delete/{id}',[PlantController::class,''])->name('plant.delete');
+    Route::post('/plant_update',[PlantController::class,'updatePlant'])->name('plant.update');  
+
+//ADD Animal Info
+    Route::post('/animal_add',[AnimalController::class,'addAnimal'])->name('animal.create');   
+    Route::get('/animal_show_update/{id}',[AnimalController::class,'showUpdateAnimal'])->name('animal.updating');
+    Route::get('animal_delete/{id}',[AnimalController::class,''])->name('animal.delete');
+    Route::post('/animal_update',[AnimalController::class,'updateAnimal'])->name('animal.update');  
 
 //update icons settings
     Route::get('/icons_show',[SettingController::class,'updateIcons'])->name('icons.update');

@@ -230,7 +230,7 @@
 
              {{-- start description application  --}}
              <div class="d-flex justify-content-center">
-                <p class="description-application text-center">{{ $app->description }}</p>
+                <p class="title-application text-center">{{ $app->description }}</p>
             </div>
             {{-- end description application  --}}
 
@@ -325,7 +325,7 @@
         <div class="d-flex justify-content-center">
             {{-- start username title   --}}
             <div class="d-flex justify-content-center">
-                <p class="mt-3 text-lg">Wassim Kaouia</p>
+                <p class="mt-3 text-lg">{{ $app->user->name }}</p>
             </div>
             {{-- end username title  --}}
         </div>
@@ -343,37 +343,43 @@
             <div class="flex-column">
                 <a href="#" onclick="openWifi()">Wifi</a>
                 <a href="#" onclick="openDigicode()">Digicode</a>
-                <a href="#" >Alentours</a>
-                <a href="#" onclick="openNumero()">Numeros Utiles</a>
-                <a href="#" onclick="openLivre()">Livre D'Or</a>
+                <a href="{{ route('categories.app',['app' => $app->id]) }}" >Autour de moi</a>
+                <a href="#" onclick="openInfosArrivalKey()">Clés</a>
+                <a href="#" onclick="openNumero()">Numéros utiles</a>
+                <a href="#" onclick="openLivre()">Livre d'or</a>
+                <a href="#" onclick="openInfosArrival()">Informations d'arrivée</a>
+                <a href="#" onclick="openInfosArrival()">Informations de départ</a>
+                <a href="#">Informations pratiques</a>
                 <a href="#">Infos Pratiques</a>
-                <a href="#" onclick="openInfosArrival()">Infos Arrivé</a>
-                <a href="#">Infos Départ</a>
             </div>
         </div>
         {{-- end sidemenu --}}
+        <div class="d-flex justify-content-center">
+                <p class="text-muted mt-4 d-flex justify-content-center">Contacter l'Hôte</p>
+        </div>
 
         <div class="d-flex justify-content-center">
-                <p class="text-muted mt-4 d-flex justify-content-center">Connecter Avec l'Hôte</p>
+            <a href="mailto:{{ $app->user->email }}" class="text-center">
+                <i class="fa fa-envelope" aria-hidden="true"></i>            
+            </a>
         </div>
-
-        <div class="d-flex">
-            <a href="#" class="mb-2">
+        {{-- <div class="d-flex">
+            <a href="#" class="mb-2"> --}}
                 {{-- image size in photoshop 145x145 px --}}
-                <img src="{{ url('assets/images/facebook.png') }}"  class="social-icon" style="width: 30px;" alt="facebook">
-            </a>
+                {{-- <img src="{{ url('assets/images/facebook.png') }}"  class="social-icon" style="width: 30px;" alt="facebook"> --}}
+            {{-- </a> --}}
 
-            <a href="#" class="mb-2">
+            {{-- <a href="#" class="mb-2"> --}}
                 {{-- image size in photoshop 145x145 px --}}
-                <img src="{{ url('assets/images/instagram.png') }}"  class="social-icon" style="width: 30px;" alt="instagram">
-            </a>
+                {{-- <img src="{{ url('assets/images/instagram.png') }}"  class="social-icon" style="width: 30px;" alt="instagram">
+            </a> --}}
 
-            <a href="#" class="mb-2">
+            {{-- <a href="#" class="mb-2"> --}}
                 {{-- image size in photoshop 145x145 px --}}
-                <img src="{{ url('assets/images/youtube.png') }}"  class="social-icon" style="width: 30px;" alt="youtube">
-            </a>
+                {{-- <img src="{{ url('assets/images/youtube.png') }}"  class="social-icon" style="width: 30px;" alt="youtube"> --}}
+            {{-- </a> --}}
 
-        </div>
+        {{-- </div> --}}
 
         <div class="d-flex justify-content-center mt-4">
             <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
@@ -845,7 +851,7 @@
                             <div class="col-6 mb-4">
                                 <div class="btn-box bg-light rounded d-flex flex-column">
                                     <i class="fa fa-book p-4" style="font-size: 60px;" aria-hidden="true" onclick="openInfosArrivalReg()"></i>
-                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalReg3()">Réglement Interne</span>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalReg()">Réglement Interne</span>
                                 </div>
                             </div>
                             <div class="col-6 mb-4">
@@ -860,6 +866,19 @@
                                     <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openInfosArrivalKey()" >Clés</span>
                                 </div>
                             </div>
+                            <div class="col-6 mb-4">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-pagelines p-4" style="font-size: 60px;" aria-shidden="true" onclick="openPlant()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openPlant()" >Plantes</span>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mb-4">
+                                <div class="btn-box bg-light rounded d-flex flex-column">
+                                    <i class="fa fa-paw p-4" style="font-size: 60px;" aria-shidden="true" onclick="openAnimal()"></i>
+                                    <span class="" style="padding-bottom: 10px; font-size:24px;" onclick="openAnimal()" >Animaux</span>
+                                </div>
+                            </div>
                         </div>
                      </div>
                      <div class="d-flex justify-content-center my-4">
@@ -868,6 +887,62 @@
             </div>
         </div>
         {{-- end infos pratiques overlay  --}} 
+
+      {{-- start animal overlay  --}}
+      <div id="myAnimal" class="overlay" style="overflow-y: scroll;">
+        <a href="javascript:void(0)" class="closebtn-icon"  onclick="closeAnimal()">x</a>
+        <div class="overlay-content">
+            <p class="pt-4 mx-4 text-muted">Animaux</p>
+            <div class="d-flex flex-column px-4">
+                @foreach ($app->animals as $animal)
+                <div class="mt-4">
+                    <div class="d-flex justify-content-start">
+                        <p>Information</p>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                            <p class="p-3">{{ $animal->animal_info }}</p>
+                        </div>  
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+            </div>
+
+        </div>
+    </div>
+    {{-- end animal overlay --}}
+
+        {{-- start plant overlay  --}}
+        <div id="myPlants" class="overlay" style="overflow-y: scroll;">
+            <a href="javascript:void(0)" class="closebtn-icon"  onclick="closePlant()">x</a>
+            <div class="overlay-content">
+                <p class="pt-4 mx-4 text-muted">Arbres Fruitières</p>
+                <div class="d-flex flex-column px-4">
+                    @foreach ($app->plants as $plant)
+                    <div class="mt-4">
+                        <div class="d-flex justify-content-start">
+                            <p>Information</p>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                            <div class="rounded bg-light" style="width: 100%; text-align: left;">
+                                <p class="p-3">{{ $plant->plant_info }}</p>
+                            </div>  
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                    <img src="{{ url('assets/images/LOGO-MYDIGIHOUSE_new.png') }}" class="w-25 mb-4 mt-2" alt="">
+                </div>
+
+            </div>
+        </div>
+        {{-- end plant overlay --}}
 
         {{-- temps d'arrivé overlay  --}}
          <div id="myInfosArrivalTime" class="overlay" style="overflow-y: scroll;">
@@ -1123,6 +1198,15 @@
         document.getElementById("myWifi").style.width = "0%";
     }
 
+    //plant
+    function openPlant() {
+        document.getElementById("myPlants").style.width = "100%";
+    }
+    function closePlant() {
+        document.getElementById("myPlants").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
+    }
+
     //digicode
     function openDigicode() {
         document.getElementById("myDigicode").style.width = "100%";
@@ -1130,6 +1214,16 @@
     
     function closeDigicode() {
         document.getElementById("myDigicode").style.width = "0%";
+    }
+
+     //animaux
+     function openAnimal() {
+        document.getElementById("myAnimal").style.width = "100%";
+    }
+    
+    function closeAnimal() {
+        document.getElementById("myAnimal").style.width = "0%";
+        $('#myInfosArrival').css('display','block');
     }
 
     //numero
