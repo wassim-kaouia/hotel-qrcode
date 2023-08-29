@@ -171,11 +171,6 @@
                             </div>
 
                             {{-- start modules --}}
-                            @if (Auth::user()->role == 'admin')
-                            <div class="p-8">
-                                <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules </a>
-                            </div>
-                            @endif
                             <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8 mt-4">
                                 {{-- wifi module  --}}
                                 <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
@@ -335,14 +330,16 @@
                             </div>
                             {{-- end modules  --}}
 
-                            <div class="px-4 mb-2">
-                                <div class="flex items-start mb-6">
-                                    <div class="flex items-center h-5">
-                                    </div>
-                                </div>
-                                <button type="submit"
-                                   style="background-color: #c4c83f" class="mb-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier</button>
+                    <div class="px-4 mb-2 flex justify-center">    
+                        <div class="p-8">
+                            <a id="mysubmit-form" href="#" onclick="mySubmit()" style="background-color: #c4c83f" class="bg-red-500 text-white rounded px-5 py-2">Modifier mon livret  </a>
+                        </div>       
+                            @if (Auth::user()->role != 'admin')
+                            <div class="p-8">
+                                <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-5 py-2">Modifier Les Modules </a>
                             </div>
+                            @endif
+                    </div>
                         </div>
                     </div>
 
@@ -360,6 +357,11 @@
             </div>
         </form>
     </div>
+    <script>
+        function myFunction() {
+            document.getElementById("mysubmit-form").submit();
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script defer>
         //listen if the dom get loaded 
