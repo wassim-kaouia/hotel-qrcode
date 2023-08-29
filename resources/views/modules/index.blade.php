@@ -38,170 +38,9 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                        @if (Auth::user()->role == 'admin')
-                        <div class="p-8">
-                            <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules </a>
-                        </div>
-                        @endif
-                        <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
-                            {{-- wifi module  --}}
-                            <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                <div class="p-4">
-                                    {{-- <i class="fa fa-wifi text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->wifi_path) }}" class="icon d-block center-block">
-                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->wifi_text }}</h2>
-                                    <div class="flex justify-center">
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox"
-                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['wifi'] == 'on' ? 'checked' : '' }}
-                                                name="wifi_state" class="sr-only peer" id="wifi">
-                                            <input type="hidden" name="wifi_state" value="off" class="sr-only peer"
-                                                id="wifi_hidden">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- end module wifi  --}}
-                            {{-- wifi module digicode --}}
-                            <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                <div class="p-4">
-                                    {{-- <i class="fa fa-calculator text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->digicode_path) }}" class="icon d-block center-block">
-
-                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->digicode_text }}</h2>
-                                    <div class="flex justify-center">
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox"
-                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['digicode'] == 'on' ? 'checked' : '' }}
-                                                class="sr-only peer" id="digicode" name="digicode_state">
-                                            <input type="hidden" name="digicode_state" value="off"
-                                                class="sr-only peer" id="digicode_hidden">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- end module digicode  --}}
-                            {{-- wifi module Livre d'Or --}}
-                            <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                <div class="p-4">
-                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->livre_path) }}" class="icon d-block center-block">
-                                    {{-- <i class="fa fa-bookmark text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->livre_text }}</h2>
-                                    <div class="flex justify-center">
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox"
-                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['livre'] == 'on' ? 'checked' : '' }}
-                                                name="livre_state" class="sr-only peer" id="livre">
-                                            <input type="hidden" name="livre_state" value="off" class="sr-only peer"
-                                                id="livre_hidden">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- end module Livre d'Or  --}}
-                            {{-- wifi module Alentours --}}
-                            <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                <div class="p-4">
-                                    {{-- <i class="fa fa-street-view text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->arround_path) }}" class="icon d-block center-block">
-                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->arround_text }}</h2>
-                                    <div class="flex justify-center">
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox"
-                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['arround'] == 'on' ? 'checked' : '' }}
-                                                name="arround_state" class="sr-only peer" id="arround">
-                                            <input type="hidden" name="arround_state" value="off"
-                                                class="sr-only peer" id="arround_hidden">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- end module Alentours  --}}
-                            {{-- wifi module Infos --}}
-                            <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                <div class="p-4">
-                                    <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->info_path) }}" class="icon d-block center-block">
-
-                                    {{-- <i class="fa fa-info text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->info_text }}</h2>
-                                    <div class="flex justify-center">
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox"
-                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['info'] == 'on' ? 'checked' : '' }}
-                                                name="info_state" class="sr-only peer" id="info">
-                                            <input type="hidden" name="info_state" value="off" class="sr-only peer"
-                                                id="info_hidden">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- end module Infos  --}}
-                            {{-- start module Numéros --}}
-                            <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                <div class="p-4">
-                                    {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
-                                        aria-hidden="true"></i> --}}
-                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->numero_path) }}" class="icon d-block center-block">
-
-                                    <h2 class="flex justify-center mb-2">{{ $settingGeneral->numero_text }}</h2>
-                                    <div class="flex justify-center">
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox"
-                                                {{ count($setting->modules_state) > 0  && $setting->modules_state['nums'] == 'on' ? 'checked' : '' }}
-                                                name="nums_state" class="sr-only peer" id="nums">
-                                            <input type="hidden" name="nums_state" value="off"
-                                                class="sr-only peer" id="nums_hidden">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- end module Numéros --}}
-
-                            {{-- start module partenariat --}}
-                                 <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
-                                    <div class="p-4">
-                                        {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
-                                            aria-hidden="true"></i> --}}
-                                            <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->partenariat_path) }}" class="icon d-block center-block">
-    
-                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->partenariat_text }}</h2>
-                                        <div class="flex justify-center">
-                                            <label class="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox"
-                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['partenariat'] == 'on' ? 'checked' : '' }}
-                                                    name="partenariat_state" class="sr-only peer" id="partenariat">
-                                                <input type="hidden" name="partenariat_state" value="off"
-                                                    class="sr-only peer" id="partenariat_hidden">
-                                                <div
-                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- end module Partenariat --}}
-
-                        </div>
+                        
                         <div class="grid lg:grid-cols-1">
-                            <div class="px-4 mb-2">
+                            <div class="px-4 mb-2 mt-6">
                                 <label for="default-input"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre</label>
                                 <input type="text" id="title_input" name="app_title"
@@ -330,13 +169,179 @@
                                         class="bg-gray-50 border border-gray-300 rounded-lg w-full px-1 py-1">
                                 </div>
                             </div>
+
+                            {{-- start modules --}}
+                            @if (Auth::user()->role == 'admin')
+                            <div class="p-8">
+                                <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-4 py-2">Modifier Les Modules </a>
+                            </div>
+                            @endif
+                            <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8 mt-4">
+                                {{-- wifi module  --}}
+                                <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        {{-- <i class="fa fa-wifi text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->wifi_path) }}" class="icon d-block center-block">
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->wifi_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['wifi'] == 'on' ? 'checked' : '' }}
+                                                    name="wifi_state" class="sr-only peer" id="wifi">
+                                                <input type="hidden" name="wifi_state" value="off" class="sr-only peer"
+                                                    id="wifi_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module wifi  --}}
+                                {{-- wifi module digicode --}}
+                                <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        {{-- <i class="fa fa-calculator text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->digicode_path) }}" class="icon d-block center-block">
+    
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->digicode_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['digicode'] == 'on' ? 'checked' : '' }}
+                                                    class="sr-only peer" id="digicode" name="digicode_state">
+                                                <input type="hidden" name="digicode_state" value="off"
+                                                    class="sr-only peer" id="digicode_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module digicode  --}}
+                                {{-- wifi module Livre d'Or --}}
+                                <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->livre_path) }}" class="icon d-block center-block">
+                                        {{-- <i class="fa fa-bookmark text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->livre_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['livre'] == 'on' ? 'checked' : '' }}
+                                                    name="livre_state" class="sr-only peer" id="livre">
+                                                <input type="hidden" name="livre_state" value="off" class="sr-only peer"
+                                                    id="livre_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module Livre d'Or  --}}
+                                {{-- wifi module Alentours --}}
+                                <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        {{-- <i class="fa fa-street-view text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->arround_path) }}" class="icon d-block center-block">
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->arround_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['arround'] == 'on' ? 'checked' : '' }}
+                                                    name="arround_state" class="sr-only peer" id="arround">
+                                                <input type="hidden" name="arround_state" value="off"
+                                                    class="sr-only peer" id="arround_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module Alentours  --}}
+                                {{-- wifi module Infos --}}
+                                <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->info_path) }}" class="icon d-block center-block">
+    
+                                        {{-- <i class="fa fa-info text-3xl flex justify-center" aria-hidden="true"></i> --}}
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->info_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['info'] == 'on' ? 'checked' : '' }}
+                                                    name="info_state" class="sr-only peer" id="info">
+                                                <input type="hidden" name="info_state" value="off" class="sr-only peer"
+                                                    id="info_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module Infos  --}}
+                                {{-- start module Numéros --}}
+                                <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                    <div class="p-4">
+                                        {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
+                                            aria-hidden="true"></i> --}}
+                                            <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->numero_path) }}" class="icon d-block center-block">
+    
+                                        <h2 class="flex justify-center mb-2">{{ $settingGeneral->numero_text }}</h2>
+                                        <div class="flex justify-center">
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox"
+                                                    {{ count($setting->modules_state) > 0  && $setting->modules_state['nums'] == 'on' ? 'checked' : '' }}
+                                                    name="nums_state" class="sr-only peer" id="nums">
+                                                <input type="hidden" name="nums_state" value="off"
+                                                    class="sr-only peer" id="nums_hidden">
+                                                <div
+                                                    class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- end module Numéros --}}
+    
+                                {{-- start module partenariat --}}
+                                     <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
+                                        <div class="p-4">
+                                            {{-- <i class="fa fa-volume-control-phone text-3xl flex justify-center"
+                                                aria-hidden="true"></i> --}}
+                                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->partenariat_path) }}" class="icon d-block center-block">
+        
+                                            <h2 class="flex justify-center mb-2">{{ $settingGeneral->partenariat_text }}</h2>
+                                            <div class="flex justify-center">
+                                                <label class="relative inline-flex items-center cursor-pointer">
+                                                    <input type="checkbox"
+                                                        {{ count($setting->modules_state) > 0  && $setting->modules_state['partenariat'] == 'on' ? 'checked' : '' }}
+                                                        name="partenariat_state" class="sr-only peer" id="partenariat">
+                                                    <input type="hidden" name="partenariat_state" value="off"
+                                                        class="sr-only peer" id="partenariat_hidden">
+                                                    <div
+                                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{-- end module Partenariat --}}
+    
+                            </div>
+                            {{-- end modules  --}}
+
                             <div class="px-4 mb-2">
                                 <div class="flex items-start mb-6">
                                     <div class="flex items-center h-5">
                                     </div>
                                 </div>
                                 <button type="submit"
-                                   style="background-color: #c4c83f" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier</button>
+                                   style="background-color: #c4c83f" class="mb-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier</button>
                             </div>
                         </div>
                     </div>
