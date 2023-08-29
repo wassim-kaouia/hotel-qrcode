@@ -336,7 +336,7 @@
                                 <button type="submit" style="background-color: #c4c83f"
                                 class="bg-red-500 text-white rounded px-5 py-2">Modifier mon livret</button>
                             </div>
-                                @if (Auth::user()->role != 'admin')
+                                @if (Auth::user()->role == 'admin')
                             <div class="p-8">
                                 <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-5 py-2">Modifier Les Modules </a>
                             </div>
