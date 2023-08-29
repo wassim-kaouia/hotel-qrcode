@@ -330,16 +330,19 @@
                             </div>
                             {{-- end modules  --}}
 
-                    <div class="px-4 mb-2 flex justify-center">    
-                        <div class="p-8">
-                            <a id="mysubmit-form" href="#" onclick="mySubmit()" style="background-color: #c4c83f" class="bg-red-500 text-white rounded px-5 py-2">Modifier mon livret  </a>
-                        </div>       
-                            @if (Auth::user()->role != 'admin')
+                            <div class="px-4 mb-2 flex justify-center items-center">
+                               
+                            <div class="p-8">
+                                <button type="submit" style="background-color: #c4c83f"
+                                class="bg-red-500 text-white rounded px-5 py-2">Modifier mon livret</button>
+                            </div>
+                                @if (Auth::user()->role != 'admin')
                             <div class="p-8">
                                 <a href="{{ route('icons.update') }}" class="bg-red-500 text-white rounded px-5 py-2">Modifier Les Modules </a>
                             </div>
                             @endif
-                    </div>
+                                
+                            </div>
                         </div>
                     </div>
 
@@ -357,11 +360,6 @@
             </div>
         </form>
     </div>
-    <script>
-        function myFunction() {
-            document.getElementById("mysubmit-form").submit();
-        }
-    </script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script defer>
         //listen if the dom get loaded 
