@@ -19,7 +19,7 @@
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40 mb-8">
                             <div class="p-4">
                                 {{-- <i class="fa fa-wifi text-6xl flex justify-center" aria-hidden="true"></i> --}}
-                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->wifi_path) }}" class="icon d-block center-block w-16 mx-auto">
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->wifi_path) }}" class="icon d-block center-block w-20 mx-auto">
                                 <a href="{{ route('wifi.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Wifi</a>
                             </div>
                         </div>
