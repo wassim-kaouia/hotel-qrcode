@@ -13,7 +13,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-1 gap-4">
+                <p>Pour modifier le contenue des modules, veuillez cliquer sur l'icone du module en dessous  </p>
                 <div class="lg:col-span-2 md:col-span-2 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    
                     <div class="grid lg:grid-cols-4 sm:grid-cols-1 md-cols-2 lg:gab-4 p-8">
                         {{-- wifi module  --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40 mb-8">
