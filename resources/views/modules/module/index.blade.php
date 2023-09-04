@@ -18,16 +18,19 @@
                         {{-- wifi module  --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40 mb-8">
                             <div class="p-4">
-                                <i class="fa fa-wifi text-6xl flex justify-center" aria-hidden="true"></i>
-                                <a href="{{ route('wifi.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Wifi</a>
+                                {{-- <i class="fa fa-wifi text-6xl flex justify-center" aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->wifi_path) }}" class="icon d-block center-block w-24 mx-auto">
+                                <a href="{{ route('wifi.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Wifi</a>
                             </div>
                         </div>
                         {{-- end module wifi  --}}
                         {{-- wifi module digicode --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
-                                <i class="fa fa-calculator text-6xl flex justify-center" aria-hidden="true"></i>
-                                <a href="{{ route('digicode.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Digicode</a>
+                                {{-- <i class="fa fa-calculator text-6xl flex justify-center" aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->digicode_path) }}" class="icon d-block center-block w-24 mx-auto">
+
+                                <a href="{{ route('digicode.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Digicode</a>
                                
                             </div>
                         </div>
@@ -35,8 +38,10 @@
                         {{-- wifi module Livre d'Or --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
-                                <i class="fa fa-bookmark text-6xl flex justify-center" aria-hidden="true"></i>
-                                <a href="{{ route('livre.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Livre d'or</a>
+                                {{-- <i class="fa fa-bookmark text-6xl flex justify-center" aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->livre_path) }}" class="icon d-block center-block w-24 mx-auto">
+
+                                <a href="{{ route('livre.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Livre d'or</a>
                                
                             </div>
                         </div>
@@ -44,8 +49,10 @@
                         {{-- wifi module Alentours --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
-                                <i class="fa fa-street-view text-6xl flex justify-center" aria-hidden="true"></i>
-                                <a href="{{ route('alentours.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Alentours</a>
+                                {{-- <i class="fa fa-street-view text-6xl flex justify-center" aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->arround_path) }}" class="icon d-block center-block w-24 mx-auto">
+
+                                <a href="{{ route('alentours.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Alentours</a>
                                 
                             </div>
                         </div>
@@ -53,17 +60,21 @@
                         {{-- wifi module Infos --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
-                                <i class="fa fa-info text-6xl flex justify-center" aria-hidden="true"></i>
-                                <a href="{{ route('infos.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Info</a>
+                                {{-- <i class="fa fa-info text-6xl flex justify-center" aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->info_path) }}" class="icon d-block center-block w-24 mx-auto">
+
+                                <a href="{{ route('infos.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Info</a>
                             </div>
                         </div>
                         {{-- end module Infos  --}}
                         {{-- start module Numéros --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
-                                <i class="fa fa-volume-control-phone text-6xl flex justify-center"
-                                    aria-hidden="true"></i>
-                                <a href="{{ route('numeros.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Numeros</a>
+                                {{-- <i class="fa fa-volume-control-phone text-6xl flex justify-center"
+                                    aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->numero_path) }}" class="icon d-block center-block w-24 mx-auto">
+
+                                <a href="{{ route('numeros.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Numeros</a>
                                 
                             </div>
                         </div>
@@ -71,9 +82,11 @@
                         {{-- start module partenariat  --}}
                         <div class="bg-gray-100 shadow-md rounded-md w-40 h-40  mb-8">
                             <div class="p-4">
-                                <i class="fa fa-handshake-o text-6xl flex justify-center"
-                                    aria-hidden="true"></i>
-                                <a href="{{ route('partenariat.index') }}" class="flex justify-center mb-2 text-3xl mt-2">Partenariat</a>
+                                {{-- <i class="fa fa-handshake-o text-6xl flex justify-center"
+                                    aria-hidden="true"></i> --}}
+                                <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->partenariat_path) }}" class="icon d-block center-block w-24 mx-auto">
+    
+                                <a href="{{ route('partenariat.index') }}" class="flex justify-center mb-2 text-2xl mt-2">Partenariat</a>
                                 
                             </div>
                         </div>

@@ -197,7 +197,7 @@
                                 <div class="bg-gray-100 shadow-md rounded-md w-32 h-32 mb-8">
                                     <div class="p-4">
                                         {{-- <i class="fa fa-calculator text-3xl flex justify-center" aria-hidden="true"></i> --}}
-                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->digicode_path) }}" class="icon d-block center-block">
+                                        <img src="{{ url('imagesApp/images/icons/'.$settingGeneral->digicode_path) }}" class="icon d-block center-block" >
     
                                         <h2 class="flex justify-center mb-2">{{ $settingGeneral->digicode_text }}</h2>
                                         <div class="flex justify-center">

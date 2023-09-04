@@ -179,15 +179,13 @@
                                     <img src="{{ url('imagesApp/images/icons/'.$setting->partenariat_path) }}" alt="Partenariats">
                                 </div>    
                             </div>
-
-
     
                             <div class="px-4 mb-2">
                                 <div class="flex items-start mb-6">
                                     <div class="flex items-center h-5">
                                     </div>
                                 </div>
-                                <button type="submit"
+                                <button type="submit" style="background-color: #c4c83f"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Modifier</button>
                             </div>
                         </div>

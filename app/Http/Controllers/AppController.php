@@ -93,10 +93,13 @@ class AppController extends Controller
     
     public function indexModules(){
         $wifis = Wifi::paginate(5);  
-        $digicodes =  Digicode::paginate(5);  
+        $digicodes =  Digicode::paginate(5); 
+        $settingGeneral = Setting::first();
+ 
         return view('modules.module.index',[
             'wifis' => $wifis,
-            'digicodes' => $digicodes
+            'digicodes' => $digicodes,
+            'settingGeneral' => $settingGeneral
         ]);
     }
 
